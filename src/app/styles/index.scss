@@ -4,10 +4,15 @@
 @import "./variables/global.scss";
 
 .app {
-	font: var(--font-body-weight) var(--font-size-md) / var(--font-line-md) var(--font-family);
+	min-height: 100vh;
 
 	background-color: var(--color-background);
+
+	font: var(--font-md);
 	color: var(--color-base-text);
-	
-	min-height: 100vh;
+}
+
+.page-width {
+	max-width: 1200px;
+	margin: 0 auto;
 }

@@ -2,8 +2,8 @@ type Modes = Record<string, boolean | string>;
 
 export const classNames = (
   mainClass: string,
-  modes: Modes,
-  additionalClasses: string[]
+  modes: Modes = {},
+  additionalClasses: string[] = []
 ): string => {
   return [
     mainClass,
