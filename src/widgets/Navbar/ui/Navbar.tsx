@@ -2,7 +2,7 @@ import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { Theme, useTheme } from "shared/contexts/theme";
 import { AppLink, AppLinkColor } from "shared/ui/AppLink";
 import { classNames } from "shared/utils/classNames/classNames";
-import style from "./Navbar.module.scss";
+import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
   className?: string;
@@ -12,11 +12,9 @@ export const Navbar = ({ className }: NavbarProps) => {
   const { theme } = useTheme();
   
   return (
-    <div className={classNames(style.navbar, {}, [className])}>
-      <div className={classNames(style.inner, {}, ["page-width"])}>
-        <ThemeSwitcher />
-        
-        <div className={style.links}>
+    <div className={classNames(cls.navbar, {}, [className])}>
+      <div className={classNames(cls.inner, {}, ["page-width"])}>
+        <div className={cls.links}>
           <AppLink
             color={
               theme === Theme.DARK
@@ -24,7 +22,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 : AppLinkColor.PRIMARY_INVERTED
             }
             to={"/"}
-            className={style.link}
+            className={cls.link}
           >
             Main
           </AppLink>
@@ -35,7 +33,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 : AppLinkColor.SECONDARY_INVERTED
             }
             to={"/about"}
-            className={style.link}
+            className={cls.link}
           >
             About
           </AppLink>

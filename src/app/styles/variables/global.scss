@@ -12,5 +12,10 @@
 	--font-line-lg: 36px;
 	--font-lg: var(--font-size-lg) / var(--font-line-lg) var(--font-family);
 
-	--max-page-width: 1200px
+	--max-page-width: 1200px;
+	--max-sidebar-width: 300px;
+
+	--duration-short: 100ms;
+	--duration-default: 250ms;
+	--duration-long: 500ms;
 }

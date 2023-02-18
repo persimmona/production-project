@@ -1,0 +1,25 @@
+.sidebar {
+	display: grid;
+	grid-template-rows: 1fr auto;
+
+	height: 100%;
+	width: var(--max-sidebar-width);
+	min-width: fit-content;
+
+	transition: width var(--duration-default);
+	background-color: var(--color-background-inverted);
+}
+
+.main {
+	padding: 16px;
+}
+
+.bottom {
+	display: flex;
+	justify-content: center;
+	padding: 16px;
+}
+
+.collapsed {
+	width: 0;
+}

@@ -4,6 +4,8 @@
 @import "./variables/global.scss";
 
 .app {
+	display: grid;
+  grid-template-rows: auto 1fr;
 	min-height: 100vh;
 
 	background-color: var(--color-background);
@@ -12,7 +14,16 @@
 	color: var(--color-base-text);
 }
 
+.content-wrapper {
+	display: flex;
+}
+
+.page-wrapper {
+	flex-grow: 1;
+	padding: 0 24px;
+}
+
 .page-width {
-	max-width: 1200px;
+	max-width: var(--max-page-width);
 	margin: 0 auto;
 }

@@ -17,7 +17,7 @@ const routeConfig: Record<AppRoutes, RouteProps> = {
 export const AppRouter = () => (
   <Routes>
     {Object.values(routeConfig).map(({ path, element }) => (
-      <Route key={path} path={path} element={element} />
+      <Route key={path} path={path} element={<div className='page-wrapper'>{element}</div>} />
     ))}
   </Routes>
 );
