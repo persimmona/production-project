@@ -1,1 +1,1 @@
-export { AppLink, AppLinkColor as AppLinkType } from "./AppLink";
+export { AppLink, AppLinkColor } from "./AppLink";

@@ -6,14 +6,13 @@ import { AppRouter } from "./providers/router";
 import "./styles/index.scss";
 
 export const App = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <Suspense fallback="Loading...">
       <div className={classNames("app", {}, [theme])}>
         <Navbar />
         <AppRouter />
-		<button onClick={toggleTheme}>Toggle</button>
       </div>
     </Suspense>
   );
