@@ -15,7 +15,7 @@ export const Navbar = ({ className }: NavbarProps) => {
       <div className={classNames(style.inner, {}, ["page-width"])}>
         <div className={style.links}>
           <AppLink
-            type={
+            color={
               theme === Theme.DARK
                 ? AppLinkType.PRIMARY
                 : AppLinkType.PRIMARY_INVERTED
@@ -26,7 +26,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             Main
           </AppLink>
           <AppLink
-            type={
+            color={
               theme === Theme.DARK
                 ? AppLinkType.SECONDARY
                 : AppLinkType.SECONDARY_INVERTED
