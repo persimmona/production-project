@@ -1,3 +1,4 @@
+import { LangSwitcher } from 'features/LangSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from "features/ThemeSwitcher";
 import { useState } from "react";
 import { Button } from "shared/ui/Button";
@@ -23,10 +24,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <div className={cls.main}>
         <Button onClick={toggleCollapse}>Toggle</Button>
       </div>
-
     
 	  <div className={cls.bottom}>
-        <ThemeSwitcher />
+        <ThemeSwitcher className={cls.bottomItem} />
+		<LangSwitcher className={cls.bottomItem} />
       </div>
     </div>
   );

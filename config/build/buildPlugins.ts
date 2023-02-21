@@ -1,9 +1,12 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { ProgressPlugin, WebpackPluginInstance } from "webpack";
+import { ProgressPlugin, WebpackPluginInstance, DefinePlugin } from "webpack";
 import { BuildPaths } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-export function buildPlugins(paths: BuildPaths): WebpackPluginInstance[] {
+export function buildPlugins(
+  paths: BuildPaths,
+  isDev: boolean
+): WebpackPluginInstance[] {
   return [
     new HtmlWebpackPlugin({
       template: paths.html,
@@ -12,6 +15,9 @@ export function buildPlugins(paths: BuildPaths): WebpackPluginInstance[] {
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].css",
+    }),
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
     }),
   ];
 }

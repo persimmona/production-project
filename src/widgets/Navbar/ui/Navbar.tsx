@@ -1,4 +1,5 @@
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
+import { useTranslation } from 'react-i18next';
 import { Theme, useTheme } from "shared/contexts/theme";
 import { AppLink, AppLinkColor } from "shared/ui/AppLink";
 import { classNames } from "shared/utils/classNames/classNames";
@@ -10,6 +11,7 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
   const { theme } = useTheme();
+  const {t} = useTranslation();
   
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
@@ -24,7 +26,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             to={"/"}
             className={cls.link}
           >
-            Main
+            {t('navigation.main')}
           </AppLink>
           <AppLink
             color={
@@ -35,7 +37,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             to={"/about"}
             className={cls.link}
           >
-            About
+            {t('navigation.about_us')}
           </AppLink>
         </div>
       </div>
