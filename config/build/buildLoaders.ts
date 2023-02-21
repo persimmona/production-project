@@ -37,11 +37,22 @@ export function buildLoaders(isDev: BuildOptions["isDev"]): RuleSetRule[] {
     ],
   };
 
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: [["@babel/preset-env"]],
+      },
+    },
+  };
+
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
     exclude: /node_modules/,
   };
 
-  return [assetsLoader, svgLoader, typescriptLoader, scssLoader];
+  return [assetsLoader, svgLoader, babelLoader, typescriptLoader, scssLoader];
 }
