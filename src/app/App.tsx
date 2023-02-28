@@ -1,23 +1,23 @@
-import { Suspense } from "react";
-import { useTheme } from "shared/contexts/theme";
-import { classNames } from "shared/utils/classNames";
-import { Navbar } from "widgets/Navbar";
-import { Sidebar } from "widgets/Sidebar";
-import { AppRouter } from "./providers/router";
-import "./styles/index.scss";
+import { Suspense } from 'react';
+import { useTheme } from 'shared/contexts/theme';
+import { classNames } from 'shared/utils/classNames';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
+import { AppRouter } from './providers/router';
+import './styles/index.scss';
 
 export const App = () => {
-  const { theme } = useTheme();
+    const { theme } = useTheme();
 
-  return (
-    <Suspense fallback="Loading...">
-      <div className={classNames("app", {}, [theme])}>
-        <Navbar />
-        <div className="content-wrapper">
-          <Sidebar />
-          <AppRouter />
-        </div>
-      </div>
-    </Suspense>
-  );
+    return (
+        <Suspense fallback='Loading...'>
+            <div className={classNames('app', {}, [theme])}>
+                <Navbar />
+                <div className='content-wrapper'>
+                    <Sidebar />
+                    <AppRouter />
+                </div>
+            </div>
+        </Suspense>
+    );
 };
