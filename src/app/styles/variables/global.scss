@@ -1,21 +1,16 @@
 :root {
-	--font-family: 'Noto Sans KR', sans-serif;
-
-	--font-heading-weight: 700;
-	--font-body-weight: 400;
-
-	--font-size-md: 16px;
-	--font-line-md: 24px;
-	--font-md: var(--font-size-md) / var(--font-line-md) var(--font-family);
-
-	--font-size-lg: 24px;
-	--font-line-lg: 36px;
-	--font-lg: var(--font-size-lg) / var(--font-line-lg) var(--font-family);
-
-	--max-page-width: 1200px;
-	--max-sidebar-width: 300px;
-
-	--duration-short: 100ms;
-	--duration-default: 250ms;
-	--duration-long: 500ms;
+    --font-family: "Noto Sans KR", sans-serif;
+    --font-heading-weight: 700;
+    --font-body-weight: 400;
+    --font-size-md: 16px;
+    --font-line-md: 24px;
+    --font-md: var(--font-size-md) / var(--font-line-md) var(--font-family);
+    --font-size-lg: 24px;
+    --font-line-lg: 36px;
+    --font-lg: var(--font-size-lg) / var(--font-line-lg) var(--font-family);
+    --max-page-width: 1200px;
+    --max-sidebar-width: 300px;
+    --duration-short: 100ms;
+    --duration-default: 250ms;
+    --duration-long: 500ms;
 }

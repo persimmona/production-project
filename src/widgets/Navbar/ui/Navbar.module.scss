@@ -1,20 +1,21 @@
 .navbar {
-	position: sticky;
-	padding: 16px 32px;
-	
-	background-color: var(--color-background-inverted);
+    position: sticky;
+
+    padding: 16px 32px;
+
+    background-color: var(--color-background-inverted);
 }
 
 .inner {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .links {
-	margin: 0 -16px;
-	margin-left: auto;
+    margin: 0 -16px;
+    margin-left: auto;
 }
 
 .link {
-	margin: 0 16px;
+    margin: 0 16px;
 }
