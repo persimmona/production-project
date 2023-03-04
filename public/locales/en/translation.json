@@ -1,7 +1,8 @@
 {
-	"lang": "EN",
-	"navigation": {
-		"main": "Main",
-		"about_us": "About us"
-	}
+  "lang": "EN",
+  "navigation": {
+    "main": "Main",
+    "about_us": "About us"
+  },
+  "not_found": "Not found"
 }

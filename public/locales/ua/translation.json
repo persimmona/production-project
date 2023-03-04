@@ -3,5 +3,6 @@
   "navigation": {
     "main": "Головна",
     "about_us": "Про нас"
-  }
+  },
+  "not_found": "Не знайдено"
 }

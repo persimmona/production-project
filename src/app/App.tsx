@@ -10,7 +10,8 @@ export const App = () => {
     const { theme } = useTheme();
 
     return (
-        <Suspense fallback='Loading...'>
+        // Route loader for initial bundle
+        <Suspense fallback=''>
             <div className={classNames('app', {}, [theme])}>
                 <Navbar />
                 <div className='content-wrapper'>
