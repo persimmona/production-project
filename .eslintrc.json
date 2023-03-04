@@ -22,6 +22,7 @@
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:import/recommended",
+    "plugin:i18next/recommended",
     "prettier"
   ],
   "rules": {
