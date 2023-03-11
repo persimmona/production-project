@@ -25,6 +25,11 @@
     "plugin:i18next/recommended",
     "prettier"
   ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "prettier"
+  ],
   "rules": {
     "prettier/prettier": "warn",
     "@typescript-eslint/no-empty-interface": [
@@ -38,16 +43,30 @@
     "no-mixed-spaces-and-tabs": [
       "error",
       "smart-tabs"
+    ],
+    "i18next/no-literal-string": [
+      "error",
+      {
+        "markupOnly": true,
+        "ignoreAttribute": [
+          "data-testid"
+        ]
+      }
     ]
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "prettier"
-  ],
   "settings": {
     "react": {
       "version": "detect"
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/src/**/*.test.{ts,tsx}"
+      ],
+      "rules": {
+        "i18next/no-literal-string": "off" // remove for specific files
+      }
+    }
+  ]
 }

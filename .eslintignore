@@ -1,6 +1,5 @@
 *.min.js
 *.chunk.js
-*.test.js
 node_modules
 *.json
 global.js

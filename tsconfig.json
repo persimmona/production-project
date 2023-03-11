@@ -14,9 +14,12 @@
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true
   },
+  //It JIT transforms TypeScript into JavaScript, enabling you to directly execute TypeScript on Node.js without precompiling. 
+  // to write configuration in Typescript
 	"ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  // "include": ["./config/jest/setupTests.ts"]
 }

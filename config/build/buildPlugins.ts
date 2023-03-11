@@ -17,7 +17,7 @@ export function buildPlugins(paths: BuildPaths, isDev: boolean): WebpackPluginIn
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new HotModuleReplacementPlugin(),
+        new HotModuleReplacementPlugin(), // to update automaticly changes
         new BundleAnalyzerPlugin({ openAnalyzer: false }),
     ];
 }
