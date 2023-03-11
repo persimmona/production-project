@@ -6,9 +6,9 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": [
-      "./tsconfig.json"
-    ],
+    // "project": [
+    //   "./tsconfig.json" // need to specify all the includes in tsconfig
+    // ],
     "ecmaFeatures": {
       "jsx": true
     },
