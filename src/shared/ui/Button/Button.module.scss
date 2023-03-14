@@ -1,4 +1,6 @@
 .button {
+    padding: 4px 8px;
+
     cursor: pointer;
 }
 
@@ -11,4 +13,12 @@
     background: none;
 
     outline: none;
+}
+
+.outline {
+    color: var(--color-primary);
+
+    border: 1px solid var(--color-primary);
+
+    background: none;
 }

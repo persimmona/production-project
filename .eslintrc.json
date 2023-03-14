@@ -23,7 +23,8 @@
     "plugin:jsx-a11y/recommended",
     "plugin:import/recommended",
     "plugin:i18next/recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
   "plugins": [
     "@typescript-eslint",

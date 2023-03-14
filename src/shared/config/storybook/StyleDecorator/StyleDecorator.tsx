@@ -1,0 +1,5 @@
+import { Story } from '@storybook/api';
+import 'app/styles/index.scss';
+import './override.scss';
+
+export const StyleDecorator = (story: () => Story) => story();

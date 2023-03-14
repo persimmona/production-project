@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 import { classNames } from 'shared/utils/classNames';
 import cls from './Button.module.scss';
 
-export type ButtonVariant = 'flat';
+export type ButtonVariant = 'flat' | 'outline';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
