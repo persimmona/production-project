@@ -18,8 +18,8 @@ Flat.args = {
     variant: 'flat',
 };
 
-export const Outline = Template.bind({});
-Outline.args = {
+export const OutlineLight = Template.bind({});
+OutlineLight.args = {
     children: 'Text',
     variant: 'outline',
 };
