@@ -1,5 +1,5 @@
 import path from 'path';
-import webpack from 'webpack';
+import { Configuration } from 'webpack';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv, BuildPaths } from './config/build/types/config';
 
@@ -15,7 +15,7 @@ export default (env: BuildEnv) => {
     const isDev = mode === 'development';
     const port = env.port || 3000;
 
-    const config: webpack.Configuration = buildWebpackConfig({
+    const config: Configuration = buildWebpackConfig({
         mode,
         paths,
         isDev,

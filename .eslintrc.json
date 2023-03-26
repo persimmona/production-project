@@ -22,9 +22,10 @@
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:i18next/recommended",
-    "prettier",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "prettier"
   ],
   "plugins": [
     "@typescript-eslint",
@@ -58,6 +59,11 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    // for storybook v5 import works
+    "import/resolver": {
+      "typescript": true,
+      "node": true 
     }
   },
   "overrides": [
