@@ -74,3 +74,10 @@ jobs:
           key: node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependecies
         run: npm ci
+      - name: Build production project
+        run: npm run build:prod
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: dist
+          name: build-files
