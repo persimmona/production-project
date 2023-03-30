@@ -4,3 +4,4 @@ node_modules
 *.json
 global.js
 !storybook
+scripts

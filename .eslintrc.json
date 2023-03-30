@@ -74,6 +74,14 @@
       "rules": {
         "i18next/no-literal-string": "off" // remove for specific files
       }
+    },
+    {
+      "files": [
+        "**/src/shared/config/tests/**/*.{ts,tsx}"
+      ],
+      "rules": {
+        "react/display-name": "off"
+      }
     }
   ]
 }
