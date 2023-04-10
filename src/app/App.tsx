@@ -18,6 +18,7 @@ export const App = () => {
                     <Sidebar />
                     <AppRouter />
                 </div>
+                <div id='portal'></div>
             </div>
         </Suspense>
     );

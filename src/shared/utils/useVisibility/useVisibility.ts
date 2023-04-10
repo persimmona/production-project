@@ -4,14 +4,12 @@ export const ANIMATION_DELAY = 250;
 
 export const useVisibility = (onClose: () => void, timeout: number = ANIMATION_DELAY) => {
     const [isOpened, setIsOpened] = useState(false);
-    const [isClosed, setIsClosed] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const closeHandler = useCallback(() => {
-        setIsClosed(true);
+        setIsOpened(false);
         timerRef.current = setTimeout(() => {
             onClose();
-            setIsClosed(false);
         }, timeout);
     }, [onClose, timeout]);
 
@@ -25,5 +23,5 @@ export const useVisibility = (onClose: () => void, timeout: number = ANIMATION_D
         };
     }, [timeout]);
 
-    return { isClosed, isOpened, closeHandler };
+    return { isOpened, closeHandler };
 };
