@@ -3,14 +3,16 @@
 @import "./themes/light";
 @import "./variables/global";
 
+body {
+    color: var(--color-base-text);
+    font: var(--font-md);
+}
+
 .app {
     display: grid;
     grid-template-rows: auto 1fr;
 
     min-height: 100vh;
-
-    color: var(--color-base-text);
-    font: var(--font-md);
 
     background-color: var(--color-background);
 }

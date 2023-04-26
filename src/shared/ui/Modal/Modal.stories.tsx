@@ -2,20 +2,19 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'shared/contexts/theme';
-import { Modal } from './Modal';
+import { ModalController } from './ModalController';
 
 export default {
     title: 'shared/Modal',
-    component: Modal,
+    component: ModalController,
     args: {
-        visible: true,
         children:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit suscipit mauris sit amet vulputate. Nulla sed vulputate dui. Proin sollicitudin fringilla augue, a suscipit sem rutrum nec. Mauris in tellus orci. Fusce condimentum fringilla semper. Integer feugiat, erat vitae semper porttitor, augue dolor semper lacus, eu varius mi metus id lorem.',
-        container: document.body,
+        container: document.getElementById('root'),
     },
-} as ComponentMeta<typeof Modal>;
+} as ComponentMeta<typeof ModalController>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: ComponentStory<typeof ModalController> = (args) => <ModalController {...args} />;
 
 export const DefaultLight = Template.bind({});
 
