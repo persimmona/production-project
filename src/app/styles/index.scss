@@ -4,7 +4,6 @@
 @import "./variables/global";
 
 body {
-    color: var(--color-base-text);
     font: var(--font-md);
 }
 
@@ -13,6 +12,8 @@ body {
     grid-template-rows: auto 1fr;
 
     min-height: 100vh;
+
+    color: var(--color-base-text);
 
     background-color: var(--color-background);
 }
