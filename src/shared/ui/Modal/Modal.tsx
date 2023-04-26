@@ -1,19 +1,11 @@
-import { ReactNode } from 'react';
-import { ModalController } from './ModalController';
+import { ModalController, ModalControllerProps } from './ModalController';
 
-interface ModalProps {
-    children: ReactNode;
-    className?: string;
-    onClose: () => void;
+interface ModalProps extends ModalControllerProps {
     visible: boolean;
 }
 
-export const Modal = ({ visible, onClose, className, children }: ModalProps) => {
+export const Modal = ({ visible, children, ...props }: ModalProps) => {
     if (!visible) return null;
 
-    return (
-        <ModalController className={className} onClose={onClose}>
-            {children}
-        </ModalController>
-    );
+    return <ModalController {...(props as ModalControllerProps)}>{children}</ModalController>;
 };

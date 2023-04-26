@@ -8,13 +8,14 @@ import { classNames } from 'shared/utils/classNames';
 import { useVisibility } from 'shared/utils/useVisibility';
 import cls from './Modal.module.scss';
 
-interface ModalControllerProps {
+export interface ModalControllerProps {
     children: ReactNode;
     className?: string;
     onClose: () => void;
+    container?: HTMLElement;
 }
 
-export const ModalController = ({ className, onClose, children }: ModalControllerProps) => {
+export const ModalController = ({ className, onClose, children, container }: ModalControllerProps) => {
     const { isOpened, closeHandler } = useVisibility(onClose);
 
     const onKeyDown = useCallback(
@@ -33,7 +34,7 @@ export const ModalController = ({ className, onClose, children }: ModalControlle
     }, [onKeyDown]);
 
     return (
-        <Portal>
+        <Portal container={container}>
             <div
                 className={classNames(cls.modal, { [cls.opened]: isOpened }, [className])}
                 onClick={closeHandler}
