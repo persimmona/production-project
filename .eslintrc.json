@@ -1,9 +1,10 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true,
+    "node": true
   },
-  "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     // "project": [
@@ -18,7 +19,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:import/recommended",
@@ -28,7 +28,6 @@
     "prettier"
   ],
   "plugins": [
-    "@typescript-eslint",
     "react",
     "prettier"
   ],
@@ -67,6 +66,15 @@
     }
   },
   "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "plugins": [
+        "@typescript-eslint"
+      ]
+    },
     {
       "files": [
         "**/src/**/*.test.{ts,tsx}"
