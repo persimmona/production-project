@@ -1,3 +1,5 @@
 dist
 node_modules
 src/app/styles/variables/global.scss
+src/app/styles/themes/dark.scss
+src/app/styles/themes/light.scss

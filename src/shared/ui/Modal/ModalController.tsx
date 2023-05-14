@@ -40,7 +40,6 @@ export const ModalController = ({ className, onClose, children, container }: Mod
                 onClick={closeHandler}
                 role='button'
                 tabIndex={0}
-                onKeyDown={closeHandler}
             >
                 <div className={cls.content} onClick={(e: MouseEvent) => e.stopPropagation()}>
                     <Button className={cls.buttonClose} onClick={closeHandler}>

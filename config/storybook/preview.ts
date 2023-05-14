@@ -11,6 +11,19 @@ export const parameters = {
             date: /Date$/,
         },
     },
+    backgrounds: {
+        default: 'light',
+        values: [
+            {
+                name: 'light',
+                value: '#f1eaea',
+            },
+            {
+                name: 'dark',
+                value: '#11113c',
+            },
+        ],
+    },
 };
 
 export const decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator];

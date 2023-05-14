@@ -3,6 +3,10 @@
     --font-heading-weight: 700;
     --font-body-weight: 400;
 
+    --font-size-sm: 12px;
+    --font-line-sm: 16px;
+    --font-sm: var(--font-size-sm) / var(--font-line-sm) var(--font-family);
+
     --font-size-md: 16px;
     --font-line-md: 24px;
     --font-md: var(--font-size-md) / var(--font-line-md) var(--font-family);
@@ -17,7 +21,7 @@
     --border-radius-default: 8px;
     
     // Animation
-    --duration-short: 100ms;
+    --duration-short: 150ms;
     --duration-default: 250ms;
     --duration-long: 500ms;
     
@@ -25,5 +29,9 @@
     --z-index-modal: 1;
 
     // Colors
-    --color-overlay: rgb(0 0 0 / 50%)
+    --color-overlay: rgb(0 0 0 / 50%);
+    --color-placeholder: rgb(158 158 158);
+
+    // Controls
+    --controls-height: 48px;
 }

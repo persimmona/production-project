@@ -21,6 +21,7 @@
         z-index: var(--z-index-modal);
 
         visibility: visible;
+        cursor: pointer;
 
         opacity: 1;
     }
@@ -30,9 +31,10 @@
     display: grid;
     grid-template-rows: auto 1fr;
 
-    width: 375px;
+    min-width: 375px;
     min-height: 20%;
     max-height: 90vh;
+    margin: 0 16px;
     padding: 16px;
 
     color: var(--color-base-text);
@@ -40,6 +42,8 @@
     border-radius: var(--border-radius-default);
 
     background-color: var(--color-background-inverted);
+
+    cursor: default;
 
     transform: scale(0.7);
 

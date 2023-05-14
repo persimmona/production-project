@@ -22,7 +22,6 @@
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:import/recommended",
-    "plugin:import/typescript",
     "plugin:i18next/recommended",
     "plugin:storybook/recommended",
     "prettier"
@@ -31,30 +30,6 @@
     "react",
     "prettier"
   ],
-  "rules": {
-    "prettier/prettier": "warn",
-    "@typescript-eslint/no-empty-interface": [
-      "error",
-      {
-        "allowSingleExtends": true
-      }
-    ],
-    "react/react-in-jsx-scope": "off",
-    "import/no-unresolved": "off",
-    "no-mixed-spaces-and-tabs": [
-      "error",
-      "smart-tabs"
-    ],
-    "i18next/no-literal-string": [
-      "error",
-      {
-        "markupOnly": true,
-        "ignoreAttribute": [
-          "data-testid"
-        ]
-      }
-    ]
-  },
   "settings": {
     "react": {
       "version": "detect"
@@ -69,11 +44,40 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": [
+        "plugin:import/typescript",
         "plugin:@typescript-eslint/recommended"
       ],
       "plugins": [
         "@typescript-eslint"
       ]
+    },
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "prettier/prettier": "warn",
+        "@typescript-eslint/no-empty-interface": [
+          "error",
+          {
+            "allowSingleExtends": true
+          }
+        ],
+        "@typescript-eslint/no-empty-function": "warn",
+        "react/react-in-jsx-scope": "off",
+        "import/no-unresolved": "off",
+        "no-mixed-spaces-and-tabs": [
+          "error",
+          "smart-tabs"
+        ],
+        "i18next/no-literal-string": [
+          "error",
+          {
+            "markupOnly": true,
+            "ignoreAttribute": [
+              "data-testid"
+            ]
+          }
+        ]
+      }
     },
     {
       "files": [

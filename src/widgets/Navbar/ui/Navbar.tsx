@@ -4,6 +4,7 @@ import { Button } from 'shared/ui/Button';
 import { Modal } from 'shared/ui/Modal';
 import { classNames } from 'shared/utils/classNames/classNames';
 import cls from './Navbar.module.scss';
+import { LoginForm } from 'features/AuthByUsername';
 
 interface NavbarProps {
     className?: string;
@@ -18,7 +19,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 <div className={cls.links}></div>
                 <Button onClick={() => setToggleModal(true)}>ToggleModal</Button>
                 <Modal visible={toggleModal} onClose={() => setToggleModal(false)}>
-                    Hej, I`m text
+                    <LoginForm />
                 </Modal>
             </div>
         </div>
