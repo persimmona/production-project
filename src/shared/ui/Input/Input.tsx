@@ -1,4 +1,4 @@
-import { ChangeEvent, InputHTMLAttributes, useCallback } from 'react';
+import { ChangeEvent, DetailedHTMLProps, HTMLAttributes, InputHTMLAttributes, useCallback } from 'react';
 import { classNames } from 'shared/utils/classNames';
 import cls from './Input.module.scss';
 
@@ -11,7 +11,7 @@ interface InputProps extends HTMLInputElementProps {
     placeholder?: string;
 }
 
-export const Input = ({ value, onChange, placeholder, type = 'text', className }: InputProps) => {
+export const Input = ({ value, onChange, placeholder, type = 'text', className, ...props }: InputProps) => {
     const handleChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
             onChange(event.target.value);
@@ -21,7 +21,7 @@ export const Input = ({ value, onChange, placeholder, type = 'text', className }
 
     return (
         <label className={classNames(cls.wrapper, {}, [className])}>
-            <input type={type} value={value} onChange={handleChange} className={cls.input} placeholder=' ' />
+            <input type={type} value={value} onChange={handleChange} className={cls.input} placeholder=' ' {...props} />
 
             {placeholder && <span className={cls.placeholder}>{placeholder}</span>}
         </label>
