@@ -1,11 +1,11 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { withRouter } from 'shared/config/tests/withRouter/withRouter';
+import { withStoreProvider } from 'shared/config/tests/withStoreProvider/withStoreProvider';
 import { withThemeProvider } from 'shared/config/tests/withThemeProvider/withThemeProvider';
 import { withTranslation } from 'shared/config/tests/withTranslation/withTranslation';
-import { compose } from 'shared/utils/compose';
 import { Sidebar } from './Sidebar';
 
-const SidebarWithWrappers = compose(withThemeProvider, withTranslation, withRouter)(Sidebar);
+const SidebarWithWrappers = withStoreProvider(withRouter(withThemeProvider(withTranslation(Sidebar))));
 
 describe('Sidebar', () => {
     test('should be in the document', () => {

@@ -11,9 +11,17 @@
     --font-line-md: 24px;
     --font-md: var(--font-size-md) / var(--font-line-md) var(--font-family);
     
-    --font-size-lg: 24px;
-    --font-line-lg: 36px;
+    --font-size-lg: 20px;
+    --font-line-lg: 30px;
     --font-lg: var(--font-size-lg) / var(--font-line-lg) var(--font-family);
+
+    --font-size-xl: 24px;
+    --font-line-xl: 36px;
+    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family);
+
+    --font-size-xxl: 28px;
+    --font-line-xxl: 42px;
+    --font-xxl: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family);
     
     // Sizes
     --max-page-width: 1200px;

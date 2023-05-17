@@ -64,8 +64,12 @@
 .sidebar.collapsed {
     width: fit-content;
 
+    .main {
+        align-items: center;
+    }
+
     .linkIcon {
-        height: var(--font-line-lg);
+        height: var(--font-line-xl);
         margin: 0;
     }
 
