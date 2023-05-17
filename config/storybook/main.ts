@@ -1,5 +1,5 @@
 import path from 'path';
-import { Configuration, RuleSetRule } from 'webpack';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import { buildScssLoader } from '../build/loaders/buildScssLoader';
 
 export default {
@@ -10,7 +10,7 @@ export default {
         builder: '@storybook/builder-webpack5',
     },
     webpackFinal: async (config: Configuration) => {
-        config.resolve.modules.push(path.resolve(__dirname, '..', '..', 'src'));
+        config.resolve.modules = [path.resolve(__dirname, '..', '..', 'src'), 'node_modules'];
         config.resolve.extensions.push('.ts', '.tsx');
 
         config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
@@ -25,6 +25,12 @@ export default {
         });
 
         config.module.rules.push(buildScssLoader(true));
+
+        config.plugins.push(
+            new DefinePlugin({
+                __IS_DEV__: true,
+            }),
+        );
 
         return config;
     },
