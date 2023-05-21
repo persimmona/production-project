@@ -2,14 +2,22 @@
     margin: 0;
 }
 
-.s {
+.small {
     font: var(--font-sm);
 }
 
-.m {
+.medium {
     font: var(--font-md);
 }
 
-.l {
+.large {
     font: var(--font-lg);
+}
+
+.default {
+    color: var(--color-base-text);
+}
+
+.error {
+    color: var(--color-error);
 }

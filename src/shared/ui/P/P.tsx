@@ -4,23 +4,13 @@ import cls from './P.module.scss';
 
 export interface PProps extends DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> {
     size?: 'small' | 'medium' | 'large';
+    color?: 'default' | 'error';
     children: ReactNode;
 }
 
-export const P = ({ size = 'medium', children, className, ...props }: PProps) => {
+export const P = ({ size = 'medium', color = 'default', children, className, ...props }: PProps) => {
     return (
-        <p
-            className={classNames(
-                cls.p,
-                {
-                    [cls.s]: size == 'small',
-                    [cls.m]: size == 'medium',
-                    [cls.l]: size == 'large',
-                },
-                [className],
-            )}
-            {...props}
-        >
+        <p className={classNames(cls.p, {}, [className, cls[size], cls[color]])} {...props}>
             {children}
         </p>
     );

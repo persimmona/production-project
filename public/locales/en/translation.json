@@ -11,6 +11,7 @@
     "title": "Login",
     "username": "Enter username",
     "password": "Enter password",
-    "sign_in": "Sign in"
+    "sign_in": "Sign in",
+    "unknown_user": "Uncorrect username or password"
   }
 }

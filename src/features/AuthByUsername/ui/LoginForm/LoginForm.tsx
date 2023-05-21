@@ -1,9 +1,11 @@
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button';
 import { Header } from 'shared/ui/Header';
 import { Input } from 'shared/ui/Input';
+import { P } from 'shared/ui/P';
 import { selectLoginFormState } from '../../model/selectors/selectLoginFormState';
 import { loginFormActions } from '../../model/slice/loginFormSlice';
 import cls from './LoginForm.module.scss';
@@ -11,7 +13,7 @@ import cls from './LoginForm.module.scss';
 export const LoginForm = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const { isLoading, password, username } = useSelector(selectLoginFormState);
+    const { isLoading, password, username, error } = useSelector(selectLoginFormState);
 
     const handleUsername = useCallback(
         (value: string) => {
@@ -27,14 +29,16 @@ export const LoginForm = () => {
         [dispatch],
     );
 
-    const onLoginClick = () => {};
+    const onLoginClick = () => {
+        dispatch(loginByUsername({ username, password }));
+    };
 
     return (
         <>
             <Header tag='h2' className={cls.title}>
                 {t('login.title')}
             </Header>
-            <form className={cls.loginForm} onSubmit={() => {}}>
+            <form className={cls.loginForm}>
                 <Input
                     id='login-username'
                     value={username}
@@ -49,7 +53,12 @@ export const LoginForm = () => {
                     placeholder={t('login.password')}
                     className={cls.input}
                 />
-                <Button type='button' onClick={onLoginClick} disabled={isLoading}>
+                {error && (
+                    <P color='error' size='small'>
+                        {t('login.unknown_user')}
+                    </P>
+                )}
+                <Button type='button' variant='outline' onClick={onLoginClick} disabled={isLoading}>
                     {t('login.sign_in')}
                 </Button>
             </form>
