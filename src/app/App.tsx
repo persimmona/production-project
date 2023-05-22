@@ -1,12 +1,19 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { AppRouter } from './providers/router';
+import { useTheme } from 'shared/contexts/theme';
+import { userActions } from 'entities/User';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { AppRouter } from './providers/router';
 import './styles/index.scss';
-import { useTheme } from 'shared/contexts/theme';
 
 export const App = () => {
     const { theme } = useTheme();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(userActions.initAuthData());
+    }, [dispatch]);
 
     return (
         // Route loader for initial bundle

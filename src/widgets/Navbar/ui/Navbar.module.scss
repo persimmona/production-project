@@ -8,12 +8,12 @@
 
 .inner {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
 
 .links {
     margin: 0 -16px;
-    margin-left: auto;
 }
 
 .link {

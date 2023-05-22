@@ -4,6 +4,10 @@
     "main": "Main",
     "about_us": "About us"
   },
+  "navbar": {
+    "sign_in": "Sign in",
+    "sign_out": "Sign out"
+  },
   "not_found": "Not found",
   "unexpected_error": "Unexpected error happend",
   "reload_page": "Reload page",
