@@ -1,11 +1,12 @@
+import { Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-import { Button } from 'shared/ui/Button';
-import { Modal } from 'shared/ui/Modal';
 import { classNames } from 'shared/utils/classNames/classNames';
+import { Button } from 'shared/ui/Button';
+import { Loader } from 'shared/ui/Loader';
+import { Modal } from 'shared/ui/Modal';
 import { selectUserAuthData, userActions } from 'entities/User';
-import { LoginForm } from 'features/AuthByUsername';
+import { LoginFormAsync } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -37,7 +38,9 @@ export const Navbar = ({ className }: NavbarProps) => {
                 <Button onClick={() => setToggleLoginModal(true)}>{t('navbar.sign_in')}</Button>
 
                 <Modal visible={toggleLoginModal} onClose={() => setToggleLoginModal(false)}>
-                    <LoginForm />
+                    <Suspense fallback={<Loader className={cls.loader} />}>
+                        <LoginFormAsync />
+                    </Suspense>
                 </Modal>
             </div>
         </div>

@@ -10,7 +10,7 @@ import { selectLoginFormState } from '../../model/selectors/selectLoginFormState
 import { loginFormActions } from '../../model/slice/loginFormSlice';
 import cls from './LoginForm.module.scss';
 
-export const LoginForm = () => {
+const LoginForm = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const { isLoading, password, username, error } = useSelector(selectLoginFormState);
@@ -65,3 +65,5 @@ export const LoginForm = () => {
         </>
     );
 };
+
+export default LoginForm;
