@@ -1,7 +1,18 @@
+import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { Story } from '@storybook/react';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { RootSchema, StoreProvider } from 'app/providers/store';
+import { AsyncSchema } from 'app/providers/store/config/RootSchema';
+import { loginFormReducer } from 'features/AuthByUsername/model/slice/loginFormSlice';
 
-// eslint-disable-next-line react/display-name
-export const StoreDecorator = (state: DeepPartial<RootSchema>) => (story: () => Story) =>
-    <StoreProvider initialState={state}>{story()}</StoreProvider>;
+const defaultAsyncReducers: DeepPartial<ReducersMapObject<AsyncSchema>> = {
+    loginForm: loginFormReducer,
+};
+
+export const StoreDecorator =
+    // eslint-disable-next-line react/display-name
+    (state: DeepPartial<RootSchema>, asyncReducers?: DeepPartial<ReducersMapObject<AsyncSchema>>) => (story: () => Story) =>
+        (
+            <StoreProvider initialState={state} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
+                {story()}
+            </StoreProvider>
+        );

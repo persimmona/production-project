@@ -1,19 +1,26 @@
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
 import { Button } from 'shared/ui/Button';
 import { Header } from 'shared/ui/Header';
 import { Input } from 'shared/ui/Input';
 import { P } from 'shared/ui/P';
+import { loginByUsername } from '../../model/services/loginByUsername';
 import { selectLoginFormState } from '../../model/selectors/selectLoginFormState';
-import { loginFormActions } from '../../model/slice/loginFormSlice';
+import { loginFormActions, loginFormReducer } from '../../model/slice/loginFormSlice';
 import cls from './LoginForm.module.scss';
+
+const initialReducers: ReducersList = {
+    loginForm: loginFormReducer,
+};
 
 const LoginForm = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const { isLoading, password, username, error } = useSelector(selectLoginFormState);
+
+    useReducersDynamicLoader(initialReducers);
 
     const handleUsername = useCallback(
         (value: string) => {

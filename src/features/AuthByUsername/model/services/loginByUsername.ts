@@ -1,7 +1,7 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { User, userActions } from 'entities/User';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AUTH_USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { User, userActions } from 'entities/User';
 
 interface LoginFormProps {
     username: string;
