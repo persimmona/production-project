@@ -10,15 +10,14 @@ export type RootSchemaKey = keyof RootSchema;
 
 export interface AsyncSchema {
     loginForm?: LoginFormSchema;
-    aa?: LoginFormSchema;
 }
 
 export type AsyncSchemaKey = keyof AsyncSchema;
 
 export interface ReducerManager {
     reduce: (state: RootSchema, action: AnyAction) => CombinedState<RootSchema>;
-    add: (key: RootSchemaKey, reducer: Reducer) => void;
-    remove: (key: RootSchemaKey) => void;
+    add: (key: AsyncSchemaKey, reducer: Reducer) => void;
+    remove: (key: AsyncSchemaKey) => void;
 }
 
 export interface StoreWithReducerManager extends EnhancedStore<RootSchema> {
