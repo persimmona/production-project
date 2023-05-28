@@ -2,7 +2,8 @@
   "lang": "EN",
   "navigation": {
     "main": "Main",
-    "about_us": "About us"
+    "about_us": "About us",
+    "profile": "Profile"
   },
   "navbar": {
     "sign_in": "Sign in",

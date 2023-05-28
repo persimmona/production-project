@@ -1,4 +1,5 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer } from '@reduxjs/toolkit';
+import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginFormSchema } from 'features/AuthByUsername';
 
@@ -10,6 +11,7 @@ export type RootSchemaKey = keyof RootSchema;
 
 export interface AsyncSchema {
     loginForm?: LoginFormSchema;
+    profile?: ProfileSchema;
 }
 
 export type AsyncSchemaKey = keyof AsyncSchema;

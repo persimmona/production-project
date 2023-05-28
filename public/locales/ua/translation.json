@@ -2,7 +2,8 @@
   "lang": "УКР",
   "navigation": {
     "main": "Головна",
-    "about_us": "Про нас"
+    "about_us": "Про нас",
+    "profile": "Профіль"
   },
   "navbar": {
     "sign_in": "Увійти",

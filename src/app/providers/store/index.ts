@@ -1,2 +1,2 @@
 export { StoreProvider } from './ui/StoreProvider';
-export type { RootSchema } from './config/RootSchema';
+export type { RootSchema, AsyncSchemaKey, AsyncSchema, ReducerManager, StoreWithReducerManager } from './config/RootSchema';

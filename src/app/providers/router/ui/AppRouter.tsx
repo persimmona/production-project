@@ -1,10 +1,11 @@
+import { Route, Routes, type RouteProps } from 'react-router-dom';
+import { Suspense } from 'react';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
-import { NotFoundPage } from 'pages/NotFoundPage/ui/NotFoundPage';
-import { Suspense } from 'react';
-import { Route, type RouteProps, Routes } from 'react-router-dom';
-import { AppRoutes, AppRoutesPath } from 'shared/config/app-routes';
-import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
+import { NotFoundPage } from 'pages/NotFoundPage';
+import { ProfilePage } from 'pages/ProfilePage';
+import { AppRoutes, AppRoutesPath } from 'shared/const/routes';
+import { PageLoader } from 'widgets/PageLoader';
 
 const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.MAIN]: {
@@ -14,6 +15,10 @@ const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.ABOUT]: {
         path: AppRoutesPath[AppRoutes.ABOUT],
         element: <AboutPage />,
+    },
+    [AppRoutes.PROFILE]: {
+        path: AppRoutesPath[AppRoutes.PROFILE],
+        element: <ProfilePage />,
     },
 
     [AppRoutes.NOT_FOUND]: {

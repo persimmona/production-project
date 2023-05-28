@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 import { useDispatch, useStore } from 'react-redux';
-import { AsyncSchemaKey, StoreWithReducerManager } from 'app/providers/store/config/RootSchema';
+import { AsyncSchemaKey, StoreWithReducerManager } from 'app/providers/store';
 
 export type ReducersList = {
     [key in AsyncSchemaKey]?: Reducer;

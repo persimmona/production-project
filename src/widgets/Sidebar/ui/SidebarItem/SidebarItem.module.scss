@@ -1,0 +1,34 @@
+.link {
+    display: flex;
+    align-items: center;
+
+    padding: 8px 0;
+}
+
+.linkIcon {
+    height: var(--font-line-md);
+    margin-right: 8px;
+}
+
+.linkLabel {
+    visibility: visible;
+
+    opacity: 1;
+}
+
+.collapsed {
+    .linkIcon {
+        height: var(--font-line-xl);
+        margin: 0;
+    }
+
+    .linkLabel {
+        width: 0;
+
+        visibility: hidden;
+
+        opacity: 0;
+
+        transition: var(--duration-default) opacity;
+    }
+}
