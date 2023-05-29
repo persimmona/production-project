@@ -1,10 +1,10 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { ProgressPlugin, WebpackPluginInstance, DefinePlugin, HotModuleReplacementPlugin } from 'webpack';
-import { BuildPaths } from './types/config';
+import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-export function buildPlugins(paths: BuildPaths, isDev: boolean): WebpackPluginInstance[] {
+export function buildPlugins({ apiUrl, isDev, paths }: Pick<BuildOptions, 'apiUrl' | 'isDev' | 'paths'>): WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
@@ -16,6 +16,7 @@ export function buildPlugins(paths: BuildPaths, isDev: boolean): WebpackPluginIn
         }),
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
     ];
 

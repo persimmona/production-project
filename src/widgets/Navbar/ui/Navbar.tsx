@@ -21,6 +21,9 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     const [toggleLoginModal, setToggleLoginModal] = useState(false);
 
+    const closeLoginModal = () => setToggleLoginModal(false);
+    const openLoginModal = () => setToggleLoginModal(true);
+
     if (authData) {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
@@ -35,11 +38,11 @@ export const Navbar = ({ className }: NavbarProps) => {
         <div className={classNames(cls.navbar, {}, [className])}>
             <div className={classNames(cls.inner, {}, ['page-width'])}>
                 <div className={cls.links}></div>
-                <Button onClick={() => setToggleLoginModal(true)}>{t('navbar.sign_in')}</Button>
+                <Button onClick={openLoginModal}>{t('navbar.sign_in')}</Button>
 
-                <Modal visible={toggleLoginModal} onClose={() => setToggleLoginModal(false)}>
+                <Modal visible={toggleLoginModal} onClose={closeLoginModal}>
                     <Suspense fallback={<Loader className={cls.loader} />}>
-                        <LoginFormAsync />
+                        <LoginFormAsync onSuccess={closeLoginModal} />
                     </Suspense>
                 </Modal>
             </div>

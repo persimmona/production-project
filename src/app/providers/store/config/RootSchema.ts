@@ -1,4 +1,5 @@
-import { AnyAction, CombinedState, EnhancedStore, Reducer } from '@reduxjs/toolkit';
+import { AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginFormSchema } from 'features/AuthByUsername';
@@ -24,4 +25,14 @@ export interface ReducerManager {
 
 export interface StoreWithReducerManager extends EnhancedStore<RootSchema> {
     reducerManager: ReducerManager;
+}
+
+export interface ThunkExtraArg {
+    api: AxiosInstance;
+}
+
+export interface ThunkConfig<T> {
+    dispatch: Dispatch;
+    extra: ThunkExtraArg;
+    rejectValue: T;
 }

@@ -15,7 +15,11 @@ const initialReducers: ReducersList = {
     loginForm: loginFormReducer,
 };
 
-const LoginForm = () => {
+interface LoginFormProps {
+    onSuccess?: () => void;
+}
+
+const LoginForm = ({ onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const { isLoading, password, username, error } = useSelector(selectLoginFormState);
@@ -38,6 +42,7 @@ const LoginForm = () => {
 
     const onLoginClick = () => {
         dispatch(loginByUsername({ username, password }));
+        onSuccess?.();
     };
 
     return (
