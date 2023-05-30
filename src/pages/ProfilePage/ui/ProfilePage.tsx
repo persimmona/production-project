@@ -1,17 +1,26 @@
-import { profileReducer } from 'entities/Profile';
-import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
+import { ProfileCard, profileReducer, fetchProfileData } from 'entities/Profile';
 
 const reducers: ReducersList = {
     profile: profileReducer,
 };
 
 const ProfilePage = () => {
-    const { t } = useTranslation('profile');
-
     useReducersDynamicLoader(reducers);
 
-    return <div>{t('profile')}</div>;
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchProfileData());
+    }, [dispatch]);
+
+    return (
+        <div>
+            <ProfileCard />
+        </div>
+    );
 };
 
 export default ProfilePage;

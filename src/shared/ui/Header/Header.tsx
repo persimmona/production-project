@@ -5,7 +5,7 @@ import { classNames } from 'shared/utils/classNames';
 interface HeaderProps {
     tag: 'h1' | 'h2' | 'h3';
     children: ReactNode;
-    className: string;
+    className?: string;
 }
 
 export const Header = ({ tag, children, className }: HeaderProps) => {

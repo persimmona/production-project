@@ -1,3 +1,6 @@
 {
-  "profile": "Profile"
+  "profile": "Profile",
+  "cannot_show_profile": "Sorry, something happens and we cannot show your data",
+  "edit": "Edit", 
+  "hello": "Hello, "
 }
