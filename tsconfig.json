@@ -12,7 +12,8 @@
     "allowJs": true,
     "moduleResolution": "node",
 		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true
+		"allowSyntheticDefaultImports": true,
+    "strict": true
   },
   //It JIT transforms TypeScript into JavaScript, enabling you to directly execute TypeScript on Node.js without precompiling. 
   // to write configuration in Typescript

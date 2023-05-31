@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import { ComponentType, FC } from 'react';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { RootSchema, StoreProvider } from 'app/providers/store';
 
@@ -7,8 +7,8 @@ interface WithRouterProps {
 }
 
 export const withStoreProvider =
-    <P,>(Component: ComponentType<P>) =>
-    ({ initialState, ...props }: P & WithRouterProps) =>
+    <P extends object>(Component: ComponentType<P>): FC<P & WithRouterProps> =>
+    ({ initialState, ...props }: WithRouterProps) =>
         (
             <StoreProvider initialState={initialState}>
                 <Component {...(props as P)} />

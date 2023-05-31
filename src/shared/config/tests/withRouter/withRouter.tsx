@@ -6,7 +6,7 @@ interface WithRouterProps {
 }
 
 export const withRouter =
-    <P,>(Component: ComponentType<P>) =>
+    <P extends object>(Component: ComponentType<P>) =>
     ({ route = '/', ...props }: P & WithRouterProps) =>
         (
             <MemoryRouter initialEntries={[route]}>

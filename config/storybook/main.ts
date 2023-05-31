@@ -10,23 +10,26 @@ export default {
         builder: '@storybook/builder-webpack5',
     },
     webpackFinal: async (config: Configuration) => {
-        config.resolve.modules = [path.resolve(__dirname, '..', '..', 'src'), 'node_modules'];
-        config.resolve.extensions.push('.ts', '.tsx');
+        config!.resolve!.modules = [path.resolve(__dirname, '..', '..', 'src'), 'node_modules'];
+        config!.resolve!.extensions!.push('.ts', '.tsx');
 
-        config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-            if (/svg/.test(rule.test as string)) return { ...rule, exclude: /\.svg$/i };
+        //@ts-ignore
+        config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
+            if (/svg/.test(rule.test as string)) {
+                return { ...rule, exclude: /\.svg$/i };
+            }
 
             return rule;
         });
-        config.module.rules.push({
+        config!.module!.rules.push({
             test: /\.svg$/i,
             issuer: /\.[jt]sx?$/,
             use: ['@svgr/webpack'],
         });
 
-        config.module.rules.push(buildScssLoader(true));
+        config!.module!.rules.push(buildScssLoader(true));
 
-        config.plugins.push(
+        config!.plugins!.push(
             new DefinePlugin({
                 __IS_DEV__: true,
                 __API__: true,

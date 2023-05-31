@@ -1,4 +1,4 @@
-import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
+import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { AsyncSchema, RootSchema, ThunkExtraArg } from './RootSchema';
 import { createReducerManager } from './createReducerManager';
 import { userReducer } from 'entities/User';
@@ -17,7 +17,7 @@ export const createReduxStore = (initialState?: RootSchema, asyncReducers?: Redu
     };
 
     const store = configureStore({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer<CombinedState<RootSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) =>

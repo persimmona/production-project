@@ -17,14 +17,14 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator(), ThemeDecorator(Theme.DARK)];
+Light.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
 Light.parameters = {
     backgrounds: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [StoreDecorator(), ThemeDecorator(Theme.DARK)];
+Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
 Dark.parameters = {
     backgrounds: getDarkThemeBackground(),
 };
