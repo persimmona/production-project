@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
-import { ProfileCard, profileReducer, fetchProfileData } from 'entities/Profile';
+import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -10,7 +10,7 @@ const reducers: ReducersList = {
 const ProfilePage = () => {
     useReducersDynamicLoader(reducers);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(fetchProfileData());

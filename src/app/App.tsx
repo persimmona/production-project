@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { AppRouter } from './providers/router';
+import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { useTheme } from 'shared/contexts/theme';
 import { userActions } from 'entities/User';
 import { Navbar } from 'widgets/Navbar';
@@ -9,7 +9,7 @@ import './styles/index.scss';
 
 export const App = () => {
     const { theme } = useTheme();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(userActions.initAuthData());

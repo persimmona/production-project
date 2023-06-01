@@ -1,6 +1,7 @@
 import { Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { classNames } from 'shared/utils/classNames/classNames';
 import { Button } from 'shared/ui/Button';
 import { Loader } from 'shared/ui/Loader';
@@ -17,7 +18,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
 
     const authData = useSelector(selectUserAuthData);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const [toggleLoginModal, setToggleLoginModal] = useState(false);
 

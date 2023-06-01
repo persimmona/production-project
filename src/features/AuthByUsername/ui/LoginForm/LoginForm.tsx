@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
 import { Button } from 'shared/ui/Button';
 import { Header } from 'shared/ui/Header';
@@ -21,7 +22,7 @@ interface LoginFormProps {
 
 const LoginForm = ({ onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const { isLoading, password, username, error } = useSelector(selectLoginFormState);
 
     useReducersDynamicLoader(initialReducers);
