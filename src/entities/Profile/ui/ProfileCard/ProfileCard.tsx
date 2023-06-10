@@ -1,38 +1,30 @@
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { classNames } from 'shared/utils/classNames';
-import { selectProfileData } from '../../model/selectors/selectProfileData';
-import { selectProfileError } from '../../model/selectors/selectProfileError';
-import { selectProfileIsLoading } from '../../model/selectors/selectProfileIsLoading';
-import cls from './ProfileCard.module.scss';
-import { Button } from 'shared/ui/Button';
+import { ReactNode } from 'react';
 import { Header } from 'shared/ui/Header';
 import { Loader } from 'shared/ui/Loader';
-import { P } from 'shared/ui/P';
+import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
-    className?: string;
+    children: ReactNode;
+    loading: boolean;
+    title?: string;
+    actions?: ReactNode;
 }
 
-export const ProfileCard = ({ className }: ProfileCardProps) => {
-    const { t } = useTranslation('profile');
-
-    const data = useSelector(selectProfileData);
-    const error = useSelector(selectProfileError);
-    const isLoading = useSelector(selectProfileIsLoading);
-
-    if (isLoading) return <Loader />;
-
-    if (error) return <P>{t(error)}</P>;
-
-    if (!data) return null;
+export const ProfileCard = ({ children, loading, actions, title }: ProfileCardProps) => {
+    if (loading)
+        return (
+            <div className={cls.profileCard}>
+                <Loader />
+            </div>
+        );
 
     return (
-        <div className={classNames(cls.profileCard, {}, [className])}>
+        <div className={cls.profileCard}>
             <div className={cls.header}>
-                <Header tag='h1'>{t('hello') + ' ' + data?.first}</Header>
-                <Button variant='outline'>{t('edit')}</Button>
+                {title && <Header tag='h1'>{title}</Header>}
+                {actions}
             </div>
+            <div className={cls.body}>{children}</div>
         </div>
     );
 };

@@ -1,0 +1,10 @@
+.profileInfoItem {
+    display: flex;
+    align-items: center;
+}
+
+.profileInfoLabel {
+    margin-right: 16px;
+
+    font-weight: var(--font-heading-weight);
+}
