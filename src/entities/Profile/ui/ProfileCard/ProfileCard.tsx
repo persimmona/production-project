@@ -6,6 +6,7 @@ import cls from './ProfileCard.module.scss';
 interface ProfileCardProps {
     children: ReactNode;
     loading: boolean;
+    error?: string;
     title?: string;
     actions?: ReactNode;
 }

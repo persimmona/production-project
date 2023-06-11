@@ -8,15 +8,17 @@ export interface SelectOption {
 }
 
 interface SelectProps {
+    id?: string;
     options: SelectOption[];
-    onChange: (value: string) => void;
+    value: string;
+    onChange: (value: string, event: ChangeEvent<HTMLSelectElement>) => void;
     className?: string;
     disabled?: boolean;
 }
 
-export const Select = ({ options, onChange, className, disabled = false }: SelectProps) => {
+export const Select = ({ id, options, value, onChange, className, disabled = false }: SelectProps) => {
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange(e.target.value);
+        onChange(e.target.value, e);
     };
 
     const optionList = options.map(({ label, value }) => (
@@ -26,7 +28,7 @@ export const Select = ({ options, onChange, className, disabled = false }: Selec
     ));
 
     return (
-        <select className={classNames(cls.select, {}, [className])} onChange={handleChange} disabled={disabled}>
+        <select id={id} value={value} onChange={handleChange} disabled={disabled} className={classNames(cls.select, {}, [className])}>
             {optionList}
         </select>
     );

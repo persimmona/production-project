@@ -2,26 +2,31 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 export const ANIMATION_DELAY = 250;
 
-export const useVisibility = (onClose: () => void, timeout: number = ANIMATION_DELAY) => {
-    const [isOpened, setIsOpened] = useState(false);
+export const useVisibility = (initialValue: boolean, timeout: number = ANIMATION_DELAY) => {
+    const [isVisible, setIsVisible] = useState(initialValue);
+    const [isMounted, setIsMounted] = useState(initialValue);
+
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const closeHandler = useCallback(() => {
-        setIsOpened(false);
+        setIsVisible(false);
         timerRef.current = setTimeout(() => {
-            onClose();
+            setIsMounted(false);
         }, timeout);
-    }, [onClose, timeout]);
+    }, [timeout]);
+
+    const openHandler = useCallback(() => {
+        setIsMounted(true);
+        timerRef.current = setTimeout(() => {
+            setIsVisible(true);
+        }, 0);
+    }, []);
 
     useEffect(() => {
-        timerRef.current = setTimeout(() => {
-            setIsOpened(true);
-        }, 0);
-
         return () => {
             clearTimeout(timerRef.current);
         };
-    }, [timeout]);
+    }, [closeHandler, timeout]);
 
-    return { isOpened, closeHandler };
+    return { isMounted, isVisible, closeHandler, openHandler };
 };

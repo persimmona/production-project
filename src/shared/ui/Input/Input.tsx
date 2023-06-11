@@ -5,8 +5,8 @@ import cls from './Input.module.scss';
 type HTMLInputElementProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 interface InputProps extends HTMLInputElementProps {
-    value: string;
-    onChange: (value: string) => void;
+    value: string | number;
+    onChange: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
     className?: string;
     placeholder?: string;
 }
@@ -14,7 +14,7 @@ interface InputProps extends HTMLInputElementProps {
 export const Input = ({ value, onChange, placeholder, type = 'text', className, ...props }: InputProps) => {
     const handleChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
-            onChange(event.target.value);
+            onChange(event.target.value, event);
         },
         [onChange],
     );

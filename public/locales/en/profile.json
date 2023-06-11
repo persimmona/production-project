@@ -2,5 +2,19 @@
   "profile": "Profile",
   "cannot_show_profile": "Sorry, something happens and we cannot show your data",
   "edit": "Edit", 
-  "hello": "Hello, "
+  "page_title": "Your profile",
+  "edit_form_title": "Edit profile",
+  "fields": {
+    "age": "Age",
+    "avatar": "Avatar",
+    "city": "City",
+    "country": "Country",
+    "currency": "Currency",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "username": "Username"
+  },
+  "errors": {
+    "cannot_save_profile": "Cannot save profile"
+  }
 }

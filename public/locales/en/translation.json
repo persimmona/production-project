@@ -18,5 +18,9 @@
     "password": "Enter password",
     "sign_in": "Sign in",
     "unknown_user": "Uncorrect username or password"
+  },
+  "buttons": {
+    "save": "Save",
+    "cancel": "Cancel"
   }
 }

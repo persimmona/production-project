@@ -2,5 +2,19 @@
   "profile": "Профіль",
   "cannot_show_profile": "Вибачте, щось сталося и ми не можемо показати Ваші дані",
   "edit": "Редагувати", 
-  "hello": "Привіт, "
+  "page_title": "Ваш профіль",
+  "edit_form_title": "Редагування профілю",
+  "fields": {
+    "age": "Вік",
+    "avatar": "Аватар",
+    "city": "Місто",
+    "country": "Країна",
+    "currency": "Валюта",
+    "firstname": "Ім'я",
+    "lastname": "Прізвище",
+    "username": "Ім'я користувача"
+  },
+  "errors": {
+    "cannot_save_profile": "Неможливо зберігти дані"
+  }
 }

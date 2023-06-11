@@ -1,0 +1,14 @@
+.editableProfileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin-top: 8px;
+}
