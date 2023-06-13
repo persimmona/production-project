@@ -58,8 +58,11 @@ const EditableProfileForm = ({ initialData, onCancel, onSubmit, className }: Edi
     };
 
     const onFormSubmitButtonClick = async () => {
-        await dispatch(updateProfileData(data));
-        onSubmit?.();
+        const response = await dispatch(updateProfileData(data));
+
+        if (response.meta.requestStatus === 'fulfilled') {
+            onSubmit?.();
+        }
     };
     const onCancelButtonClick = () => {
         dispatch(profileFormActions.setProfileFormData(initialData));
@@ -121,7 +124,12 @@ const EditableProfileForm = ({ initialData, onCancel, onSubmit, className }: Edi
                 className={cls.input}
             />
 
-            {validateErrors && <P color='error'>{t(`errors.${validateErrors}`)}</P>}
+            {validateErrors &&
+                validateErrors.map((error) => (
+                    <P key={error} color='error'>
+                        {t(`errors.${error}`)}
+                    </P>
+                ))}
 
             <div className={cls.buttons}>
                 <Button type='button' variant='outline' onClick={onCancelButtonClick}>

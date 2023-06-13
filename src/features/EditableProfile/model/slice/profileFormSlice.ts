@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Profile } from 'entities/Profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import { ProfileFormSchema } from '../types/profileForm';
+import { ProfileFormSchema, ValidateProfileFormError } from '../types/profileForm';
 import { updateProfileData } from 'features/EditableProfile/model/services/updateProfileData';
 
 export const initialState: ProfileFormSchema = {
@@ -17,7 +17,7 @@ export const initialState: ProfileFormSchema = {
         username: '',
     },
     isLoading: false,
-    validateErrors: '',
+    validateErrors: undefined,
 };
 
 const profileFormSlice = createSlice({
@@ -38,15 +38,15 @@ const profileFormSlice = createSlice({
         builder
             .addCase(updateProfileData.pending, (state) => {
                 state.isLoading = true;
-                state.validateErrors = '';
+                state.validateErrors = undefined;
             })
             .addCase(updateProfileData.fulfilled, (state) => {
                 state.isLoading = false;
-                state.validateErrors = '';
+                state.validateErrors = undefined;
             })
-            .addCase(updateProfileData.rejected, (state) => {
+            .addCase(updateProfileData.rejected, (state, action: PayloadAction<ValidateProfileFormError[] | undefined>) => {
                 state.isLoading = false;
-                state.validateErrors = '';
+                state.validateErrors = action.payload;
             });
     },
 });

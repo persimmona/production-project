@@ -21,7 +21,7 @@
   "profile": {
     "firstname": "Alona",
     "lastname": "Sydorova",
-    "age": 23,
+    "age": "23",
     "currency": "PLN",
     "country": "Poland",
     "city": "Mariupol",

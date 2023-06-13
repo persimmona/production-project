@@ -1,17 +1,25 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/store/config/RootSchema';
 import { Profile, profileActions } from 'entities/Profile';
+import { validateFormData } from '../services/validateFormData';
+import { ValidateProfileFormError } from '../types/profileForm';
 
-export const updateProfileData = createAsyncThunk<void, Profile, ThunkConfig<string>>(
+export const updateProfileData = createAsyncThunk<void, Profile, ThunkConfig<ValidateProfileFormError[]>>(
     'profile/updateProfileData',
     async (profileData, thunkApi) => {
+        const errors = validateFormData(profileData);
+
+        if (errors.length) {
+            return thunkApi.rejectWithValue(errors);
+        }
+
         try {
             await thunkApi.extra.api.put('/profile', profileData);
 
             thunkApi.dispatch(profileActions.setProfileData(profileData));
         } catch (e) {
             console.log(e);
-            return thunkApi.rejectWithValue('cannot_save_profile');
+            return thunkApi.rejectWithValue([ValidateProfileFormError.SERVER_ERROR]);
         }
     },
 );
