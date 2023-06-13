@@ -36,7 +36,7 @@ const ProfilePage = () => {
     const profileFetchingError = useSelector(selectProfileError);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData());
     }, [dispatch]);
 
     const {
