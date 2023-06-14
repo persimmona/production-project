@@ -12,10 +12,10 @@ import { Profile } from 'entities/Profile';
 import { countrySelectOptions } from 'entities/Country';
 import { currencySelectOptions } from 'entities/Currency';
 import { useIntitalFormData } from '../../lib/useInitialFormData';
-import { selectProfileFormData } from '../../model/selectors/selectProfileFormData';
+import { selectProfileFormData } from '../../model/selectors/selectProfileFormData/selectProfileFormData';
 import { selectProfileFormErrors } from '../../model/selectors/selectProfileFormErrors';
 import { profileFormActions, profileFormReducer } from '../../model/slice/profileFormSlice';
-import { updateProfileData } from '../../model/services/updateProfileData';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import cls from './EditableProfileForm.module.scss';
 
 interface EditableProfileFormProps {

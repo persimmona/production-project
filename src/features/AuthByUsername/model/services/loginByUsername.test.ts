@@ -1,11 +1,7 @@
-import axios from 'axios';
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { User, userActions } from 'entities/User';
 import { loginByUsername } from './loginByUsername';
 
-jest.mock('axios');
-
-const mockedAxios = jest.mocked(axios, true);
 describe('loginByUsername', () => {
     test('should return user data on success', async () => {
         const authData = {
@@ -16,13 +12,14 @@ describe('loginByUsername', () => {
             id: 'random',
             username: 'admin',
         };
-        mockedAxios.post.mockResolvedValue({ data: userValue });
 
         const thunk = new TestAsyncThunk(loginByUsername);
+        thunk.api.post.mockResolvedValue({ data: userValue });
+
         const result = await thunk.callThunk(authData);
 
         expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
-        expect(thunk.dispatch).toHaveBeenCalledTimes(3); // why 3?
+        expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(userValue);
     });
@@ -32,9 +29,10 @@ describe('loginByUsername', () => {
             username: 'admin4',
             password: '123',
         };
-        mockedAxios.post.mockRejectedValue(new Error('Incorrect user value'));
 
         const thunk = new TestAsyncThunk(loginByUsername);
+        thunk.api.post.mockRejectedValue(new Error('Incorrect user value'));
+
         const result = await thunk.callThunk(authData);
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);

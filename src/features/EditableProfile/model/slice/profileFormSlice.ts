@@ -3,7 +3,7 @@ import { Profile } from 'entities/Profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { ProfileFormSchema, ValidateProfileFormError } from '../types/profileForm';
-import { updateProfileData } from 'features/EditableProfile/model/services/updateProfileData';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 export const initialState: ProfileFormSchema = {
     data: {
