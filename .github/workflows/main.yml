@@ -60,9 +60,15 @@ jobs:
         with:
           path: '.loki/difference'
           name: loki-fail-difference
-      - name: Upload fail screenshots
+      - name: Run report
         if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
         run: npm run test:ui:report
+      - name: Upload report
+        if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
+        uses: actions/upload-artifact@v3
+        with:
+          path: '.loki/report.html'
+          name: report
   build:
     needs: [lint, test]
     runs-on: ubuntu-latest
