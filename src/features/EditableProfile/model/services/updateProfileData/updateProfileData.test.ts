@@ -22,8 +22,8 @@ test('should successfully save profile data', async () => {
 
     const result = await thunk.callThunk(formData);
 
-    expect(thunk.dispatch).toBeCalledTimes(3);
-    expect(thunk.dispatch).toBeCalledWith(profileActions.setProfileData);
+    expect(thunk.dispatch).toHaveBeenCalledTimes(3);
+    expect(thunk.dispatch).toHaveBeenCalledWith(profileActions.setProfileData(formData));
     expect(result.meta.requestStatus).toBe('fulfilled');
 });
 
