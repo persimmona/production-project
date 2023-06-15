@@ -53,6 +53,12 @@ jobs:
         run: npm run storybook:build
       - name: Run screenshot tests
         run: npm run test:ui:ci
+      - name: Upload fail screenshots
+        if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
+        uses: actions/upload-artifact@v3
+        with:
+            path: '.loki/difference'
+            name: loki-fail-difference
   build:
     needs: [lint, test]
     runs-on: ubuntu-latest
