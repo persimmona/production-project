@@ -67,7 +67,7 @@ jobs:
         if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
         uses: actions/upload-artifact@v3
         with:
-          path: '.loki/report.html'
+          path: '.loki/report.html, .loki/report.json'
           name: report
   build:
     needs: [lint, test]
