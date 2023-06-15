@@ -1,10 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'shared/contexts/theme';
 
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
 import { ValidateProfileFormError } from '../../model/types/profileForm';
 import EditableProfileForm from './EditableProfileForm';
 
@@ -14,14 +12,14 @@ export default {
     argTypes: {},
     args: {
         initialData: {
-            country: Country.Ukraine,
-            currency: Currency.UAH,
+            country: 'Ukraine',
+            currency: 'UAH',
             firstname: 'Alona',
             lastname: 'Sydorova',
             age: 23,
             city: 'Mariupol',
             username: 'admin',
-            avatar: 'https://play-lh.googleusercontent.com/MDaSgXlbRkftfjNIdJ2oHodVBVLOmVg2PevfdzJkbtlawfMA-8gMAs-kCfXXY5XyLw',
+            avatar: '',
         },
     },
     parameters: {
@@ -32,7 +30,13 @@ export default {
 const Template: ComponentStory<typeof EditableProfileForm> = (args) => <EditableProfileForm {...args} />;
 
 export const DefaultLight = Template.bind({});
-DefaultLight.decorators = [StoreDecorator({})];
+DefaultLight.decorators = [
+    StoreDecorator({
+        profileForm: {
+            data: {},
+        },
+    }),
+];
 
 export const WithErrors = Template.bind({});
 WithErrors.decorators = [
@@ -44,4 +48,11 @@ WithErrors.decorators = [
 ];
 
 export const DefaultDark = Template.bind({});
-DefaultDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+DefaultDark.decorators = [
+    StoreDecorator({
+        profileForm: {
+            data: {},
+        },
+    }),
+    ThemeDecorator(Theme.DARK),
+];
