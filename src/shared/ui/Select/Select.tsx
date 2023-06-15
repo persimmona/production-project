@@ -28,7 +28,7 @@ export const Select = ({ id, options, value, onChange, className, disabled = fal
     ));
 
     return (
-        <select id={id} value={value} onChange={handleChange} disabled={disabled} className={classNames(cls.select, {}, [className])}>
+        <select id={id} value={value} onChange={handleChange} disabled={disabled}>
             {optionList}
         </select>
     );
