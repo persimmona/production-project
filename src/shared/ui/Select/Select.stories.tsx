@@ -7,6 +7,24 @@ import { Theme } from 'shared/contexts/theme';
 export default {
     title: 'shared/Select',
     component: Select,
+    argTypes: {},
+    args: {
+        options: [
+            {
+                label: 'Test',
+                value: 'test',
+            },
+            {
+                label: 'Test2',
+                value: 'test2',
+            },
+            {
+                label: 'Test3',
+                value: 'test3',
+            },
+        ],
+        value: 'Test',
+    },
     parameters: {
         backgrounds: { disable: true },
     },
@@ -15,40 +33,6 @@ export default {
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 export const DefaultLight = Template.bind({});
-DefaultLight.args = {
-    options: [
-        {
-            label: 'Test',
-            value: 'test',
-        },
-        {
-            label: 'Test2',
-            value: 'test2',
-        },
-        {
-            label: 'Test3',
-            value: 'test3',
-        },
-    ],
-};
 
 export const DefaultDark = Template.bind({});
-DefaultDark.args = {
-    options: [
-        {
-            label: 'Test',
-            value: 'test',
-        },
-        {
-            label: 'Test2',
-            value: 'test2',
-        },
-        {
-            label: 'Test3',
-            value: 'test3',
-        },
-    ],
-    value: 'Test',
-    onChange: () => {},
-};
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
