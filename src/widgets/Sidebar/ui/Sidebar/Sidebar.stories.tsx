@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { getDarkThemeBackground } from 'shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from 'shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
 import { Theme } from 'shared/contexts/theme';
@@ -15,14 +16,19 @@ export default {
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
 export const Light = Template.bind({});
-Light.args = {};
+Light.decorators = [StoreDecorator({})];
 Light.parameters = {
     backgrounds: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
 Dark.parameters = {
     backgrounds: getDarkThemeBackground(),
+};
+
+export const Auth = Template.bind({});
+Auth.decorators = [StoreDecorator({ user: { authData: {} } })];
+Auth.parameters = {
+    backgrounds: getLightThemeBackground(),
 };

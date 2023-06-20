@@ -1,13 +1,16 @@
-import { Route, Routes, type RouteProps } from 'react-router-dom';
 import { Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { AppRoutes, AppRoutesPath, AppRoutesProps } from 'shared/const/routes';
+import { selectUserAuthData } from 'entities/User';
+import { PageLoader } from 'widgets/PageLoader';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
-import { AppRoutes, AppRoutesPath } from 'shared/const/routes';
-import { PageLoader } from 'widgets/PageLoader';
+import { GuardedRoute } from './GuardedRoute';
 
-const routeConfig: Record<AppRoutes, RouteProps> = {
+const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: AppRoutesPath[AppRoutes.MAIN],
         element: <MainPage />,
@@ -19,6 +22,7 @@ const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.PROFILE]: {
         path: AppRoutesPath[AppRoutes.PROFILE],
         element: <ProfilePage />,
+        authOnly: true,
     },
 
     [AppRoutes.NOT_FOUND]: {
@@ -27,18 +31,24 @@ const routeConfig: Record<AppRoutes, RouteProps> = {
     },
 };
 
-export const AppRouter = () => (
-    <Routes>
-        {Object.values(routeConfig).map(({ path, element }) => (
-            <Route
-                key={path}
-                path={path}
-                element={
-                    <Suspense fallback={<PageLoader />}>
-                        <div className='page-wrapper'>{element}</div>
-                    </Suspense>
-                }
-            />
-        ))}
-    </Routes>
-);
+export const AppRouter = () => {
+    const auth = useSelector(selectUserAuthData);
+
+    return (
+        <Routes>
+            {Object.values(routeConfig).map(({ path, element, authOnly }) => (
+                <Route
+                    key={path}
+                    path={path}
+                    element={
+                        <GuardedRoute key={path} isRouteAccessible={authOnly ? !!auth : true}>
+                            <Suspense fallback={<PageLoader />}>
+                                <div className='page-wrapper'>{element}</div>
+                            </Suspense>
+                        </GuardedRoute>
+                    }
+                />
+            ))}
+        </Routes>
+    );
+};

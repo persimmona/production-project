@@ -9,11 +9,14 @@ interface SidebarItemProps {
     item: SidebarItemType;
     theme: Theme;
     collapsed: boolean;
+    isVisible?: boolean;
 }
 
-export const SidebarItem = ({ item, theme, collapsed }: SidebarItemProps) => {
+export const SidebarItem = ({ item, theme, collapsed, isVisible = false }: SidebarItemProps) => {
     const { t } = useTranslation();
     const color = theme === Theme.DARK ? AppLinkColor.PRIMARY : AppLinkColor.PRIMARY_INVERTED;
+
+    if (!isVisible) return null;
 
     return (
         <AppLink to={item.path} color={color} className={classNames(cls.link, { [cls.collapsed]: collapsed })}>
