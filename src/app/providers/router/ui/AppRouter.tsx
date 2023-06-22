@@ -3,11 +3,13 @@ import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { AppRoutes, AppRoutesPath, AppRoutesProps } from 'shared/const/routes';
 import { selectUserAuthData } from 'entities/User';
-import { PageLoader } from 'widgets/PageLoader';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
+import { ArticlesPage } from 'pages/ArticlesPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { ProfilePage } from 'pages/ProfilePage';
+import { PageLoader } from 'widgets/PageLoader';
 import { GuardedRoute } from './GuardedRoute';
 
 const routeConfig: Record<AppRoutes, AppRoutesProps> = {
@@ -22,6 +24,16 @@ const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.PROFILE]: {
         path: AppRoutesPath[AppRoutes.PROFILE],
         element: <ProfilePage />,
+        authOnly: true,
+    },
+    [AppRoutes.ARTICLES]: {
+        path: AppRoutesPath[AppRoutes.ARTICLES],
+        element: <ArticlesPage />,
+        authOnly: true,
+    },
+    [AppRoutes.ARTICLE_DETAILS]: {
+        path: AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + ':id',
+        element: <ArticleDetailsPage />,
         authOnly: true,
     },
 
@@ -41,7 +53,7 @@ export const AppRouter = () => {
                     key={path}
                     path={path}
                     element={
-                        <GuardedRoute key={path} isRouteAccessible={authOnly ? !!auth : true}>
+                        <GuardedRoute key={path} isRouteHidden={authOnly && !auth}>
                             <Suspense fallback={<PageLoader />}>
                                 <div className='page-wrapper'>{element}</div>
                             </Suspense>

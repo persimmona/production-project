@@ -1,6 +1,7 @@
 import AboutIcon from 'shared/assets/icons/about.svg';
 import HomeIcon from 'shared/assets/icons/home.svg';
 import ProfileIcon from 'shared/assets/icons/profile.svg';
+import ArticlesIcon from 'shared/assets/icons/articles.svg';
 import { AppRoutesPath } from 'shared/const/routes';
 
 export interface SidebarItemType {
@@ -25,6 +26,12 @@ export const sidebarItemList: SidebarItemType[] = [
         text: 'navigation.profile',
         Icon: ProfileIcon,
         path: AppRoutesPath.profile,
+        authOnly: true,
+    },
+    {
+        text: 'navigation.articles',
+        Icon: ArticlesIcon,
+        path: AppRoutesPath.articles,
         authOnly: true,
     },
 ];

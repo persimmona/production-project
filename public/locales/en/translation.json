@@ -3,7 +3,8 @@
   "navigation": {
     "main": "Main",
     "about_us": "About us",
-    "profile": "Profile"
+    "profile": "Profile",
+    "articles": "Articles"
   },
   "navbar": {
     "sign_in": "Sign in",

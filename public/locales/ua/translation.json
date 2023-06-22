@@ -3,7 +3,8 @@
   "navigation": {
     "main": "Головна",
     "about_us": "Про нас",
-    "profile": "Профіль"
+    "profile": "Профіль",
+    "articles": "Статті"
   },
   "navbar": {
     "sign_in": "Увійти",

@@ -13,6 +13,7 @@ export function buildWebpackConfig({ mode, paths, isDev, port, apiUrl, project }
             filename: '[name].[contenthash].js',
             path: paths.build,
             clean: true,
+            publicPath: '/', // problem with routes and webpack chunks
         },
         module: {
             rules: buildLoaders(isDev),
