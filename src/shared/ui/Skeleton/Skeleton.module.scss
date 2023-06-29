@@ -1,0 +1,49 @@
+.skeleton {
+    position: relative;
+
+    display: block;
+
+    box-shadow: 0 0 4px 1px var(--skeleton-shadow);
+
+    overflow: hidden;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        left: -150px;
+        content: "";
+
+        display: block;
+
+        width: 80%;
+        height: 100%;
+
+        background: linear-gradient(to right, transparent 0%, var(--skeleton-color) 50%, transparent 100%);
+
+        animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+}
+
+@keyframes load {
+    from {
+        left: -150px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+.text {
+    &::before {
+        content: "\00a0";
+    }
+}
+
+.rounded {
+    border-radius: var(--border-radius-default);
+}
+
+.circular {
+    border-radius: 50%;
+}
