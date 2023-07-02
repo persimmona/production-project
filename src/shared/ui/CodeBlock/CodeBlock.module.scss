@@ -1,0 +1,32 @@
+.codeBlock {
+    position: relative;
+
+    margin-top: 24px;
+    margin-bottom: 16px;
+    padding: 16px;
+
+    color: var(--code-color);
+
+    border-radius: var(--border-radius-default);
+
+    background-color: var(--code-background);
+}
+
+.copyButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.copyIcon {
+    width: 16px;
+    height: auto;
+
+    color: var(--code-color);
+}
+
+.code {
+    display: block;
+
+    overflow: auto;
+}

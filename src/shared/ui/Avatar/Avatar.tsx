@@ -1,5 +1,6 @@
 import { classNames } from 'shared/utils/classNames';
 import cls from './Avatar.module.scss';
+import { Image } from 'shared/ui/Image';
 
 interface AvatarProps {
     src: string;
@@ -12,7 +13,7 @@ interface AvatarProps {
 export const Avatar = ({ src, variant, size, alt, className }: AvatarProps) => {
     return (
         <div className={classNames(cls.avatarWrapper, {}, [className, cls[variant], cls[size]])}>
-            <img alt={alt} className={cls.avatar} src={src} />
+            <Image alt={alt} src={src} />
         </div>
     );
 };
