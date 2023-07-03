@@ -11,7 +11,7 @@ body {
     display: grid;
     grid-template-rows: auto 1fr;
 
-    min-height: 100vh;
+    height: 100vh;
 
     color: var(--color-base-text);
 
@@ -19,13 +19,16 @@ body {
 }
 
 .content-wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    overflow: hidden;
 }
 
 .page-wrapper {
-    flex-grow: 1;
+    padding: 24px 16px 56px 40px;
 
-    padding: 0 24px;
+    overflow: auto;
 }
 
 .page-width {

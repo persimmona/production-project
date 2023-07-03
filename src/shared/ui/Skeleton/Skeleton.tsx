@@ -8,6 +8,7 @@ interface SkeletonProps {
     children?: ReactNode;
     height?: string;
     width?: string;
+    style?: CSSProperties;
 }
 
 interface BoundsStyle {
@@ -15,7 +16,7 @@ interface BoundsStyle {
     width: string;
 }
 
-export const Skeleton = ({ className, children, height, width, variant = 'text' }: SkeletonProps) => {
+export const Skeleton = ({ className, children, height, width, variant = 'text', style }: SkeletonProps) => {
     const [boundsStyle, setBoundsStyle] = useState<BoundsStyle | undefined>();
 
     const skeletonRef = useCallback((node: HTMLDivElement) => {
@@ -28,7 +29,7 @@ export const Skeleton = ({ className, children, height, width, variant = 'text' 
     const styles: CSSProperties | undefined = useMemo(() => (boundsStyle ? { height, width } : boundsStyle), [boundsStyle, height, width]);
 
     return (
-        <div ref={skeletonRef} className={classNames(cls.skeleton, {}, [className, cls[variant]])} style={styles}>
+        <div ref={skeletonRef} className={classNames(cls.skeleton, {}, [className, cls[variant]])} style={{ ...style, ...styles }}>
             {children}
         </div>
     );

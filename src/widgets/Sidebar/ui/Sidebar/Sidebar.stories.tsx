@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { getDarkThemeBackground } from 'shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from 'shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
 import { Theme } from 'shared/contexts/theme';
@@ -16,19 +17,19 @@ export default {
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
 export const Light = Template.bind({});
-Light.decorators = [StoreDecorator({})];
+Light.decorators = [StoreDecorator({}), RouterDecorator()];
 Light.parameters = {
     backgrounds: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
-Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK), RouterDecorator()];
 Dark.parameters = {
     backgrounds: getDarkThemeBackground(),
 };
 
 export const Auth = Template.bind({});
-Auth.decorators = [StoreDecorator({ user: { authData: {} } })];
+Auth.decorators = [StoreDecorator({ user: { authData: {} } }), RouterDecorator()];
 Auth.parameters = {
     backgrounds: getLightThemeBackground(),
 };

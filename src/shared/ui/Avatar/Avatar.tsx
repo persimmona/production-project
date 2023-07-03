@@ -1,10 +1,10 @@
 import { classNames } from 'shared/utils/classNames';
-import cls from './Avatar.module.scss';
 import { Image } from 'shared/ui/Image';
+import cls from './Avatar.module.scss';
 
 interface AvatarProps {
     src: string;
-    size: 'small' | 'medium';
+    size: 'small' | 'medium' | 'large' | 'extra-large';
     variant: 'rounded' | 'square';
     alt?: string;
     className?: string;

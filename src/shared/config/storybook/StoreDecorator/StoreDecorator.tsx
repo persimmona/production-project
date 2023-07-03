@@ -1,6 +1,7 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { Story } from '@storybook/react';
 import { RootSchema, StoreProvider, AsyncSchema } from 'app/providers/store';
+import { articleReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
 import { loginFormReducer } from 'features/AuthByUsername/model/slice/loginFormSlice';
 import { profileFormReducer } from 'features/EditableProfile/model/slice/profileFormSlice';
@@ -10,6 +11,7 @@ const defaultAsyncReducers: ReducersList = {
     loginForm: loginFormReducer,
     profile: profileReducer,
     profileForm: profileFormReducer,
+    article: articleReducer,
 };
 
 export const StoreDecorator =

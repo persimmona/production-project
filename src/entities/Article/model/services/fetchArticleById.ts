@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/store/config/RootSchema';
 import { Article } from '../types/article';
 
-export const fetchArtcileById = createAsyncThunk<Article, string, ThunkConfig<string>>(
-    'article/fetchArtcileById',
+export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
+    'article/fetchArticleById',
     async (articleId, thunkApi) => {
         try {
             const response = await thunkApi.extra.api.get<Article>(`/articles/${articleId}`);

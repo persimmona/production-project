@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import cls from './Header.module.scss';
 import { classNames } from 'shared/utils/classNames';
+import cls from './Header.module.scss';
 
 interface HeaderProps {
     tag: 'h1' | 'h2' | 'h3';

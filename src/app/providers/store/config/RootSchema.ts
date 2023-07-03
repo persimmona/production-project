@@ -1,5 +1,6 @@
 import { AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+import { ArticleSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginFormSchema } from 'features/AuthByUsername';
@@ -15,6 +16,7 @@ export interface AsyncSchema {
     loginForm?: LoginFormSchema;
     profile?: ProfileSchema;
     profileForm?: ProfileFormSchema;
+    article?: ArticleSchema;
 }
 
 export type AsyncSchemaKey = keyof AsyncSchema;
