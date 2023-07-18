@@ -10,7 +10,7 @@ export interface PProps extends DetailedHTMLProps<HTMLAttributes<HTMLParagraphEl
 
 export const P = ({ size = 'medium', color = 'default', children, className, ...props }: PProps) => {
     return (
-        <p className={classNames(cls.p, {}, [className, cls[size], cls[color]])} {...props}>
+        <p className={classNames(cls.p, {}, [cls[size], cls[color], className])} {...props}>
             {children}
         </p>
     );

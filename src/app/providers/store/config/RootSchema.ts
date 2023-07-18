@@ -5,6 +5,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginFormSchema } from 'features/AuthByUsername';
 import { ProfileFormSchema } from 'features/EditableProfile';
+import { ArticleCommentListSchema } from 'widgets/ArticleCommentList';
 
 export interface RootSchema extends AsyncSchema {
     user: UserSchema;
@@ -17,6 +18,7 @@ export interface AsyncSchema {
     profile?: ProfileSchema;
     profileForm?: ProfileFormSchema;
     article?: ArticleSchema;
+    articleCommentList?: ArticleCommentListSchema;
 }
 
 export type AsyncSchemaKey = keyof AsyncSchema;

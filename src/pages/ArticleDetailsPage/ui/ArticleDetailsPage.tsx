@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
 import { P } from 'shared/ui/P';
+import { Header } from 'shared/ui/Header';
 import {
     ArticleDetails,
     ArticleSkeleton,
@@ -14,6 +15,7 @@ import {
     selectArticleError,
     selectArticleIsLoading,
 } from 'entities/Article';
+import { ArticleCommentList } from 'widgets/ArticleCommentList';
 
 const reducers: ReducersList = {
     article: articleReducer,
@@ -42,7 +44,13 @@ const ArticleDetailsPage = () => {
 
     if (!article || articleError) return <P color='error'>{t('server_error')}</P>;
 
-    return <ArticleDetails article={article} />;
+    return (
+        <div>
+            <ArticleDetails article={article} />
+            <Header tag='h2'>{t('comments')}</Header>
+            <ArticleCommentList articleId={id} />
+        </div>
+    );
 };
 
 export default ArticleDetailsPage;

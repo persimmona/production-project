@@ -1,5 +1,4 @@
 import { ComponentType, FC } from 'react';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { RootSchema, StoreProvider } from 'app/providers/store';
 
 interface WithRouterProps {
