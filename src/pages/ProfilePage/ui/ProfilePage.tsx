@@ -21,6 +21,7 @@ import {
 } from 'entities/Profile';
 
 import { EditableProfileFormAsync } from 'features/EditableProfile';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -34,9 +35,10 @@ const ProfilePage = () => {
     const profileData = useSelector(selectProfileData);
     const isProfileLoading = useSelector(selectProfileIsLoading);
     const profileFetchingError = useSelector(selectProfileError);
+    const { id } = useParams<{ id: string }>();
 
     useEffect(() => {
-        if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook' && id) dispatch(fetchProfileData(id));
     }, [dispatch]);
 
     const {

@@ -98,16 +98,19 @@
       ]
     }
   ],
-  "profile": {
-    "firstname": "Alona",
-    "lastname": "Sydorova",
-    "age": "23",
-    "currency": "PLN",
-    "country": "Poland",
-    "city": "Mariupol",
-    "username": "admin",
-    "avatar": "https://play-lh.googleusercontent.com/MDaSgXlbRkftfjNIdJ2oHodVBVLOmVg2PevfdzJkbtlawfMA-8gMAs-kCfXXY5XyLw"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Alona",
+      "lastname": "Sydorova",
+      "age": "23",
+      "currency": "PLN",
+      "country": "Poland",
+      "city": "Mariupol",
+      "username": "admin",
+      "avatar": "https://play-lh.googleusercontent.com/MDaSgXlbRkftfjNIdJ2oHodVBVLOmVg2PevfdzJkbtlawfMA-8gMAs-kCfXXY5XyLw"
+    }
+  ],
   "comments": [
     {
       "id": "1",

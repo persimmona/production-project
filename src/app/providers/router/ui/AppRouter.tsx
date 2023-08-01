@@ -22,7 +22,7 @@ const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
-        path: AppRoutesPath[AppRoutes.PROFILE],
+        path: AppRoutesPath[AppRoutes.PROFILE] + ':id',
         element: <ProfilePage />,
         authOnly: true,
     },
