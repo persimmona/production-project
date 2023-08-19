@@ -22,6 +22,7 @@ import {
 
 import { EditableProfileFormAsync } from 'features/EditableProfile';
 import { useParams } from 'react-router-dom';
+import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -37,9 +38,9 @@ const ProfilePage = () => {
     const profileFetchingError = useSelector(selectProfileError);
     const { id } = useParams<{ id: string }>();
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook' && id) dispatch(fetchProfileData(id));
-    }, [dispatch]);
+    useInitialEffect(() => {
+        if (id) dispatch(fetchProfileData(id));
+    });
 
     const {
         isMounted: isEditProfileModalMounted,

@@ -16,6 +16,7 @@ import {
     selectArticleIsLoading,
 } from 'entities/Article';
 import { ArticleCommentList } from 'widgets/ArticleCommentList';
+import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
 
 const reducers: ReducersList = {
     article: articleReducer,
@@ -32,11 +33,9 @@ const ArticleDetailsPage = () => {
 
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook' && id) {
-            dispatch(fetchArticleById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect(() => {
+        if (id) dispatch(fetchArticleById(id));
+    });
 
     if (!id) return <P color='error'>{t('not_found')}</P>;
 
