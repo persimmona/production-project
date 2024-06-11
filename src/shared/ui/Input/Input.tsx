@@ -8,7 +8,7 @@ interface InputProps extends HTMLInputElementProps {
     value: string | number;
     onChange: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
     className?: string;
-    placeholder?: string;
+    placeholder: string;
 }
 
 export const Input = ({ value, onChange, placeholder, type = 'text', className, ...props }: InputProps) => {

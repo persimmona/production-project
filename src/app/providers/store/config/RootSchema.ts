@@ -3,6 +3,7 @@ import { AxiosInstance } from 'axios';
 import { ArticleSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
+import { AddCommnetFormSchema } from 'features/AddCommentForm';
 import { LoginFormSchema } from 'features/AuthByUsername';
 import { ProfileFormSchema } from 'features/EditableProfile';
 import { ArticleCommentListSchema } from 'widgets/ArticleCommentList';
@@ -19,6 +20,7 @@ export interface AsyncSchema {
     profileForm?: ProfileFormSchema;
     article?: ArticleSchema;
     articleCommentList?: ArticleCommentListSchema;
+    addCommentForm?: AddCommnetFormSchema;
 }
 
 export type AsyncSchemaKey = keyof AsyncSchema;

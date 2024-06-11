@@ -23,5 +23,6 @@
   "buttons": {
     "save": "Save",
     "cancel": "Cancel"
-  }
+  },
+  "add": "Add"
 }
