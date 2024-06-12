@@ -1,4 +1,5 @@
-import { AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer } from '@reduxjs/toolkit';
+import { AnyAction, CombinedState, EnhancedStore, Reducer } from '@reduxjs/toolkit';
+import { AppDispatch } from 'app/providers/store/config/store';
 import { AxiosInstance } from 'axios';
 import { ArticleSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
@@ -40,7 +41,7 @@ export interface ThunkExtraArg {
 }
 
 export interface ThunkConfig<T> {
-    dispatch: Dispatch;
+    dispatch: AppDispatch;
     extra: ThunkExtraArg;
     rejectValue: T;
 }

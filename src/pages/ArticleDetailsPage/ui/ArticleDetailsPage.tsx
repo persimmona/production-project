@@ -1,10 +1,3 @@
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
-import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
-import { P } from 'shared/ui/P';
-import { Header } from 'shared/ui/Header';
 import {
     ArticleDetails,
     ArticleSkeleton,
@@ -14,8 +7,18 @@ import {
     selectArticleError,
     selectArticleIsLoading,
 } from 'entities/Article';
-import { ArticleCommentList } from 'widgets/ArticleCommentList';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { Header } from 'shared/ui/Header';
+import { P } from 'shared/ui/P';
+import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
+import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
+import { ArticleCommentList } from 'widgets/ArticleCommentList';
+import { addCommentForArticle } from '../model/services/addCommentForArticle';
 
 const reducers: ReducersList = {
     article: articleReducer,
@@ -36,6 +39,13 @@ const ArticleDetailsPage = () => {
         if (id) dispatch(fetchArticleById(id));
     });
 
+    const onCommentAdd = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle({ articleId: id, text }));
+        },
+        [dispatch, id],
+    );
+
     if (!id) return <P color='error'>{t('not_found')}</P>;
 
     if (isLoading) return <ArticleSkeleton />;
@@ -46,6 +56,7 @@ const ArticleDetailsPage = () => {
         <div>
             <ArticleDetails article={article} />
             <Header tag='h2'>{t('comments')}</Header>
+            <AddCommentForm onCommentAdd={onCommentAdd} />
             <ArticleCommentList articleId={id} />
         </div>
     );

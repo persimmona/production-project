@@ -4,6 +4,7 @@ import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/f
 import { Comment } from 'entities/Comment';
 import { RootSchema } from 'app/providers/store';
 
+// helps works with aeeay of data
 const articleCommentListAdapter = createEntityAdapter<Comment>({ selectId: (comment) => comment.id });
 
 export const selectArticleCommentList = articleCommentListAdapter.getSelectors<RootSchema>(
