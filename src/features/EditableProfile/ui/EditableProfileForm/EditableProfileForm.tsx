@@ -25,7 +25,7 @@ interface EditableProfileFormProps {
     className?: string;
 }
 
-const FormElementsId: Record<keyof Profile, keyof Profile> = {
+const FormElementsId: Partial<Record<keyof Profile, keyof Profile>> = {
     username: 'username',
     firstname: 'firstname',
     lastname: 'lastname',

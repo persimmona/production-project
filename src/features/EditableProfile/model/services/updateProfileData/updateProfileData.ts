@@ -14,7 +14,7 @@ export const updateProfileData = createAsyncThunk<void, Profile, ThunkConfig<Val
         }
 
         try {
-            await thunkApi.extra.api.put('/profile', profileData);
+            await thunkApi.extra.api.put('/profile/' + profileData?.id, profileData);
 
             thunkApi.dispatch(profileActions.setProfileData(profileData));
         } catch (e) {

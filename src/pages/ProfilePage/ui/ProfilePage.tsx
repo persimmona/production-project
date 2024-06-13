@@ -23,6 +23,7 @@ import {
 import { EditableProfileFormAsync } from 'features/EditableProfile';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
+import { selectUserAuthData } from 'entities/User';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -33,7 +34,9 @@ const ProfilePage = () => {
     const { t } = useTranslation('profile');
 
     const dispatch = useAppDispatch();
+
     const profileData = useSelector(selectProfileData);
+    const userData = useSelector(selectUserAuthData);
     const isProfileLoading = useSelector(selectProfileIsLoading);
     const profileFetchingError = useSelector(selectProfileError);
     const { id } = useParams<{ id: string }>();
@@ -60,11 +63,8 @@ const ProfilePage = () => {
     const profileInfoItems = Object.entries(profileData)
         .filter(([key]) => key !== 'avatar')
         .map(([key, value]) => ({ label: t(`fields.${key}`), value }));
-    const profileCardActions = (
-        <>
-            <Button onClick={openEditProfileModal}>{t('edit')}</Button>
-        </>
-    );
+
+    const profileCardActions = userData?.id == id && <Button onClick={openEditProfileModal}>{t('edit')}</Button>;
 
     return (
         <div>

@@ -7,6 +7,7 @@ import { ValidateProfileFormError } from '../../types/profileForm';
 
 test('should successfully save profile data', async () => {
     const formData = {
+        id: '1',
         country: Country.Ukraine,
         currency: Currency.UAH,
         firstname: 'Alona',
@@ -29,6 +30,7 @@ test('should successfully save profile data', async () => {
 
 test('should return server error', async () => {
     const formData = {
+        id: '1',
         country: Country.Ukraine,
         currency: Currency.UAH,
         firstname: 'Alona',
@@ -51,6 +53,7 @@ test('should return server error', async () => {
 
 test('should return validation error before saving data', async () => {
     const formData = {
+        id: '1',
         country: Country.Ukraine,
         currency: Currency.UAH,
         firstname: '',
