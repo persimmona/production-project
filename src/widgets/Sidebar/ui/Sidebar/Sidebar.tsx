@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { classNames } from 'shared/utils/classNames';
-import { useTheme } from 'shared/contexts/theme';
-import { Button } from 'shared/ui/Button';
-import { selectUserAuthData } from 'entities/User';
 import { LangSwitcher } from 'features/LangSwitcher';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
-import { sidebarItemList } from '../../model/items';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useTheme } from 'shared/contexts/theme';
+import { Button } from 'shared/ui/Button';
+import { classNames } from 'shared/utils/classNames';
+import { selectSidebarItems } from 'widgets/Sidebar/model/selectors/sidebarSelectors';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
@@ -16,16 +15,15 @@ interface SidebarProps {
 
 export const Sidebar = ({ className }: SidebarProps) => {
     const { theme } = useTheme();
-    const auth = useSelector(selectUserAuthData);
+
+    const sidebarItems = useSelector(selectSidebarItems);
 
     const [collapsed, setCollapsed] = useState(true);
     const toggleCollapse = () => {
         setCollapsed((prev) => !prev);
     };
 
-    const mainNavigation = sidebarItemList.map((item) => (
-        <SidebarItem collapsed={collapsed} item={item} theme={theme} key={item.path} isVisible={item.authOnly ? !!auth : true} />
-    ));
+    const mainNavigation = sidebarItems.map((item) => <SidebarItem collapsed={collapsed} item={item} theme={theme} key={item.path} />);
 
     return (
         <div className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])} data-testid='sidebar'>
