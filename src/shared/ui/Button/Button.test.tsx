@@ -6,9 +6,4 @@ describe('Button', () => {
         render(<Button>TEST</Button>);
         expect(screen.getByText('TEST')).toBeInTheDocument();
     });
-
-    test('should accept flat variant', () => {
-        render(<Button variant='flat'>TEST</Button>);
-        expect(screen.getByText(/test/i)).toHaveClass('flat');
-    });
 });

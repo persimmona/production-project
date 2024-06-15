@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { getDarkThemeBackground } from 'shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from 'shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
@@ -25,13 +26,13 @@ export default {
 const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
 
 export const Light = Template.bind({});
-Light.decorators = [];
+Light.decorators = [RouterDecorator()];
 Light.parameters = {
     backgrounds: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [RouterDecorator(), ThemeDecorator(Theme.DARK)];
 Dark.parameters = {
     backgrounds: getDarkThemeBackground(),
 };
