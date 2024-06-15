@@ -7,7 +7,7 @@ import { Theme } from 'shared/contexts/theme';
 import { CommentCard } from './CommentCard';
 
 export default {
-    title: 'pages/CommentCard',
+    title: 'entities/Comment/CommentCard',
     component: CommentCard,
     argTypes: {},
     args: {

@@ -8,11 +8,12 @@ import {
     selectArticleIsLoading,
 } from 'entities/Article';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { useCallback } from 'react';
+import { Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Header } from 'shared/ui/Header';
+import { Loader } from 'shared/ui/Loader';
 import { P } from 'shared/ui/P';
 import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
@@ -53,12 +54,12 @@ const ArticleDetailsPage = () => {
     if (!article || articleError) return <P color='error'>{t('server_error')}</P>;
 
     return (
-        <div>
+        <Suspense fallback={<Loader />}>
             <ArticleDetails article={article} />
             <Header tag='h2'>{t('comments')}</Header>
             <AddCommentForm onCommentAdd={onCommentAdd} />
             <ArticleCommentList articleId={id} />
-        </div>
+        </Suspense>
     );
 };
 
