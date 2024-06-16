@@ -1,7 +1,7 @@
-import { classNames } from 'shared/utils/classNames';
-import cls from './TextBlock.module.scss';
 import { Header } from 'shared/ui/Header';
 import { P } from 'shared/ui/P';
+import { classNames } from 'shared/utils/classNames';
+import cls from './TextBlock.module.scss';
 
 interface TextBlockProps {
     paragraphs: string[];

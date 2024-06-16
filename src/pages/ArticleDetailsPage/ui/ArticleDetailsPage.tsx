@@ -12,6 +12,8 @@ import { Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { AppRoutes, AppRoutesPath } from 'shared/const/routes';
+import { AppLink, AppLinkColor } from 'shared/ui/AppLink';
 import { Header } from 'shared/ui/Header';
 import { Loader } from 'shared/ui/Loader';
 import { P } from 'shared/ui/P';
@@ -54,12 +56,17 @@ const ArticleDetailsPage = () => {
     if (!article || articleError) return <P color='error'>{t('server_error')}</P>;
 
     return (
-        <Suspense fallback={<Loader />}>
+        <>
+            <AppLink to={AppRoutesPath[AppRoutes.ARTICLES]} color={AppLinkColor.TEXT}>
+                {t('back_to_articles')}
+            </AppLink>
             <ArticleDetails article={article} />
             <Header tag='h2'>{t('comments')}</Header>
-            <AddCommentForm onCommentAdd={onCommentAdd} />
+            <Suspense fallback={<Loader />}>
+                <AddCommentForm onCommentAdd={onCommentAdd} />
+            </Suspense>
             <ArticleCommentList articleId={id} />
-        </Suspense>
+        </>
     );
 };
 

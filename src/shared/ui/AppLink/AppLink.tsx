@@ -4,6 +4,7 @@ import { classNames } from 'shared/utils/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkColor {
+    TEXT = 'text',
     PRIMARY = 'primary',
     PRIMARY_INVERTED = 'primary-inverted',
     SECONDARY = 'secondary',

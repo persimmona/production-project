@@ -1,5 +1,6 @@
 {
   "not_found": "Sorry, we cannot find this article",
   "server_error": "Sorry, we cannot load this article",
-  "comments": "Comments"
+  "comments": "Comments",
+  "back_to_articles": "Back to articles"
 }

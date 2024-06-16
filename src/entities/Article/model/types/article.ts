@@ -1,3 +1,5 @@
+import { User } from 'entities/User';
+
 export enum ArticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
@@ -43,6 +45,7 @@ export interface Article {
     createdAt: string;
     type: ArticleType[];
     blocks: ArticleBlock[];
+    user: User;
 }
 
 export interface ArticleSchema {
@@ -50,3 +53,10 @@ export interface ArticleSchema {
     data?: Article;
     error?: string;
 }
+
+export const ARTICLE_LAYOUT = {
+    GRID: 'grid',
+    LIST: 'list',
+} as const;
+
+export type ArticleLayout = (typeof ARTICLE_LAYOUT)[keyof typeof ARTICLE_LAYOUT];

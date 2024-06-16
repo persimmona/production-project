@@ -5,3 +5,4 @@ node_modules
 global.js
 !storybook
 scripts
+/.fttemplates
