@@ -7,6 +7,7 @@ import { UserSchema } from 'entities/User';
 import { AddCommnetFormSchema } from 'features/AddCommentForm';
 import { LoginFormSchema } from 'features/AuthByUsername';
 import { ProfileFormSchema } from 'features/EditableProfile';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ArticleCommentListSchema } from 'widgets/ArticleCommentList';
 
 export interface RootSchema extends AsyncSchema {
@@ -22,6 +23,7 @@ export interface AsyncSchema {
     article?: ArticleSchema;
     articleCommentList?: ArticleCommentListSchema;
     addCommentForm?: AddCommnetFormSchema;
+    articlesPage?: ArticlesPageSchema;
 }
 
 export type AsyncSchemaKey = keyof AsyncSchema;

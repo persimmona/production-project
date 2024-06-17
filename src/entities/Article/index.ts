@@ -1,3 +1,4 @@
+export { ARTICLE_LAYOUT, ArticleLayout } from 'entities/Article/model/types/article';
 export { articleActions, articleReducer } from './model/slice/articleSlice';
 export { fetchArticleById } from './model/services/fetchArticleById';
 export { selectArticleData } from './model/selectors/selectArticleData';
