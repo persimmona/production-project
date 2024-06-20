@@ -1,6 +1,6 @@
-import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { RootSchema } from 'app/providers/store';
-import { ARTICLE_LAYOUT, Article } from 'entities/Article';
+import { ARTICLE_LAYOUT, Article, ArticleLayout } from 'entities/Article';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList';
 import { ArticlesPageSchema } from '../../model/types/articlesPage';
 
@@ -22,7 +22,9 @@ const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
     initialState,
     reducers: {
-        setLayout: () => {},
+        setLayout: (state, action: PayloadAction<ArticleLayout>) => {
+            state.layout = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -42,3 +44,4 @@ const articlesPageSlice = createSlice({
 });
 
 export const { reducer: articlesPageReducer } = articlesPageSlice;
+export const { actions: articlesPageActions } = articlesPageSlice;
