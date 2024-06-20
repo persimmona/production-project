@@ -17,6 +17,7 @@ import { AppLink, AppLinkColor } from 'shared/ui/AppLink';
 import { Header } from 'shared/ui/Header';
 import { Loader } from 'shared/ui/Loader';
 import { P } from 'shared/ui/P';
+import { Page } from 'shared/ui/Page/Page';
 import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
@@ -56,7 +57,7 @@ const ArticleDetailsPage = () => {
     if (!article || articleError) return <P color='error'>{t('server_error')}</P>;
 
     return (
-        <>
+        <Page>
             <AppLink to={AppRoutesPath[AppRoutes.ARTICLES]} color={AppLinkColor.TEXT}>
                 {t('back_to_articles')}
             </AppLink>
@@ -66,7 +67,7 @@ const ArticleDetailsPage = () => {
                 <AddCommentForm onCommentAdd={onCommentAdd} />
             </Suspense>
             <ArticleCommentList articleId={id} />
-        </>
+        </Page>
     );
 };
 

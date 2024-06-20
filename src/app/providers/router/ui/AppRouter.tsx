@@ -54,11 +54,7 @@ export const AppRouter = () => {
                     path={path}
                     element={
                         <GuardedRoute key={path} isRouteHidden={authOnly && !auth}>
-                            <Suspense fallback={<PageLoader />}>
-                                <div className='page-wrapper'>
-                                    <div className='page-width'>{element}</div>
-                                </div>
-                            </Suspense>
+                            <Suspense fallback={<PageLoader />}>{element}</Suspense>
                         </GuardedRoute>
                     }
                 />

@@ -2,6 +2,7 @@ import { ArticleLayout, ArticleList } from 'entities/Article';
 import { ArticleLayoutSelector } from 'features/ArticleLayoutSelector/ArticleLayoutSelector';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { Page } from 'shared/ui/Page/Page';
 import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
@@ -34,10 +35,10 @@ const ArticlesPage = () => {
     );
 
     return (
-        <div className={cls.articlesPage}>
+        <Page className={cls.articlesPage}>
             <ArticleLayoutSelector onLayoutChange={handleLayoutChange} selectedLayout={layout} className={cls.selector} />
             <ArticleList articles={articles} isLoading={isLoading} layout={layout} />
-        </div>
+        </Page>
     );
 };
 

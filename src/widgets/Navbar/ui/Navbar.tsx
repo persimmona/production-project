@@ -1,14 +1,15 @@
+import { selectUserAuthData, userActions } from 'entities/User';
+import { LoginFormAsync } from 'features/AuthByUsername';
 import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useVisibility } from 'shared/utils/useVisibility';
-import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
-import { classNames } from 'shared/utils/classNames/classNames';
 import { Button } from 'shared/ui/Button';
 import { Loader } from 'shared/ui/Loader';
 import { Modal } from 'shared/ui/Modal';
-import { selectUserAuthData, userActions } from 'entities/User';
-import { LoginFormAsync } from 'features/AuthByUsername';
+import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
+import { classNames } from 'shared/utils/classNames/classNames';
+import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
+import { useVisibility } from 'shared/utils/useVisibility';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -31,16 +32,16 @@ export const Navbar = ({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
-                <div className={classNames(cls.inner, {}, ['page-width'])}>
+                <PageContainer className={cls.inner}>
                     <Button onClick={() => dispatch(userActions.logout())}>{t('navbar.sign_out')}</Button>
-                </div>
+                </PageContainer>
             </div>
         );
     }
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
-            <div className={classNames(cls.inner, {}, ['page-width'])}>
+            <PageContainer className={cls.inner}>
                 <div className={cls.links}></div>
                 <Button onClick={openLoginModal}>{t('navbar.sign_in')}</Button>
 
@@ -51,7 +52,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                         </Suspense>
                     </Modal>
                 )}
-            </div>
+            </PageContainer>
         </div>
     );
 };
