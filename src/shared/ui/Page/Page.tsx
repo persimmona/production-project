@@ -12,8 +12,8 @@ function PageWithRef(props: PageProps, ref: ForwardedRef<HTMLDivElement>) {
     const { className, children } = props;
 
     return (
-        <div ref={ref} className={classNames(cls.page, {}, [className])}>
-            <PageContainer>{children}</PageContainer>
+        <div ref={ref} className={cls.page}>
+            <PageContainer className={className}>{children}</PageContainer>
         </div>
     );
 }

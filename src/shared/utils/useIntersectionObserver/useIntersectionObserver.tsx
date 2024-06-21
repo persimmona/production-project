@@ -2,15 +2,15 @@ import { MutableRefObject, useEffect } from 'react';
 
 export interface UseIntersectionObserverOptions {
     callback: () => void;
-    triggerRef: MutableRefObject<HTMLElement>;
-    wrapperRef?: MutableRefObject<HTMLElement>;
+    triggerRef: MutableRefObject<HTMLElement | null>;
+    wrapperRef: MutableRefObject<HTMLElement | null>;
 }
 
 export function useIntersectionObserver(options: UseIntersectionObserverOptions) {
     const { callback, triggerRef, wrapperRef } = options;
 
     useEffect(() => {
-        const wrapperElement = wrapperRef?.current ?? document.body;
+        const wrapperElement = wrapperRef?.current;
         const triggerElement = triggerRef.current;
 
         const options: IntersectionObserverInit = {
@@ -24,10 +24,14 @@ export function useIntersectionObserver(options: UseIntersectionObserverOptions)
             }
         }, options);
 
-        observer.observe(triggerElement);
+        if (triggerElement) {
+            observer.observe(triggerElement);
+        }
 
         return () => {
-            observer.disconnect();
+            if (triggerElement) {
+                observer.disconnect();
+            }
         };
     }, [callback, triggerRef, wrapperRef]);
 }
