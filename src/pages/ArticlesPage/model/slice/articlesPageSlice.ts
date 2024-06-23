@@ -52,7 +52,7 @@ const articlesPageSlice = createSlice({
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 articlesPageAdapter.addMany(state, action.payload);
                 state.isLoading = false;
-                state.pagination.hasMore = !!action.payload.length;
+                state.pagination.hasMore = action.payload.length === state.pagination.limit;
             });
     },
 });

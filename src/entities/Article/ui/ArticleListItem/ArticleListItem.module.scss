@@ -21,7 +21,7 @@
     cursor: pointer;
 
     &:hover {
-        img {
+        .img {
             transform: scale(1.1);
 
             transition: all 0.2s ease;
@@ -38,10 +38,13 @@
         position: relative;
 
         margin-bottom: 8px;
+    }
 
-        & > img {
-            width: 100%;
-        }
+    .img {
+        width: 100%;
+        height: 200px;
+
+        object-fit: cover;
     }
 
     .contentWrapper {

@@ -40,7 +40,7 @@ export function ArticleListItem(props: ArticleListItemProps) {
             <AppLink to={AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + article.id} color={AppLinkColor.TEXT}>
                 <Card className={classNames(cls.grid, {}, [cls.articleListItem, className])}>
                     <div className={cls.imageWrapper}>
-                        <img src={article.img} alt={article.title} />
+                        <img className={cls.img} src={article.img} alt={article.title} />
                         <P className={cls.createdAt}>{article.createdAt}</P>
                     </div>
                     <div className={cls.contentWrapper}>
