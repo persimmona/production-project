@@ -12,8 +12,8 @@ interface AvatarProps {
 
 export const Avatar = ({ src, variant, size, alt, className }: AvatarProps) => {
     return (
-        <div className={classNames(cls.avatarWrapper, {}, [className, cls[variant], cls[size]])}>
+        <span className={classNames(cls.avatarWrapper, {}, [className, cls[variant], cls[size]])}>
             <Image alt={alt} src={src} />
-        </div>
+        </span>
     );
 };

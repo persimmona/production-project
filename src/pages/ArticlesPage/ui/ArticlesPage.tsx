@@ -30,7 +30,7 @@ const ArticlesPage = () => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const { hasMore } = useSelector(selectArticlesPagePagination);
 
-    useReducersDynamicLoader(reducers);
+    useReducersDynamicLoader(reducers, true);
 
     const dispatch = useAppDispatch();
 
