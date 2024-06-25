@@ -9,6 +9,7 @@ export function createReducerManager(rootReducers: ReducersMapObject<RootSchema>
     let keysToRemove: AsyncSchemaKey[] = [];
 
     return {
+        getReducerMap: () => reducers,
         reduce: (state: RootSchema, action: AnyAction) => {
             if (keysToRemove.length > 0) {
                 state = { ...state };

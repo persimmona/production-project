@@ -30,13 +30,15 @@ const ArticlesPage = () => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const { hasMore } = useSelector(selectArticlesPagePagination);
 
-    useReducersDynamicLoader(reducers, true);
+    useReducersDynamicLoader(reducers, false);
 
     const dispatch = useAppDispatch();
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({ page: 1 }));
+        if (!articles.length) {
+            dispatch(articlesPageActions.initState());
+            dispatch(fetchArticlesList({ page: 1 }));
+        }
     });
 
     const onLoadMoreArticles = useCallback(() => {

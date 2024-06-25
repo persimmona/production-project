@@ -1,4 +1,4 @@
-import { AnyAction, CombinedState, EnhancedStore, Reducer } from '@reduxjs/toolkit';
+import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AppDispatch } from 'app/providers/store/config/store';
 import { AxiosInstance } from 'axios';
 import { ArticleSchema } from 'entities/Article';
@@ -29,6 +29,7 @@ export interface AsyncSchema {
 export type AsyncSchemaKey = keyof AsyncSchema;
 
 export interface ReducerManager {
+    getReducerMap: () => ReducersMapObject<RootSchema>;
     reduce: (state: RootSchema, action: AnyAction) => CombinedState<RootSchema>;
     add: (key: AsyncSchemaKey, reducer: Reducer) => void;
     remove: (key: AsyncSchemaKey) => void;

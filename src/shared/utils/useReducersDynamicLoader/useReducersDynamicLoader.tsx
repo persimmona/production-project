@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
-import { useStore } from 'react-redux';
 import { AsyncSchemaKey, StoreWithReducerManager } from 'app/providers/store';
+import { useEffect } from 'react';
+import { useStore } from 'react-redux';
 import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 
 export type ReducersList = {
@@ -13,11 +13,15 @@ export const useReducersDynamicLoader = (reducersList: ReducersList, removeAfter
     const dispatch = useAppDispatch();
 
     useEffect(() => {
+        const reducerMap = store.reducerManager.getReducerMap();
         const reducersEntries = Object.entries(reducersList);
 
         reducersEntries.forEach(([key, reducer]) => {
-            store.reducerManager.add(key as AsyncSchemaKey, reducer);
-            dispatch({ type: `@INIT ${key} reducer` });
+            const mountedReducer = reducerMap[key as AsyncSchemaKey];
+            if (!mountedReducer) {
+                store.reducerManager.add(key as AsyncSchemaKey, reducer);
+                dispatch({ type: `@INIT ${key} reducer` });
+            }
         });
 
         return () => {

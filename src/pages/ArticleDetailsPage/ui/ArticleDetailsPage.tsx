@@ -52,9 +52,19 @@ const ArticleDetailsPage = () => {
 
     if (!id) return <P color='error'>{t('not_found')}</P>;
 
-    if (isLoading) return <ArticleSkeleton />;
+    if (isLoading)
+        return (
+            <Page>
+                <ArticleSkeleton />
+            </Page>
+        );
 
-    if (!article || articleError) return <P color='error'>{t('server_error')}</P>;
+    if (!article || articleError)
+        return (
+            <Page>
+                <P color='error'>{t('server_error')}</P>
+            </Page>
+        );
 
     return (
         <Page>
