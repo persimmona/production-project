@@ -1,10 +1,10 @@
-export { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-export { ARTICLE_LAYOUT, ArticleLayout } from 'entities/Article/model/types/article';
-export { articleActions, articleReducer } from './model/slice/articleSlice';
-export { fetchArticleById } from './model/services/fetchArticleById';
 export { selectArticleData } from './model/selectors/selectArticleData';
 export { selectArticleError } from './model/selectors/selectArticleError';
 export { selectArticleIsLoading } from './model/selectors/selectArticleIsLoading';
-export { ArticleSchema, Article, ArticleType, ArticleBlockType } from './model/types/article';
+export { fetchArticleById } from './model/services/fetchArticleById';
+export { articleActions, articleReducer } from './model/slice/articleSlice';
+export { ARTICLE_LAYOUT, Article, ArticleBlockType, ArticleLayout, ArticleSchema, ArticleType } from './model/types/article';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
+export { ArticleLayoutSelector } from './ui/ArticleLayoutSelector/ArticleLayoutSelector';
+export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleSkeleton } from './ui/ArticleSkeleton/ArticleSkeleton';

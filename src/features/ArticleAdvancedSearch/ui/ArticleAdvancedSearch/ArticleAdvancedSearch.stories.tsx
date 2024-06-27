@@ -6,7 +6,7 @@ import { Theme } from 'shared/contexts/theme';
 import { ArticleAdvancedSearch } from './ArticleAdvancedSearch';
 
 export default {
-    title: 'shared/ArticleAdvancedSearch',
+    title: 'features/ArticleAdvancedSearch',
     component: ArticleAdvancedSearch,
     argTypes: {},
 } as ComponentMeta<typeof ArticleAdvancedSearch>;

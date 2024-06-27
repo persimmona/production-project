@@ -1,5 +1,4 @@
-import { ArticleLayout, ArticleList } from 'entities/Article';
-import { ArticleLayoutSelector } from 'features/ArticleLayoutSelector/ArticleLayoutSelector';
+import { ArticleLayout, ArticleLayoutSelector, ArticleList } from 'entities/Article';
 import { useCallback, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';

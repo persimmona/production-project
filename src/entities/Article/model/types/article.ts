@@ -60,3 +60,10 @@ export const ARTICLE_LAYOUT = {
 } as const;
 
 export type ArticleLayout = (typeof ARTICLE_LAYOUT)[keyof typeof ARTICLE_LAYOUT];
+
+export const ARTICLE_SORT_FIELD = {
+    TITLE: 'title',
+    VIEWS: 'views',
+    CREATED_AT: 'createdAt',
+};
+export type ArticleSortField = (typeof ARTICLE_SORT_FIELD)[keyof typeof ARTICLE_SORT_FIELD];
