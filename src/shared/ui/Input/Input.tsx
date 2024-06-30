@@ -4,19 +4,20 @@ import cls from './Input.module.scss';
 
 type HTMLInputElementProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
-interface InputProps extends HTMLInputElementProps {
-    value: string | number;
-    onChange: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
+interface InputProps<T> extends HTMLInputElementProps {
+    uid: string;
+    value: T;
+    onChange: (uid: string, value: T) => void;
     className?: string;
     placeholder: string;
 }
 
-export const Input = ({ value, onChange, placeholder, type = 'text', className, ...props }: InputProps) => {
+export const Input = <T,>({ uid, value, onChange, placeholder, type = 'text', className, ...props }: InputProps<T>) => {
     const handleChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
-            onChange(event.target.value, event);
+            onChange(uid, event.target.value as T);
         },
-        [onChange],
+        [onChange, uid],
     );
 
     return (

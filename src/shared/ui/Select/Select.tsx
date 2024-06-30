@@ -2,23 +2,23 @@ import { ChangeEvent } from 'react';
 import { classNames } from 'shared/utils/classNames';
 import cls from './Select.module.scss';
 
-export interface SelectOption {
-    value: string;
+export interface SelectOption<T> {
+    value: T;
     label: string;
 }
 
-interface SelectProps {
-    id?: string;
-    options: SelectOption[];
-    value: string;
-    onChange: (value: string, event: ChangeEvent<HTMLSelectElement>) => void;
+interface SelectProps<T> {
+    uid: string;
+    options: SelectOption<T>[];
+    value: T;
+    onChange: (uid: string, value: T) => void;
     className?: string;
     disabled?: boolean;
 }
 
-export const Select = ({ id, options, value, onChange, className, disabled = false }: SelectProps) => {
+export const Select = <T extends string>({ uid, options, value, onChange, className, disabled = false }: SelectProps<T>) => {
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange(e.target.value, e);
+        onChange(uid, e.target.value as T);
     };
 
     const optionList = options.map(({ label, value }) => (
@@ -28,7 +28,7 @@ export const Select = ({ id, options, value, onChange, className, disabled = fal
     ));
 
     return (
-        <select id={id} value={value} onChange={handleChange} disabled={disabled} className={classNames(cls.select, {}, [className])}>
+        <select value={value} onChange={handleChange} disabled={disabled} className={classNames(cls.select, {}, [className])}>
             {optionList}
         </select>
     );

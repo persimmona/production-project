@@ -28,14 +28,14 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
     useReducersDynamicLoader(initialReducers);
 
     const handleUsername = useCallback(
-        (value: string) => {
+        (uid, value: string) => {
             dispatch(loginFormActions.setUsername(value));
         },
         [dispatch],
     );
 
     const handlePassword = useCallback(
-        (value: string) => {
+        (uid, value: string) => {
             dispatch(loginFormActions.setPassword(value));
         },
         [dispatch],
@@ -53,14 +53,14 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
             </Header>
             <form className={cls.loginForm}>
                 <Input
-                    id='login-username'
+                    uid='login-username'
                     value={username}
                     onChange={handleUsername}
                     placeholder={t('login.username')}
                     className={cls.input}
                 />
                 <Input
-                    id='login-password'
+                    uid='login-password'
                     value={password}
                     onChange={handlePassword}
                     placeholder={t('login.password')}

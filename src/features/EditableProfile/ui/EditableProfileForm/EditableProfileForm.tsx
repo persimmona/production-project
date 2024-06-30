@@ -25,7 +25,8 @@ interface EditableProfileFormProps {
     className?: string;
 }
 
-const FormElementsId: Partial<Record<keyof Profile, keyof Profile>> = {
+const FormElementsId: Record<keyof Profile, keyof Profile> = {
+    id: 'id',
     username: 'username',
     firstname: 'firstname',
     lastname: 'lastname',
@@ -34,7 +35,7 @@ const FormElementsId: Partial<Record<keyof Profile, keyof Profile>> = {
     city: 'city',
     country: 'country',
     currency: 'currency',
-};
+} as const;
 
 const reducerList: ReducersList = { profileForm: profileFormReducer };
 
@@ -51,10 +52,8 @@ const EditableProfileForm = ({ initialData, onCancel, onSubmit, className }: Edi
 
     useIntitalFormData(initialData);
 
-    const onFormDataChange = (value: string, event: ChangeEvent) => {
-        const key = event.target.id;
-
-        dispatch(profileFormActions.changeProfileForm({ [key]: value }));
+    const onFormDataChange = <T,>(uid: string, value: T) => {
+        dispatch(profileFormActions.changeProfileForm({ [uid]: value }));
     };
 
     const onFormSubmitButtonClick = async () => {
@@ -72,28 +71,28 @@ const EditableProfileForm = ({ initialData, onCancel, onSubmit, className }: Edi
     return (
         <form className={classNames(cls.editableProfileForm, {}, [className])}>
             <Input
-                id={FormElementsId.username}
+                uid={FormElementsId.username}
                 value={username}
                 onChange={onFormDataChange}
                 placeholder={t('fields.username')}
                 className={cls.input}
             />
             <Input
-                id={FormElementsId.firstname}
+                uid={FormElementsId.firstname}
                 value={firstname}
                 onChange={onFormDataChange}
                 placeholder={t('fields.firstname')}
                 className={cls.input}
             />
             <Input
-                id={FormElementsId.lastname}
+                uid={FormElementsId.lastname}
                 value={lastname}
                 onChange={onFormDataChange}
                 placeholder={t('fields.lastname')}
                 className={cls.input}
             />
             <Input
-                id={FormElementsId.age}
+                uid={FormElementsId.age}
                 type='number'
                 value={age}
                 onChange={onFormDataChange}
@@ -101,22 +100,28 @@ const EditableProfileForm = ({ initialData, onCancel, onSubmit, className }: Edi
                 className={cls.input}
             />
             <Select
-                id={FormElementsId.country}
+                uid={FormElementsId.country}
                 options={countrySelectOptions}
                 value={country}
                 onChange={onFormDataChange}
                 className={cls.input}
             />
             <Select
-                id={FormElementsId.currency}
+                uid={FormElementsId.currency}
                 options={currencySelectOptions}
                 value={currency}
                 onChange={onFormDataChange}
                 className={cls.input}
             />
-            <Input id={FormElementsId.city} value={city} onChange={onFormDataChange} placeholder={t('fields.city')} className={cls.input} />
             <Input
-                id={FormElementsId.avatar}
+                uid={FormElementsId.city}
+                value={city}
+                onChange={onFormDataChange}
+                placeholder={t('fields.city')}
+                className={cls.input}
+            />
+            <Input
+                uid={FormElementsId.avatar}
                 type='url'
                 value={avatar}
                 onChange={onFormDataChange}

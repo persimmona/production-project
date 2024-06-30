@@ -1,5 +1,6 @@
 import { classNames } from 'shared/utils/classNames';
 import cls from './ArticleSort.module.scss';
+import { Select } from 'shared/ui/Select/Select';
 
 interface ArticleSortProps {
     className?: string;
@@ -8,5 +9,9 @@ interface ArticleSortProps {
 export const ArticleSort = (props: ArticleSortProps) => {
     const { className } = props;
 
-    return <div className={classNames(cls.articleSort, {}, [className])}></div>;
+    return (
+        <div className={classNames(cls.articleSort, {}, [className])}>
+            <Select />
+        </div>
+    );
 };
