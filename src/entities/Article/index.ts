@@ -3,7 +3,7 @@ export { selectArticleError } from './model/selectors/selectArticleError';
 export { selectArticleIsLoading } from './model/selectors/selectArticleIsLoading';
 export { fetchArticleById } from './model/services/fetchArticleById';
 export { articleActions, articleReducer } from './model/slice/articleSlice';
-export { ARTICLE_LAYOUT, Article, ArticleBlockType, ArticleLayout, ArticleSchema, ArticleType } from './model/types/article';
+export * from './model/types/article';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { ArticleLayoutSelector } from './ui/ArticleLayoutSelector/ArticleLayoutSelector';
 export { ArticleList } from './ui/ArticleList/ArticleList';

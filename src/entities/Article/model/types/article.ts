@@ -58,12 +58,11 @@ export const ARTICLE_LAYOUT = {
     GRID: 'grid',
     LIST: 'list',
 } as const;
-
 export type ArticleLayout = (typeof ARTICLE_LAYOUT)[keyof typeof ARTICLE_LAYOUT];
 
 export const ARTICLE_SORT_FIELD = {
     TITLE: 'title',
     VIEWS: 'views',
     CREATED_AT: 'createdAt',
-};
+} as const;
 export type ArticleSortField = (typeof ARTICLE_SORT_FIELD)[keyof typeof ARTICLE_SORT_FIELD];
