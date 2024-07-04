@@ -5,7 +5,7 @@ export enum Currency {
     PLN = 'PLN',
 }
 
-export const currencySelectOptions: SelectOption[] = [
+export const currencySelectOptions: SelectOption<Currency>[] = [
     {
         label: Currency.UAH,
         value: Currency.UAH,

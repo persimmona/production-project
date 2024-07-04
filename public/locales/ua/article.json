@@ -2,5 +2,10 @@
   "not_found": "Вибвчте, стаття не знайдена",
   "server_error": "Вибачте, ми не можемо загрузити статтю",
   "comments": "Коментарі",
-  "back_to_articles": "Назад до статей"
+  "back_to_articles": "Назад до статей",
+  "translation": {
+    "article_sort_field": {
+      "title": "Назва"
+    }
+  }
 }

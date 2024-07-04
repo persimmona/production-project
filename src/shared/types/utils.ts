@@ -4,3 +4,5 @@ export type OptionalPropertyOf<T extends object> = Exclude<
     }[keyof T],
     undefined
 >;
+
+export type HTMLElementValue = string | number | readonly string[];

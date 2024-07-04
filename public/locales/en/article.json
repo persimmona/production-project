@@ -2,5 +2,10 @@
   "not_found": "Sorry, we cannot find this article",
   "server_error": "Sorry, we cannot load this article",
   "comments": "Comments",
-  "back_to_articles": "Back to articles"
+  "back_to_articles": "Back to articles",
+  "article_sort_field": {
+    "views": "Views",
+    "title": "Title",
+    "created_at": "Created at"
+  }
 }

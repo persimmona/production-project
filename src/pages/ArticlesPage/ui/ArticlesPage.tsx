@@ -6,15 +6,12 @@ import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
 import { useIntersectionObserver } from 'shared/utils/useIntersectionObserver/useIntersectionObserver';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
-import {
-    selectArticlesPageLayout,
-    selectArticlesPageLoading,
-    selectArticlesPagePagination,
-} from '../model/selectors/articlesPageSelectors';
+import { selectArticlesPageLayout, selectArticlesPageLoading, selectArticlesPagePagination } from '../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesList } from '../model/services/fetchNextArticlesList/fetchNextArticlesList';
 import { articlesPageActions, articlesPageReducer, articlesPageSelector } from '../model/slice/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
+import { ArticleAdvancedSearch } from 'features/ArticleAdvancedSearch';
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
@@ -46,16 +43,9 @@ const ArticlesPage = () => {
 
     useIntersectionObserver({ callback: onLoadMoreArticles, triggerRef, wrapperRef });
 
-    const handleLayoutChange = useCallback(
-        (newLayout: ArticleLayout) => {
-            dispatch(articlesPageActions.setLayout(newLayout));
-        },
-        [dispatch],
-    );
-
     return (
         <Page ref={wrapperRef} className={cls.articlesPage}>
-            <ArticleLayoutSelector onLayoutChange={handleLayoutChange} selectedLayout={layout} className={cls.selector} />
+            <ArticleAdvancedSearch />
             <ArticleList articles={articles} isLoading={isLoading} layout={layout} />
             {hasMore && <div ref={triggerRef}></div>}
         </Page>

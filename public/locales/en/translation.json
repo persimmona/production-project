@@ -22,8 +22,15 @@
   },
   "buttons": {
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "add": "Add"
   },
-  "add": "Add",
-  "read_more": "Read more..."
+  "read_more": "Read more...",
+  "sort": {
+    "asc": "ascending",
+    "desc": "descending",
+    "sort": "Sort",
+    "sort_by": "by"
+  },
+  "search": "Search"
 }

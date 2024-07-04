@@ -6,7 +6,7 @@ export enum Country {
     England = 'England',
 }
 
-export const countrySelectOptions: SelectOption[] = [
+export const countrySelectOptions: SelectOption<Country>[] = [
     {
         label: Country.Ukraine,
         value: Country.Ukraine,

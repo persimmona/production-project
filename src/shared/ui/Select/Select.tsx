@@ -1,35 +1,41 @@
 import { ChangeEvent } from 'react';
+import { HTMLElementValue } from 'shared/types/utils';
 import { classNames } from 'shared/utils/classNames';
 import cls from './Select.module.scss';
 
-export interface SelectOption<T> {
+export interface SelectOption<T extends HTMLElementValue> {
     value: T;
     label: string;
 }
 
-interface SelectProps<T> {
+interface SelectProps<T extends HTMLElementValue> {
     uid: string;
     options: SelectOption<T>[];
     value: T;
     onChange: (uid: string, value: T) => void;
+    label?: string;
     className?: string;
     disabled?: boolean;
 }
 
-export const Select = <T extends string>({ uid, options, value, onChange, className, disabled = false }: SelectProps<T>) => {
+export const Select = <T extends HTMLElementValue>(props: SelectProps<T>) => {
+    const { uid, options, value, onChange, className, label, disabled = false } = props;
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange(uid, e.target.value as T);
     };
 
     const optionList = options.map(({ label, value }) => (
-        <option key={value} value={value} className={cls.option}>
+        <option key={label} value={value} className={cls.option}>
             {label}
         </option>
     ));
 
     return (
-        <select value={value} onChange={handleChange} disabled={disabled} className={classNames(cls.select, {}, [className])}>
-            {optionList}
-        </select>
+        <div className={classNames(cls.selectWrapper, {}, [className])}>
+            {label && <label htmlFor={uid}>{label}</label>}
+            <select id={uid} value={value} onChange={handleChange} disabled={disabled} className={cls.select}>
+                {optionList}
+            </select>
+        </div>
     );
 };
