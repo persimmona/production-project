@@ -1,5 +1,5 @@
 import { ARTICLE_LAYOUT, ArticleLayout } from 'entities/Article';
-import { Pagination } from '../types/articlesPage';
+import { ArticlesAdvancedSearch, Pagination } from '../types/articlesPage';
 
 export const ARTICLES_PAGE_LIMIT: Record<ArticleLayout, number> = {
     [ARTICLE_LAYOUT.GRID]: 9,
@@ -11,3 +11,10 @@ export const DEFAULT_PAGINATION: Pagination = {
     page: 1,
     hasMore: true,
 };
+
+export const ARTICLES_PAGE_UID: Record<keyof ArticlesAdvancedSearch, keyof ArticlesAdvancedSearch> = {
+    search: 'search',
+    sortField: 'sortField',
+    sortOrder: 'sortOrder',
+    type: 'type',
+} as const;

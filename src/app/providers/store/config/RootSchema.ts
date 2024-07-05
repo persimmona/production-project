@@ -5,7 +5,6 @@ import { ArticleSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommnetFormSchema } from 'features/AddCommentForm';
-import { ArticleAdvancedSearchSchema } from 'features/ArticleAdvancedSearch';
 import { LoginFormSchema } from 'features/AuthByUsername';
 import { ProfileFormSchema } from 'features/EditableProfile';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
@@ -25,7 +24,6 @@ export interface AsyncSchema {
     articleCommentList?: ArticleCommentListSchema;
     addCommentForm?: AddCommnetFormSchema;
     articlesPage?: ArticlesPageSchema;
-    articleAdvancedSearch?: ArticleAdvancedSearchSchema;
 }
 
 export type AsyncSchemaKey = keyof AsyncSchema;

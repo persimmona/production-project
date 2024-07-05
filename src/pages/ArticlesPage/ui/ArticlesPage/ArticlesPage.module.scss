@@ -1,0 +1,25 @@
+.articlesPage {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.selector {
+    justify-content: end;
+}
+
+.articleAdvancedSearch {
+    gap: 8px;
+}
+
+.sortWrapper {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trigger {
+    height: 20px;
+    margin: 10px;
+}

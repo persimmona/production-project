@@ -2,16 +2,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { RootSchema, ThunkConfig } from 'app/providers/store/config/RootSchema';
 import { Article } from 'entities/Article';
 import { DEFAULT_PAGINATION } from '../../const/defaults';
-import { selectArticlesPagePagination } from '../../selectors/articlesPageSelectors';
+import {
+    selectArticlesPagePagination,
+    selectArticlesPageSearch,
+    selectArticlesPageSortField,
+    selectArticlesPageSortOrder,
+} from '../../selectors/articlesPageSelectors';
 
-type Args = {
-    page: number;
-};
-
-export const fetchArticlesList = createAsyncThunk<Article[], Args, ThunkConfig<string>>(
+export const fetchArticlesList = createAsyncThunk<Article[], void, ThunkConfig<string>>(
     'articlesPage/fetchArticlesList',
-    async (args, thunkApi) => {
+    async (_, thunkApi) => {
         const { extra, rejectWithValue, getState } = thunkApi;
+
+        const sortOrder = selectArticlesPageSortOrder(getState() as RootSchema);
+        const sortField = selectArticlesPageSortField(getState() as RootSchema);
+        const search = selectArticlesPageSearch(getState() as RootSchema);
         const pagination = selectArticlesPagePagination(getState() as RootSchema);
 
         try {
@@ -19,7 +24,10 @@ export const fetchArticlesList = createAsyncThunk<Article[], Args, ThunkConfig<s
                 params: {
                     _expand: 'user',
                     _limit: pagination.limit,
-                    _page: args.page ?? DEFAULT_PAGINATION.page,
+                    _page: pagination.page ?? DEFAULT_PAGINATION.page,
+                    _sort: sortField,
+                    _order: sortOrder,
+                    q: search,
                 },
             });
 

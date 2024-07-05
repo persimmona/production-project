@@ -5,21 +5,22 @@ import { SORT_ORDER, SortOrder } from 'shared/const/common';
 import { P } from 'shared/ui/P';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { classNames } from 'shared/utils/classNames';
-import { ARTCLE_ADVANCED_SEARCH_UID } from '../../model/const/articleAdvancedSearchConst';
-import { selectArticleAdvancedSearchState } from '../../model/selectors/articleAdvancedSearchSelectors';
-import { ArticleAdvancedSearchKeys, ArticleAdvancedSearchSchema } from '../../model/types/articleAdvancedSearch';
+import { ARTICLES_PAGE_UID } from '../../model/const/defaults';
+import { selectArticlesPageSortField, selectArticlesPageSortOrder } from '../../model/selectors/articlesPageSelectors';
+import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
 import cls from './ArticleSort.module.scss';
 
 interface ArticleSortProps {
     className?: string;
-    onChange: <T extends ArticleAdvancedSearchKeys>(uid: string, value: ArticleAdvancedSearchSchema[T]) => void;
+    onChange: <T extends keyof ArticlesAdvancedSearch>(uid: string, value: ArticlesAdvancedSearch[T]) => void;
 }
 
 export const ArticleSort = (props: ArticleSortProps) => {
     const { className, onChange } = props;
     const { t } = useTranslation(['translation', 'article']);
 
-    const { sortField, sortOrder } = useSelector(selectArticleAdvancedSearchState);
+    const sortField = useSelector(selectArticlesPageSortField);
+    const sortOrder = useSelector(selectArticlesPageSortOrder);
 
     const sortFieldOptions: SelectOption<ArticleSortField>[] = [
         {
@@ -50,9 +51,9 @@ export const ArticleSort = (props: ArticleSortProps) => {
     return (
         <div className={classNames(cls.articleSort, {}, [className])}>
             <P>{t('sort.sort')}</P>
-            <Select uid={ARTCLE_ADVANCED_SEARCH_UID.sortField} onChange={onChange} options={sortFieldOptions} value={sortField} />
+            <Select uid={ARTICLES_PAGE_UID.sortField} onChange={onChange} options={sortFieldOptions} value={sortField} />
             <P>{t('sort.sort_by')}</P>
-            <Select uid={ARTCLE_ADVANCED_SEARCH_UID.sortOrder} onChange={onChange} options={sortOrderOptions} value={sortOrder} />
+            <Select uid={ARTICLES_PAGE_UID.sortOrder} onChange={onChange} options={sortOrderOptions} value={sortOrder} />
         </div>
     );
 };

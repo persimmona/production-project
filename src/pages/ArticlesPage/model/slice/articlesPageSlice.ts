@@ -1,8 +1,9 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { RootSchema } from 'app/providers/store';
-import { ARTICLE_LAYOUT, Article, ArticleLayout } from 'entities/Article';
+import { ARTICLE_LAYOUT, ARTICLE_SORT_FIELD, Article, ArticleLayout } from 'entities/Article';
+import { SORT_ORDER } from 'shared/const/common';
 import { ARTICLES_PAGE_LAYOUT } from 'shared/const/localstorage';
-import { ArticlesPageSchema } from '../../model/types/articlesPage';
+import { ArticlesAdvancedSearch, ArticlesPageSchema } from '../../model/types/articlesPage';
 import { ARTICLES_PAGE_LIMIT, DEFAULT_PAGINATION } from '../const/defaults';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
@@ -12,13 +13,22 @@ export const articlesPageSelector = articlesPageAdapter.getSelectors<RootSchema>
     (state) => state.articlesPage || articlesPageAdapter.getInitialState(),
 );
 
-const initialState: ArticlesPageSchema = {
+export const initialState: ArticlesPageSchema = {
     error: undefined,
     isLoading: false,
     entities: {},
     ids: [],
     layout: ARTICLE_LAYOUT.GRID,
     pagination: DEFAULT_PAGINATION,
+    search: '',
+    sortOrder: SORT_ORDER.ASC,
+    sortField: ARTICLE_SORT_FIELD.TITLE,
+    type: null,
+};
+
+type UpdateStateValuePayload<T extends keyof ArticlesAdvancedSearch> = {
+    uid: T;
+    value: ArticlesAdvancedSearch[T];
 };
 
 const articlesPageSlice = createSlice({
@@ -29,6 +39,12 @@ const articlesPageSlice = createSlice({
             state.layout = action.payload;
             localStorage.setItem(ARTICLES_PAGE_LAYOUT, action.payload);
             state.pagination.limit = ARTICLES_PAGE_LIMIT[action.payload];
+        },
+        setAdvancedSearchValue: <T extends keyof ArticlesAdvancedSearch>(
+            state: ArticlesAdvancedSearch,
+            action: PayloadAction<UpdateStateValuePayload<T>>,
+        ) => {
+            state[action.payload.uid] = action.payload.value;
         },
         initState: (state) => {
             const layout = localStorage.getItem(ARTICLES_PAGE_LAYOUT) as ArticleLayout;
@@ -48,9 +64,16 @@ const articlesPageSlice = createSlice({
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.error = action.payload;
                 state.isLoading = false;
+                if (state.pagination.page === 1) {
+                    articlesPageAdapter.removeAll(state);
+                }
             })
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
-                articlesPageAdapter.addMany(state, action.payload);
+                if (state.pagination.page === 1) {
+                    articlesPageAdapter.setAll(state, action.payload);
+                } else {
+                    articlesPageAdapter.addMany(state, action.payload);
+                }
                 state.isLoading = false;
                 state.pagination.hasMore = action.payload.length === state.pagination.limit;
             });
