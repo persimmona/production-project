@@ -16,6 +16,7 @@ import { articlesPageActions, articlesPageReducer, articlesPageSelector } from '
 import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
 import { ArticleSort } from '../../ui/ArticleSort/ArticleSort';
 import cls from './ArticlesPage.module.scss';
+import { useDebounce } from 'shared/utils/useDebounce/useDebounce';
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
@@ -48,6 +49,11 @@ const ArticlesPage = () => {
 
     useIntersectionObserver({ callback: onLoadMoreArticles, triggerRef, wrapperRef });
 
+    const fetchData = useCallback(() => {
+        dispatch(fetchArticlesList());
+    }, [dispatch]);
+    const debouncedFetchArticleList = useDebounce(fetchData, 300);
+
     const handleLayoutChange = useCallback(
         (layout: ArticleLayout) => {
             dispatch(articlesPageActions.setLayout(layout));
@@ -58,7 +64,7 @@ const ArticlesPage = () => {
     const handleFilterChange = <T extends keyof ArticlesAdvancedSearch>(uid: string, value: ArticlesAdvancedSearch[T]) => {
         dispatch(articlesPageActions.setAdvancedSearchValue({ uid: uid as T, value }));
         dispatch(articlesPageActions.setPage(1));
-        dispatch(fetchArticlesList());
+        debouncedFetchArticleList();
     };
 
     return (
