@@ -2,9 +2,11 @@ import { ArticleLayout, ArticleLayoutSelector, ArticleList } from 'entities/Arti
 import { useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { Input } from 'shared/ui/Input';
 import { Page } from 'shared/ui/Page/Page';
 import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
+import { useDebounce } from 'shared/utils/useDebounce/useDebounce';
 import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
 import { useIntersectionObserver } from 'shared/utils/useIntersectionObserver/useIntersectionObserver';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
@@ -16,7 +18,6 @@ import { articlesPageActions, articlesPageReducer, articlesPageSelector } from '
 import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
 import { ArticleSort } from '../../ui/ArticleSort/ArticleSort';
 import cls from './ArticlesPage.module.scss';
-import { useDebounce } from 'shared/utils/useDebounce/useDebounce';
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
@@ -36,9 +37,10 @@ const ArticlesPage = () => {
 
     useReducersDynamicLoader(reducers, false);
 
+    const [searchParams, setSearchParams] = useSearchParams();
     useInitialEffect(() => {
         if (!articles.length) {
-            dispatch(articlesPageActions.initState());
+            dispatch(articlesPageActions.initState(searchParams));
             dispatch(fetchArticlesList());
         }
     });
@@ -52,7 +54,7 @@ const ArticlesPage = () => {
     const fetchData = useCallback(() => {
         dispatch(fetchArticlesList());
     }, [dispatch]);
-    const debouncedFetchArticleList = useDebounce(fetchData, 300);
+    const debouncedFetchArticleList = useDebounce(fetchData, 500);
 
     const handleLayoutChange = useCallback(
         (layout: ArticleLayout) => {
@@ -61,11 +63,20 @@ const ArticlesPage = () => {
         [dispatch],
     );
 
-    const handleFilterChange = <T extends keyof ArticlesAdvancedSearch>(uid: string, value: ArticlesAdvancedSearch[T]) => {
-        dispatch(articlesPageActions.setAdvancedSearchValue({ uid: uid as T, value }));
-        dispatch(articlesPageActions.setPage(1));
-        debouncedFetchArticleList();
-    };
+    const handleFilterChange = useCallback(
+        <T extends keyof ArticlesAdvancedSearch>(uid: string, value: ArticlesAdvancedSearch[T]) => {
+            dispatch(articlesPageActions.setAdvancedSearchValue({ uid: uid as T, value }));
+            if (searchParams.has(uid) && !value) {
+                searchParams.delete(uid);
+            } else {
+                searchParams.set(uid, value ?? '');
+            }
+            setSearchParams(searchParams);
+            dispatch(articlesPageActions.setPage(1));
+            debouncedFetchArticleList();
+        },
+        [debouncedFetchArticleList, dispatch, setSearchParams],
+    );
 
     return (
         <Page ref={wrapperRef} className={cls.articlesPage}>

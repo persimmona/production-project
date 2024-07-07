@@ -1,7 +1,7 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { RootSchema } from 'app/providers/store';
-import { ARTICLE_LAYOUT, ARTICLE_SORT_FIELD, Article, ArticleLayout } from 'entities/Article';
-import { SORT_ORDER } from 'shared/const/common';
+import { ARTICLE_LAYOUT, ARTICLE_SORT_FIELD, Article, ArticleLayout, ArticleSortField } from 'entities/Article';
+import { SORT_ORDER, SortOrder } from 'shared/const/common';
 import { ARTICLES_PAGE_LAYOUT } from 'shared/const/localstorage';
 import { ArticlesAdvancedSearch, ArticlesPageSchema } from '../../model/types/articlesPage';
 import { ARTICLES_PAGE_LIMIT, DEFAULT_PAGINATION } from '../const/defaults';
@@ -46,10 +46,18 @@ const articlesPageSlice = createSlice({
         ) => {
             state[action.payload.uid] = action.payload.value;
         },
-        initState: (state) => {
+        initState: (state, action: PayloadAction<URLSearchParams>) => {
+            const sortOrder = action.payload.get('sortOrder');
+            const sortField = action.payload.get('sortField');
+            const search = action.payload.get('search');
             const layout = localStorage.getItem(ARTICLES_PAGE_LAYOUT) as ArticleLayout;
+
             state.layout = layout;
             state.pagination.limit = ARTICLES_PAGE_LIMIT[layout];
+
+            if (sortOrder) state.sortOrder = sortOrder as SortOrder;
+            if (sortField) state.sortField = sortField as ArticleSortField;
+            if (search) state.search = search;
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.pagination.page = action.payload;
