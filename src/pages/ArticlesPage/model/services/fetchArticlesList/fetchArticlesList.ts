@@ -7,6 +7,7 @@ import {
     selectArticlesPageSearch,
     selectArticlesPageSortField,
     selectArticlesPageSortOrder,
+    selectArticlesPageType,
 } from '../../selectors/articlesPageSelectors';
 
 export const fetchArticlesList = createAsyncThunk<Article[], void, ThunkConfig<string>>(
@@ -17,6 +18,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], void, ThunkConfig<s
         const sortOrder = selectArticlesPageSortOrder(getState() as RootSchema);
         const sortField = selectArticlesPageSortField(getState() as RootSchema);
         const search = selectArticlesPageSearch(getState() as RootSchema);
+        const type = selectArticlesPageType(getState() as RootSchema);
         const pagination = selectArticlesPagePagination(getState() as RootSchema);
 
         try {
@@ -27,6 +29,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], void, ThunkConfig<s
                     _page: pagination.page ?? DEFAULT_PAGINATION.page,
                     _sort: sortField,
                     _order: sortOrder,
+                    type,
                     q: search,
                 },
             });

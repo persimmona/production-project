@@ -7,5 +7,10 @@
     "views": "Views",
     "title": "Title",
     "created_at": "Created at"
+  },
+  "type": {
+    "it": "IT",
+    "economics": "Economics",
+    "science": "Science"
   }
 }

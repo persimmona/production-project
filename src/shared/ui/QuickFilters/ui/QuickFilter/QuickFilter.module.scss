@@ -1,0 +1,19 @@
+.quickFilter {
+    width: fit-content;
+    padding: 8px 16px;
+
+    color: var(--color-secondary);
+
+    border: 2px solid var(--color-secondary);
+    border-radius: var(--border-radius-default);
+
+    cursor: pointer;
+
+    transition: all 0.2s;
+}
+
+.selected {
+    color: var(--color-secondary-inverted);
+
+    background-color: var(--color-secondary);
+}

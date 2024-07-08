@@ -16,7 +16,8 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import { fetchNextArticlesList } from '../../model/services/fetchNextArticlesList/fetchNextArticlesList';
 import { articlesPageActions, articlesPageReducer, articlesPageSelector } from '../../model/slice/articlesPageSlice';
 import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
-import { ArticleSort } from '../../ui/ArticleSort/ArticleSort';
+import { ArticlesQuickFilters } from '../ArticlesQuickFilters/ArticlesQuickFilters';
+import { ArticlesSort } from '../ArticlesSort/ArticlesSort';
 import cls from './ArticlesPage.module.scss';
 
 const reducers: ReducersList = {
@@ -75,17 +76,18 @@ const ArticlesPage = () => {
             dispatch(articlesPageActions.setPage(1));
             debouncedFetchArticleList();
         },
-        [debouncedFetchArticleList, dispatch, setSearchParams],
+        [debouncedFetchArticleList, dispatch, searchParams, setSearchParams],
     );
 
     return (
         <Page ref={wrapperRef} className={cls.articlesPage}>
             <div className={cls.articleAdvancedSearch}>
                 <div className={cls.sortWrapper}>
-                    <ArticleSort onChange={handleFilterChange} />
+                    <ArticlesSort onChange={handleFilterChange} />
                     <ArticleLayoutSelector onLayoutChange={handleLayoutChange} selectedLayout={layout} />
                 </div>
                 <Input uid={ARTICLES_PAGE_UID.search} placeholder={t('search')} value={search} onChange={handleFilterChange} />
+                <ArticlesQuickFilters onChange={handleFilterChange} />
             </div>
             <ArticleList articles={articles} isLoading={isLoading} layout={layout} />
             <div ref={triggerRef} className={cls.trigger}></div>

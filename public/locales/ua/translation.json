@@ -25,5 +25,12 @@
     "cancel": "Відминити"
   },
   "add": "Додати",
-  "read_more": "Читати далі..."
+  "read_more": "Читати далі...",
+  "sort": {
+    "asc": "ascending",
+    "desc": "descending",
+    "sort": "Сортувати",
+    "sort_by": "по"
+  },
+  "search": "Пошук"
 }

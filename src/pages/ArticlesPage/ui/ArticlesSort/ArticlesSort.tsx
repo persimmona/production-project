@@ -8,14 +8,14 @@ import { classNames } from 'shared/utils/classNames';
 import { ARTICLES_PAGE_UID } from '../../model/const/defaults';
 import { selectArticlesPageSortField, selectArticlesPageSortOrder } from '../../model/selectors/articlesPageSelectors';
 import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
-import cls from './ArticleSort.module.scss';
+import cls from './ArticlesSort.module.scss';
 
-interface ArticleSortProps {
+interface ArticlesSortProps {
     className?: string;
     onChange: <T extends keyof ArticlesAdvancedSearch>(uid: string, value: ArticlesAdvancedSearch[T]) => void;
 }
 
-export const ArticleSort = (props: ArticleSortProps) => {
+export const ArticlesSort = (props: ArticlesSortProps) => {
     const { className, onChange } = props;
     const { t } = useTranslation(['translation', 'article']);
 

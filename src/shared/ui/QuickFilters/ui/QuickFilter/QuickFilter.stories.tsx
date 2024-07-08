@@ -3,15 +3,19 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { getDarkThemeBackground } from 'shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from 'shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
 import { Theme } from 'shared/contexts/theme';
-import { ArticleQuickFilters } from './ArticleQuickFilters';
+import { QuickFilter } from './QuickFilter';
 
 export default {
-    title: 'entities/Article/ArticleQuickFilters',
-    component: ArticleQuickFilters,
-    args: {},
-} as ComponentMeta<typeof ArticleQuickFilters>;
+    title: 'shared/QuickFilters/QuickFilter',
+    component: QuickFilter,
+    args: {
+        value: 'science',
+        label: 'Science',
+        isSelected: false,
+    },
+} as ComponentMeta<typeof QuickFilter>;
 
-const Template: ComponentStory<typeof ArticleQuickFilters> = (args) => <ArticleQuickFilters {...args} />;
+const Template: ComponentStory<typeof QuickFilter> = (args) => <QuickFilter {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {};
