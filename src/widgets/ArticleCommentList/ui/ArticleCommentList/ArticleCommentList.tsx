@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/utils/classNames';
 import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
-import { CommentList } from 'entities/Comment';
 import { fetchCommentsByArticleId } from 'widgets/ArticleCommentList/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { selectArticleCommentListIsLoading } from '../../model/selectors/commentListSelectors';
 import { articleCommentListReducer, selectArticleCommentList } from '../../model/slice/articleCommentListSlice';
@@ -22,16 +22,13 @@ export const ArticleCommentList = ({ articleId, className }: ArticleCommentListP
     const dispatch = useAppDispatch();
 
     const comments = useSelector(selectArticleCommentList.selectAll);
-    // const commentsError = useSelector(selectArticleCommentListError);
     const commentsIsLoading = useSelector(selectArticleCommentListIsLoading);
 
     useReducersDynamicLoader(reducerList);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchCommentsByArticleId(articleId));
-        }
-    }, [dispatch, articleId]);
+    useInitialEffect(() => {
+        dispatch(fetchCommentsByArticleId(articleId));
+    });
 
     return (
         <div className={classNames(cls.articleCommentList, {}, [className])}>

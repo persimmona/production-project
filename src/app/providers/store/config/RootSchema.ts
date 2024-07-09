@@ -9,6 +9,7 @@ import { LoginFormSchema } from 'features/AuthByUsername';
 import { ProfileFormSchema } from 'features/EditableProfile';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ArticleCommentListSchema } from 'widgets/ArticleCommentList';
+import { ArticleRecommendationsSchema } from 'widgets/ArticleRecommendations';
 
 export interface RootSchema extends AsyncSchema {
     user: UserSchema;
@@ -22,6 +23,7 @@ export interface AsyncSchema {
     profileForm?: ProfileFormSchema;
     article?: ArticleSchema;
     articleCommentList?: ArticleCommentListSchema;
+    articleRecommendations?: ArticleRecommendationsSchema;
     addCommentForm?: AddCommnetFormSchema;
     articlesPage?: ArticlesPageSchema;
 }

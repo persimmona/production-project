@@ -23,6 +23,7 @@ import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
 import { ArticleCommentList } from 'widgets/ArticleCommentList';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
+import { ArticleRecommendations } from 'widgets/ArticleRecommendations';
 
 const reducers: ReducersList = {
     article: articleReducer,
@@ -41,7 +42,7 @@ const ArticleDetailsPage = () => {
 
     useInitialEffect(() => {
         if (id) dispatch(fetchArticleById(id));
-    });
+    }, [id]);
 
     const onCommentAdd = useCallback(
         (text: string) => {
@@ -69,10 +70,12 @@ const ArticleDetailsPage = () => {
     return (
         <Page>
             <AppLink to={AppRoutesPath[AppRoutes.ARTICLES]} color={AppLinkColor.TEXT}>
-                {t('back_to_articles')}
+                {t('article:back_to_articles')}
             </AppLink>
             <ArticleDetails article={article} />
-            <Header tag='h2'>{t('comments')}</Header>
+            <Header tag='h2'>{t('article:recommendations')}</Header>
+            <ArticleRecommendations />
+            <Header tag='h2'>{t('article:comments')}</Header>
             <Suspense fallback={<Loader />}>
                 <AddCommentForm onCommentAdd={onCommentAdd} />
             </Suspense>
