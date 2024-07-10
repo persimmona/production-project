@@ -1,6 +1,5 @@
 import { ForwardedRef, ReactNode, forwardRef } from 'react';
 import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
-import { classNames } from 'shared/utils/classNames';
 import cls from './Page.module.scss';
 
 interface PageProps {

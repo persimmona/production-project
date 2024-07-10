@@ -20,14 +20,6 @@
 .grid {
     cursor: pointer;
 
-    &:hover {
-        .img {
-            transform: scale(1.1);
-
-            transition: all 0.2s ease;
-        }
-    }
-
     .createdAt {
         position: absolute;
         top: 0;
@@ -51,6 +43,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+}
+
+.grid:hover {
+    .img {
+        transform: scale(1.1);
+
+        transition: all 0.2s ease;
     }
 }
 
