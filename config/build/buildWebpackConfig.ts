@@ -5,7 +5,9 @@ import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
 import { BuildOptions } from './types/config';
 
-export function buildWebpackConfig({ mode, paths, isDev, port, apiUrl, project }: BuildOptions): Configuration {
+export function buildWebpackConfig(options: BuildOptions): Configuration {
+    const { mode, paths, isDev, port } = options;
+
     return {
         mode,
         entry: paths.entry,
@@ -18,7 +20,7 @@ export function buildWebpackConfig({ mode, paths, isDev, port, apiUrl, project }
         module: {
             rules: buildLoaders(isDev),
         },
-        plugins: buildPlugins({ paths, isDev, apiUrl, project }),
+        plugins: buildPlugins(options),
         resolve: buildResolvers(paths),
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(port) : undefined,

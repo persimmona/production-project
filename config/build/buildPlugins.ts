@@ -1,11 +1,12 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { ProgressPlugin, WebpackPluginInstance, DefinePlugin, HotModuleReplacementPlugin } from 'webpack';
-import { BuildOptions } from './types/config';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { DefinePlugin, HotModuleReplacementPlugin, ProgressPlugin, WebpackPluginInstance } from 'webpack';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import { BuildOptions } from './types/config';
 
-export function buildPlugins({ apiUrl, isDev, paths, project }: Partial<BuildOptions>): WebpackPluginInstance[] {
+export function buildPlugins({ apiUrl, isDev, paths, project }: BuildOptions): WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths?.html,
@@ -19,6 +20,9 @@ export function buildPlugins({ apiUrl, isDev, paths, project }: Partial<BuildOpt
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
+        }),
+        new CopyPlugin({
+            patterns: [{ from: paths?.locales, to: paths?.buildLocales }],
         }),
     ];
 
