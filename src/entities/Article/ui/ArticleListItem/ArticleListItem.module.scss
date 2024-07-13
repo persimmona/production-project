@@ -46,14 +46,6 @@
     }
 }
 
-.grid:hover {
-    .img {
-        transform: scale(1.1);
-
-        transition: all 0.2s ease;
-    }
-}
-
 .list {
     .header {
         display: flex;
@@ -82,5 +74,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+}
+
+.grid:hover {
+    .img {
+        transform: scale(1.1);
+
+        transition: all 0.2s ease;
     }
 }
