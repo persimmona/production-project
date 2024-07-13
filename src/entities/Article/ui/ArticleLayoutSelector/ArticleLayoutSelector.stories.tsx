@@ -11,7 +11,7 @@ export default {
     argTypes: {},
 } as ComponentMeta<typeof ArticleLayoutSelector>;
 
-const Template: ComponentStory<typeof ArticleLayoutSelector> = (args) => <ArticleLayoutSelector { ...args } />;
+const Template: ComponentStory<typeof ArticleLayoutSelector> = (args) => <ArticleLayoutSelector {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {};

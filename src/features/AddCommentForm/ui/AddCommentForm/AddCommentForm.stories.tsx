@@ -7,9 +7,6 @@ import AddCommentForm from './AddCommentForm';
 export default {
     title: 'features/AddCommentForm',
     component: AddCommentForm,
-    args: {
-        onCommentAdd: () => {},
-    },
     argTypes: {},
     parameters: {
         backgrounds: { disable: true },

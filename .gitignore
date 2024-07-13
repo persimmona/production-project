@@ -6,3 +6,4 @@ dist
 .loki/report.json
 .fttemplates
 .vscode
+package-lock.json
