@@ -28,7 +28,8 @@
   ],
   "plugins": [
     "react",
-    "prettier"
+    "prettier",
+    "persimmona-fsd"
   ],
   "settings": {
     "react": {
@@ -77,11 +78,12 @@
           "error",
           {
             "markupOnly": true,
-            "ignoreAttribute": [
+            "ignoreAttribute": [  
               "data-testid"
             ]
           }
-        ]
+        ],
+        "persimmona-fsd/path-checker": "error"
       }
     },
     {
