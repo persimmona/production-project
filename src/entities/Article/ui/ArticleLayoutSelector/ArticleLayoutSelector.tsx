@@ -1,9 +1,9 @@
-import { ARTICLE_LAYOUT, ArticleLayout } from 'entities/Article';
 import LayoutGridIcon from 'shared/assets/icons/layoutGrid.svg';
 import LayoutListIcon from 'shared/assets/icons/layoutList.svg';
 import { Button } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon';
 import { classNames } from 'shared/utils/classNames';
+import { ARTICLE_LAYOUT, ArticleLayout } from '../../model/types/article';
 import cls from './ArticleLayoutSelector.module.scss';
 
 interface ArticleLayoutSelectorProps {

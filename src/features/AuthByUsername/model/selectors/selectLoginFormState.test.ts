@@ -1,6 +1,6 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { RootSchema } from 'app/providers/store';
-import { selectLoginFormState } from 'features/AuthByUsername/model/selectors/selectLoginFormState';
+import { selectLoginFormState } from '../../model/selectors/selectLoginFormState';
 
 test('should return correct value', () => {
     const loginFormState: DeepPartial<RootSchema> = {

@@ -1,4 +1,4 @@
-import { ArticleLayout } from 'entities/Article/model/types/article';
+import { ArticleLayout } from '../../model/types/article';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListSkeletonProps {

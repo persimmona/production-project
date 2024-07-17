@@ -1,9 +1,9 @@
-import { ARTICLE_LAYOUT, ArticleLayout } from 'entities/Article/model/types/article';
 import { Avatar } from 'shared/ui/Avatar';
 import { Card } from 'shared/ui/Card/Card';
 import { P } from 'shared/ui/P';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { classNames } from 'shared/utils/classNames';
+import { ARTICLE_LAYOUT, ArticleLayout } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {

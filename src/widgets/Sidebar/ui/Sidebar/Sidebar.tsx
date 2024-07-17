@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useTheme } from 'shared/contexts/theme';
 import { Button } from 'shared/ui/Button';
 import { classNames } from 'shared/utils/classNames';
-import { selectSidebarItems } from 'widgets/Sidebar/model/selectors/sidebarSelectors';
+import { selectSidebarItems } from '../../model/selectors/sidebarSelectors';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 

@@ -1,3 +1,4 @@
+export { articles } from './model/mock/articles';
 export { selectArticleData } from './model/selectors/selectArticleData';
 export { selectArticleError } from './model/selectors/selectArticleError';
 export { selectArticleIsLoading } from './model/selectors/selectArticleIsLoading';
