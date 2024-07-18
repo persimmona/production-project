@@ -13,7 +13,7 @@ interface CommentCardProps {
 
 export const CommentCard = ({ comment, className }: CommentCardProps) => {
     return (
-        <div className={classNames(cls.commentCard, {}, [className])}>
+        <article className={classNames(cls.commentCard, {}, [className])}>
             <AppLink to={`${AppRoutesPath.profile}${comment.user.id}`} className={cls.header} color={AppLinkColor.PRIMARY}>
                 {comment.user.avatar && <Avatar src={comment.user.avatar} size='small' variant='rounded' />}
                 <P size='large' className={cls.username}>
@@ -21,6 +21,6 @@ export const CommentCard = ({ comment, className }: CommentCardProps) => {
                 </P>
             </AppLink>
             <P>{comment.text}</P>
-        </div>
+        </article>
     );
 };

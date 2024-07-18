@@ -37,8 +37,8 @@ export function ArticleListItem(props: ArticleListItemProps) {
 
     if (variant === ARTICLE_LAYOUT.GRID) {
         return (
-            <AppLink to={AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + article.id} color={AppLinkColor.TEXT}>
-                <Card className={classNames(cls.grid, {}, [cls.articleListItem, className])}>
+            <Card className={classNames(cls.grid, {}, [cls.articleListItem, className])}>
+                <AppLink to={AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + article.id} color={AppLinkColor.TEXT}>
                     <div className={cls.imageWrapper}>
                         <img className={cls.img} src={article.img} alt={article.title} />
                         <P className={cls.createdAt}>{article.createdAt}</P>
@@ -48,8 +48,8 @@ export function ArticleListItem(props: ArticleListItemProps) {
                         {renderViewsAmount()}
                     </div>
                     <P>{article.title}</P>
-                </Card>
-            </AppLink>
+                </AppLink>
+            </Card>
         );
     }
 

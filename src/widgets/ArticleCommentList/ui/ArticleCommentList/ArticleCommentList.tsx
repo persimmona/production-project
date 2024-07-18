@@ -31,8 +31,6 @@ export const ArticleCommentList = ({ articleId, className }: ArticleCommentListP
     });
 
     return (
-        <div className={classNames(cls.articleCommentList, {}, [className])}>
-            <CommentList comments={comments} isLoading={commentsIsLoading} />
-        </div>
+        <CommentList comments={comments} isLoading={commentsIsLoading} className={classNames(cls.articleCommentList, {}, [className])} />
     );
 };

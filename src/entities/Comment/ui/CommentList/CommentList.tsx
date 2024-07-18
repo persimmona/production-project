@@ -13,18 +13,18 @@ interface CommentListProps {
 export const CommentList = ({ comments, isLoading, className }: CommentListProps) => {
     if (isLoading) {
         return (
-            <div className={classNames(cls.commentList, {}, [className])}>
+            <article className={classNames(cls.commentList, {}, [className])}>
                 <CommentCardSkeleton />
                 <CommentCardSkeleton />
-            </div>
+            </article>
         );
     }
 
     return (
-        <div className={classNames(cls.commentList, {}, [className])}>
+        <article className={classNames(cls.commentList, {}, [className])}>
             {comments.map((comment) => (
                 <CommentCard key={comment.id} comment={comment} />
             ))}
-        </div>
+        </article>
     );
 };

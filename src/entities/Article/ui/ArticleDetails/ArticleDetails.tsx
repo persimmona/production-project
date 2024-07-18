@@ -33,7 +33,7 @@ export const ArticleDetails = ({ article, className }: ArticleDetailsProps) => {
     };
 
     return (
-        <div className={classNames(cls.articleDetails, {}, [className])}>
+        <section className={classNames(cls.articleDetails, {}, [className])}>
             <Avatar size='extra-large' src={img} variant='rounded' className={cls.articleImage} />
 
             <Header tag='h1' className={cls.articleTitle}>
@@ -53,6 +53,6 @@ export const ArticleDetails = ({ article, className }: ArticleDetailsProps) => {
             </div>
 
             {blocks.map(renderArticleBlock)}
-        </div>
+        </section>
     );
 };

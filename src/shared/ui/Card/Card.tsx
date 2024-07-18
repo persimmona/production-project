@@ -10,5 +10,5 @@ interface CardProps {
 export function Card(props: CardProps) {
     const { className, children } = props;
 
-    return <div className={classNames(cls.card, {}, [className])}>{children}</div>;
+    return <article className={classNames(cls.card, {}, [className])}>{children}</article>;
 }

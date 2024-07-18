@@ -1,3 +1,4 @@
+import { P } from 'shared/ui/P';
 import cls from './ProfileInfoItem.module.scss';
 
 export interface ProfileInfoItemProps {
@@ -7,8 +8,8 @@ export interface ProfileInfoItemProps {
 
 export const ProfileInfoItem = ({ label, value }: ProfileInfoItemProps) => {
     return (
-        <div className={cls.profileInfoItem}>
+        <P className={cls.profileInfoItem}>
             <span className={cls.profileInfoLabel}>{label}:</span> {value}
-        </div>
+        </P>
     );
 };

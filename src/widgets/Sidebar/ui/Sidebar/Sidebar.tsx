@@ -26,17 +26,23 @@ export const Sidebar = ({ className }: SidebarProps) => {
     const mainNavigation = sidebarItems.map((item) => <SidebarItem collapsed={collapsed} item={item} theme={theme} key={item.path} />);
 
     return (
-        <div className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])} data-testid='sidebar'>
-            <div className={cls.main}>{mainNavigation}</div>
+        <nav aria-label='Side menu' className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])} data-testid='sidebar'>
+            <ul className={cls.main}>{mainNavigation}</ul>
 
             <div className={cls.bottom}>
                 <ThemeSwitcher className={cls.bottomItem} />
                 <LangSwitcher className={cls.bottomItem} />
             </div>
 
-            <Button onClick={toggleCollapse} data-testid='sidebar-toggle' className={cls.toggleButton}>
+            <Button
+                aria-label={collapsed ? 'Show side navigation' : 'Hide side navigation'}
+                aria-expanded={!collapsed}
+                onClick={toggleCollapse}
+                data-testid='sidebar-toggle'
+                className={cls.toggleButton}
+            >
                 {collapsed ? '<' : '>'}
             </Button>
-        </div>
+        </nav>
     );
 };

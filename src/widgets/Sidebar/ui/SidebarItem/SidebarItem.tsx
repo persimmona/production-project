@@ -16,9 +16,11 @@ export const SidebarItem = ({ item, theme, collapsed }: SidebarItemProps) => {
     const color = theme === Theme.DARK ? AppLinkColor.PRIMARY : AppLinkColor.PRIMARY_INVERTED;
 
     return (
-        <AppLink to={item.path} color={color} className={classNames(cls.link, { [cls.collapsed]: collapsed })}>
-            <item.Icon className={cls.linkIcon} />
-            <span className={cls.linkLabel}>{t(item.text)}</span>
-        </AppLink>
+        <li>
+            <AppLink to={item.path} color={color} className={classNames(cls.link, { [cls.collapsed]: collapsed })}>
+                <item.Icon className={cls.linkIcon} />
+                <span className={cls.linkLabel}>{t(item.text)}</span>
+            </AppLink>
+        </li>
     );
 };

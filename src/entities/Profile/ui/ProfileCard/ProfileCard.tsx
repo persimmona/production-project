@@ -19,12 +19,12 @@ export const ProfileCard = ({ children, loading, actions, title }: ProfileCardPr
         );
 
     return (
-        <div className={cls.profileCard}>
+        <section className={cls.profileCard}>
             <div className={cls.header}>
                 {title && <Header tag='h1'>{title}</Header>}
                 {actions}
             </div>
             <div className={cls.body}>{children}</div>
-        </div>
+        </section>
     );
 };

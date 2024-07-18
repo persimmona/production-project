@@ -31,16 +31,16 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={classNames(cls.navbar, {}, [className])}>
+            <header className={classNames(cls.navbar, {}, [className])}>
                 <PageContainer className={cls.inner}>
                     <Button onClick={() => dispatch(userActions.logout())}>{t('navbar.sign_out')}</Button>
                 </PageContainer>
-            </div>
+            </header>
         );
     }
 
     return (
-        <div className={classNames(cls.navbar, {}, [className])}>
+        <header className={classNames(cls.navbar, {}, [className])}>
             <PageContainer className={cls.inner}>
                 <div className={cls.links}></div>
                 <Button onClick={openLoginModal}>{t('navbar.sign_in')}</Button>
@@ -53,6 +53,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                     </Modal>
                 )}
             </PageContainer>
-        </div>
+        </header>
     );
 };
