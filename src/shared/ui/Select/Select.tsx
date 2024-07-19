@@ -5,7 +5,7 @@ import cls from './Select.module.scss';
 
 export interface SelectOption<T extends HTMLElementValue> {
     value: T;
-    label: string;
+    readableValue: string;
 }
 
 interface SelectProps<T extends HTMLElementValue> {
@@ -24,9 +24,9 @@ export const Select = <T extends HTMLElementValue>(props: SelectProps<T>) => {
         onChange(uid, e.target.value as T);
     };
 
-    const optionList = options.map(({ label, value }) => (
-        <option key={label} value={value} className={cls.option}>
-            {label}
+    const optionList = options.map(({ readableValue, value }) => (
+        <option key={value} value={value} className={cls.option}>
+            {readableValue}
         </option>
     ));
 

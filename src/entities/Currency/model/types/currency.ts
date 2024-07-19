@@ -7,11 +7,11 @@ export enum Currency {
 
 export const currencySelectOptions: SelectOption<Currency>[] = [
     {
-        label: Currency.UAH,
+        readableValue: Currency.UAH,
         value: Currency.UAH,
     },
     {
-        label: Currency.PLN,
+        readableValue: Currency.PLN,
         value: Currency.PLN,
     },
 ];

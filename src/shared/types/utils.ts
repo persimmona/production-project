@@ -5,4 +5,4 @@ export type OptionalPropertyOf<T extends object> = Exclude<
     undefined
 >;
 
-export type HTMLElementValue = string | number | readonly string[];
+export type HTMLElementValue = string | number;

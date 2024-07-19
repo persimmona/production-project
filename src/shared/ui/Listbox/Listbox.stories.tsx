@@ -1,34 +1,33 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Currency } from 'entities/Currency';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { getDarkThemeBackground } from 'shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from 'shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'shared/contexts/theme';
-import { Select } from './Select';
+import { Listbox } from './Listbox';
 
 export default {
-    title: 'shared/Select',
-    component: Select,
-    argTypes: {},
+    title: 'shared/Listbox',
+    component: Listbox,
     args: {
+        label: 'Select currency',
+        uid: 'currency',
         options: [
             {
-                readableValue: 'Test',
-                value: 'test',
+                readableValue: `${Currency.UAH} (hrywna)`,
+                value: Currency.UAH,
+                disabled: true,
             },
             {
-                readableValue: 'Test2',
-                value: 'test2',
-            },
-            {
-                readableValue: 'Test3',
-                value: 'test3',
+                readableValue: `${Currency.PLN} (złoty)`,
+                value: Currency.PLN,
             },
         ],
-        value: 'test',
+        value: Currency.PLN,
     },
-} as ComponentMeta<typeof Select>;
+} as ComponentMeta<typeof Listbox>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof Listbox> = (args) => <Listbox {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {};

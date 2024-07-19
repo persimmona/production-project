@@ -25,25 +25,25 @@ export const ArticlesSort = (props: ArticlesSortProps) => {
     const sortFieldOptions: SelectOption<ArticleSortField>[] = [
         {
             value: ARTICLE_SORT_FIELD.CREATED_AT,
-            label: t('article:article_sort_field.created_at'),
+            readableValue: t('article:article_sort_field.created_at'),
         },
         {
-            label: t('article:article_sort_field.title'),
+            readableValue: t('article:article_sort_field.title'),
             value: ARTICLE_SORT_FIELD.TITLE,
         },
         {
-            label: t('article:article_sort_field.views'),
+            readableValue: t('article:article_sort_field.views'),
             value: ARTICLE_SORT_FIELD.VIEWS,
         },
     ];
 
     const sortOrderOptions: SelectOption<SortOrder>[] = [
         {
-            label: t('sort.asc'),
+            readableValue: t('sort.asc'),
             value: SORT_ORDER.ASC,
         },
         {
-            label: t('sort.desc'),
+            readableValue: t('sort.desc'),
             value: SORT_ORDER.DESC,
         },
     ];

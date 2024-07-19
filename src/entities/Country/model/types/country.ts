@@ -8,15 +8,15 @@ export enum Country {
 
 export const countrySelectOptions: SelectOption<Country>[] = [
     {
-        label: Country.Ukraine,
+        readableValue: Country.Ukraine,
         value: Country.Ukraine,
     },
     {
-        label: Country.Poland,
+        readableValue: Country.Poland,
         value: Country.Poland,
     },
     {
-        label: Country.England,
+        readableValue: Country.England,
         value: Country.England,
     },
 ];
