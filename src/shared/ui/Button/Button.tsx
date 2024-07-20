@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactNode } from 'react';
 import { Theme, useTheme } from 'shared/contexts/theme';
 import { classNames } from 'shared/utils/classNames';
 import cls from './Button.module.scss';
@@ -11,13 +11,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
 }
 
-export const Button = ({ className, variant = 'flat', children, ...props }: ButtonProps) => {
+export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+    const { className, variant = 'flat', children, ...buttonProps } = props;
     const { theme } = useTheme();
 
     const variantName = theme === Theme.LIGHT ? variant + '-inversed' : variant;
     return (
-        <button className={classNames(cls.button, {}, [cls[variantName], className])} {...props}>
+        <button ref={ref} className={classNames(cls.button, {}, [cls[variantName], className])} {...buttonProps}>
             {children}
         </button>
     );
-};
+});

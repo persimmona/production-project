@@ -1,2 +1,22 @@
 .listbox {
+    position: relative;
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.options {
+    position: absolute;
+    top: 0;
+
+    background-color: var(--color-input-background);
+}
+
+.option {
+    padding: 4px;
+
+    list-style-type: none;
+
+    cursor: pointer;
 }
