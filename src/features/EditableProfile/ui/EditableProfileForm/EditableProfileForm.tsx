@@ -16,6 +16,7 @@ import { selectProfileFormErrors } from '../../model/selectors/selectProfileForm
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileFormActions, profileFormReducer } from '../../model/slice/profileFormSlice';
 import cls from './EditableProfileForm.module.scss';
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 
 interface EditableProfileFormProps {
     initialData: Profile;
@@ -98,7 +99,7 @@ const EditableProfileForm = ({ initialData, onCancel, onSubmit, className }: Edi
                 placeholder={t('fields.age')}
                 className={cls.input}
             />
-            <Select
+            <Listbox
                 uid={FormElementsId.country}
                 options={countrySelectOptions}
                 value={country}

@@ -35,20 +35,26 @@ export function Listbox<T extends HTMLElementValue>(props: ListboxProps<T>) {
     return (
         <HListbox as={'div'} value={value} onChange={handleChange} disabled={disabled} className={classNames(cls.listbox, {}, [className])}>
             {label && <HListbox.Label>{label}</HListbox.Label>}
-            <HListbox.Button as={Fragment}>
-                <Button variant='outline'>{selectedOption?.readableValue ?? EMPTY_VALUE}</Button>
-            </HListbox.Button>
-            <HListbox.Options as='ul' className={cls.options}>
-                {options.map((option) => (
-                    <HListbox.Option as={Fragment} key={option.value} value={option.value} disabled={option.disabled}>
-                        {({ active, selected }) => (
-                            <li className={classNames(cls.option, { [cls.active]: active, [cls.selected]: selected })}>
-                                {option.readableValue}
-                            </li>
-                        )}
-                    </HListbox.Option>
-                ))}
-            </HListbox.Options>
+            <div className={cls.listboxWrapper}>
+                <HListbox.Button className={cls.button}>{selectedOption?.readableValue ?? EMPTY_VALUE}</HListbox.Button>
+                <HListbox.Options as='ul' className={cls.options}>
+                    {options.map((option) => (
+                        <HListbox.Option as={Fragment} key={option.value} value={option.value} disabled={option.disabled}>
+                            {({ active, selected }) => (
+                                <li
+                                    className={classNames(cls.option, {
+                                        [cls.active]: active,
+                                        [cls.selected]: selected,
+                                        [cls.disabled]: option.disabled,
+                                    })}
+                                >
+                                    {option.readableValue}
+                                </li>
+                            )}
+                        </HListbox.Option>
+                    ))}
+                </HListbox.Options>
+            </div>
         </HListbox>
     );
 }

@@ -22,6 +22,10 @@ export default {
                 readableValue: `${Currency.PLN} (złoty)`,
                 value: Currency.PLN,
             },
+            {
+                readableValue: `USD (dollar)`,
+                value: 'USD',
+            },
         ],
         value: Currency.PLN,
     },

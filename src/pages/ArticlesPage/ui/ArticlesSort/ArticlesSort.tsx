@@ -9,6 +9,7 @@ import { ARTICLES_PAGE_UID } from '../../model/const/defaults';
 import { selectArticlesPageSortField, selectArticlesPageSortOrder } from '../../model/selectors/articlesPageSelectors';
 import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
 import cls from './ArticlesSort.module.scss';
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 
 interface ArticlesSortProps {
     className?: string;
@@ -51,9 +52,9 @@ export const ArticlesSort = (props: ArticlesSortProps) => {
     return (
         <div className={classNames(cls.articleSort, {}, [className])}>
             <P>{t('sort.sort')}</P>
-            <Select uid={ARTICLES_PAGE_UID.sortField} onChange={onChange} options={sortFieldOptions} value={sortField} />
+            <Listbox uid={ARTICLES_PAGE_UID.sortField} onChange={onChange} options={sortFieldOptions} value={sortField} />
             <P>{t('sort.sort_by')}</P>
-            <Select uid={ARTICLES_PAGE_UID.sortOrder} onChange={onChange} options={sortOrderOptions} value={sortOrder} />
+            <Listbox uid={ARTICLES_PAGE_UID.sortOrder} onChange={onChange} options={sortOrderOptions} value={sortOrder} />
         </div>
     );
 };
