@@ -1,7 +1,6 @@
 import { Listbox as HListbox } from '@headlessui/react';
 import { Fragment, ReactNode, useMemo } from 'react';
 import { HTMLElementValue } from 'shared/types/utils';
-import { Button } from 'shared/ui/Button';
 import { classNames } from 'shared/utils/classNames';
 import cls from './Listbox.module.scss';
 
@@ -31,7 +30,7 @@ export function Listbox<T extends HTMLElementValue>(props: ListboxProps<T>) {
     };
 
     // TODO: check what SimpleComboBox accepts
-    const selectedOption = useMemo(() => options.find((option) => option.value === value), [options]);
+    const selectedOption = useMemo(() => options.find((option) => option.value === value), [options, value]);
     return (
         <HListbox as={'div'} value={value} onChange={handleChange} disabled={disabled} className={classNames(cls.listbox, {}, [className])}>
             {label && <HListbox.Label>{label}</HListbox.Label>}

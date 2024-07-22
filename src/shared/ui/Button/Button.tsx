@@ -11,7 +11,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
 }
 
-export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+const ButtonPure = (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const { className, variant = 'flat', children, ...buttonProps } = props;
     const { theme } = useTheme();
 
@@ -21,4 +21,6 @@ export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButt
             {children}
         </button>
     );
-});
+};
+
+export const Button = forwardRef(ButtonPure);

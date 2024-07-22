@@ -2,14 +2,14 @@ import { ARTICLE_SORT_FIELD, ArticleSortField } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { SORT_ORDER, SortOrder } from 'shared/const/common';
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 import { P } from 'shared/ui/P';
-import { Select, SelectOption } from 'shared/ui/Select/Select';
+import { SelectOption } from 'shared/ui/Select/Select';
 import { classNames } from 'shared/utils/classNames';
 import { ARTICLES_PAGE_UID } from '../../model/const/defaults';
 import { selectArticlesPageSortField, selectArticlesPageSortOrder } from '../../model/selectors/articlesPageSelectors';
 import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
 import cls from './ArticlesSort.module.scss';
-import { Listbox } from 'shared/ui/Listbox/Listbox';
 
 interface ArticlesSortProps {
     className?: string;
