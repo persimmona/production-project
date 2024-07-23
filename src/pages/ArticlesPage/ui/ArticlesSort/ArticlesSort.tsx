@@ -51,10 +51,20 @@ export const ArticlesSort = (props: ArticlesSortProps) => {
 
     return (
         <div className={classNames(cls.articleSort, {}, [className])}>
-            <P>{t('sort.sort')}</P>
-            <Listbox uid={ARTICLES_PAGE_UID.sortField} onChange={onChange} options={sortFieldOptions} value={sortField} />
-            <P>{t('sort.sort_by')}</P>
-            <Listbox uid={ARTICLES_PAGE_UID.sortOrder} onChange={onChange} options={sortOrderOptions} value={sortOrder} />
+            <Listbox
+                uid={ARTICLES_PAGE_UID.sortField}
+                label={t('sort.sort')}
+                onChange={onChange}
+                options={sortFieldOptions}
+                value={sortField}
+            />
+            <Listbox
+                uid={ARTICLES_PAGE_UID.sortOrder}
+                label={t('sort.sort_by')}
+                onChange={onChange}
+                options={sortOrderOptions}
+                value={sortOrder}
+            />
         </div>
     );
 };
