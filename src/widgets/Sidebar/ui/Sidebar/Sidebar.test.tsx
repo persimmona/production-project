@@ -10,7 +10,6 @@ const SidebarWithWrappers = withStoreProvider(withRouter(withThemeProvider(withT
 describe('Sidebar', () => {
     test('should be in the document', () => {
         render(<SidebarWithWrappers />);
-        screen.debug();
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
 
