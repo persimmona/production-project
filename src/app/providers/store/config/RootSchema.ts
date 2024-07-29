@@ -8,11 +8,12 @@ import { AddCommnetFormSchema } from 'features/AddCommentForm';
 import { LoginFormSchema } from 'features/AuthByUsername';
 import { ProfileFormSchema } from 'features/EditableProfile';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { rtkApi } from 'shared/api/rtkApi';
 import { ArticleCommentListSchema } from 'widgets/ArticleCommentList';
-import { ArticleRecommendationsSchema } from 'widgets/ArticleRecommendations';
 
 export interface RootSchema extends AsyncSchema {
     user: UserSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 
 export type RootSchemaKey = keyof RootSchema;
@@ -23,7 +24,6 @@ export interface AsyncSchema {
     profileForm?: ProfileFormSchema;
     article?: ArticleSchema;
     articleCommentList?: ArticleCommentListSchema;
-    articleRecommendations?: ArticleRecommendationsSchema;
     addCommentForm?: AddCommnetFormSchema;
     articlesPage?: ArticlesPageSchema;
 }
