@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { selectUserAuthData } from 'entities/User';
+import { selectUserAuthData, USER_ROLE } from 'entities/User';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import ArticlesIcon from 'shared/assets/icons/articles.svg';
 import HomeIcon from 'shared/assets/icons/home.svg';
@@ -33,6 +33,13 @@ export const selectSidebarItems = createSelector(selectUserAuthData, (userData) 
                 path: AppRoutesPath.articles,
             },
         );
+    }
+    if (userData?.roles?.includes(USER_ROLE.ADMIN)) {
+        sidebarItemList.push({
+            text: 'navigation.admin_panel',
+            Icon: ProfileIcon,
+            path: AppRoutesPath.admin_panel,
+        });
     }
 
     return sidebarItemList;
