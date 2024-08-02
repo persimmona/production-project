@@ -25,9 +25,9 @@ export function ArticleList(props: ArticleListProps) {
     };
 
     return (
-        <article className={classNames(cls.articleList, {}, [cls[layout], className])}>
+        <section className={classNames(cls.articleList, {}, [cls[layout], className])}>
             {renderArticleList()}
             {isLoading && <ArticleListSkeleton layout={layout} />}
-        </article>
+        </section>
     );
 }

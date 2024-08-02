@@ -53,8 +53,8 @@ const articlesPageSlice = createSlice({
             const search = action.payload.get('search');
             const layout = localStorage.getItem(ARTICLES_PAGE_LAYOUT) as ArticleLayout;
 
-            state.layout = layout;
-            state.pagination.limit = ARTICLES_PAGE_LIMIT[layout];
+            state.layout = layout ?? ARTICLE_LAYOUT.GRID;
+            state.pagination.limit = ARTICLES_PAGE_LIMIT[layout] ?? DEFAULT_PAGINATION.limit;
 
             if (sortOrder) state.sortOrder = sortOrder as SortOrder;
             if (sortField) state.sortField = sortField as ArticleSortField;

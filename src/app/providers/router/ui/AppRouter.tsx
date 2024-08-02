@@ -1,14 +1,13 @@
-import { Suspense } from 'react';
-import { useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
-import { AppRoutes, AppRoutesPath, AppRoutesProps } from 'shared/const/routes';
-import { selectUserAuthData } from 'entities/User';
+import { USER_ROLE } from 'entities/User';
 import { AboutPage } from 'pages/AboutPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticlesPage } from 'pages/ArticlesPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
-import { ArticlesPage } from 'pages/ArticlesPage';
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { ProfilePage } from 'pages/ProfilePage';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { AppRoutes, AppRoutesPath, AppRoutesProps } from 'shared/const/routes';
 import { PageLoader } from 'widgets/PageLoader';
 import { GuardedRoute } from './GuardedRoute';
 
@@ -36,29 +35,33 @@ const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
-
+    [AppRoutes.ADMIN_PANEL]: {
+        path: AppRoutesPath[AppRoutes.ADMIN_PANEL],
+        element: <div></div>,
+        authOnly: true,
+        roles: [USER_ROLE.ADMIN],
+    },
     [AppRoutes.NOT_FOUND]: {
         path: AppRoutesPath[AppRoutes.NOT_FOUND],
         element: <NotFoundPage />,
     },
+    [AppRoutes.FORBIDDEN]: {
+        path: AppRoutesPath[AppRoutes.FORBIDDEN],
+        element: <div></div>,
+    },
 };
 
 export const AppRouter = () => {
-    const auth = useSelector(selectUserAuthData);
+    const renderRoute = (route: AppRoutesProps) => {
+        const element = <Suspense fallback={<PageLoader />}>{route.element}</Suspense>;
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={route.authOnly ? <GuardedRoute routeRoles={route.roles}>{element}</GuardedRoute> : element}
+            />
+        );
+    };
 
-    return (
-        <Routes>
-            {Object.values(routeConfig).map(({ path, element, authOnly }) => (
-                <Route
-                    key={path}
-                    path={path}
-                    element={
-                        <GuardedRoute key={path} isRouteHidden={authOnly && !auth}>
-                            <Suspense fallback={<PageLoader />}>{element}</Suspense>
-                        </GuardedRoute>
-                    }
-                />
-            ))}
-        </Routes>
-    );
+    return <Routes>{Object.values(routeConfig).map(renderRoute)}</Routes>;
 };

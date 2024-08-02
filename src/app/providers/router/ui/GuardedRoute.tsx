@@ -1,16 +1,34 @@
+import { selectUserAuthData, UserRole } from 'entities/User';
+import { ReactElement, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AppRoutes, AppRoutesPath } from 'shared/const/routes';
 
 interface GuardedRouteProps {
-    children: JSX.Element;
-    isRouteHidden?: boolean;
-    redirectRoute?: string;
+    children: ReactElement;
+    routeRoles?: UserRole[];
 }
 
-export const GuardedRoute = ({ children, isRouteHidden = false, redirectRoute = AppRoutesPath[AppRoutes.MAIN] }: GuardedRouteProps) => {
+export const GuardedRoute = ({ children, routeRoles }: GuardedRouteProps) => {
     const location = useLocation();
 
-    if (isRouteHidden) return <Navigate to={redirectRoute} state={{ from: location }} replace />;
+    const auth = useSelector(selectUserAuthData);
+
+    const hasRequiredRoles = useMemo(() => {
+        if (!routeRoles) {
+            return true;
+        }
+
+        return routeRoles.some((requiredRole) => auth?.roles.includes(requiredRole));
+    }, [auth?.roles, routeRoles]);
+
+    if (!auth) {
+        return <Navigate to={AppRoutesPath[AppRoutes.MAIN]} state={{ from: location }} replace />;
+    }
+
+    if (!hasRequiredRoles) {
+        return <Navigate to={AppRoutesPath[AppRoutes.FORBIDDEN]} state={{ from: location }} replace />;
+    }
 
     return children;
 };

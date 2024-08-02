@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
-import { User, userActions } from 'entities/User';
+import { User, userActions, USER_ROLE } from 'entities/User';
 import { loginByUsername } from './loginByUsername';
 
 describe('loginByUsername', () => {
@@ -11,6 +11,7 @@ describe('loginByUsername', () => {
         const userValue: User = {
             id: 'random',
             username: 'admin',
+            roles: [USER_ROLE.ADMIN],
         };
 
         const thunk = new TestAsyncThunk(loginByUsername);

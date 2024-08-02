@@ -29,8 +29,8 @@ export const Skeleton = ({ className, children, height, width, variant = 'text',
     const styles: CSSProperties | undefined = useMemo(() => (boundsStyle ? { height, width } : boundsStyle), [boundsStyle, height, width]);
 
     return (
-        <div ref={skeletonRef} className={classNames(cls.skeleton, {}, [className, cls[variant]])} style={{ ...style, ...styles }}>
+        <span ref={skeletonRef} className={classNames(cls.skeleton, {}, [className, cls[variant]])} style={{ ...style, ...styles }}>
             {children}
-        </div>
+        </span>
     );
 };

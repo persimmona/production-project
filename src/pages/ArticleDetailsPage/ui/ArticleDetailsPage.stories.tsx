@@ -75,10 +75,6 @@ Loading.decorators = [
     RouterDecorator(AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + article.id, AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + ':id'),
     StoreDecorator({
         article: { isLoading: true },
-        articleRecommendations: {
-            entities: Object.fromEntries(articles.map((article) => [article.id, article])),
-            ids: articles.map((article) => article.id),
-        },
     }),
     ThemeDecorator(Theme.DARK),
 ];

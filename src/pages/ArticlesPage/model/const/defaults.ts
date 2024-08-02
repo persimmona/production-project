@@ -9,7 +9,7 @@ export const ARTICLES_PAGE_LIMIT: Record<ArticleLayout, number> = {
 export const DEFAULT_PAGINATION: Pagination = {
     limit: ARTICLES_PAGE_LIMIT[ARTICLE_LAYOUT.GRID],
     page: 1,
-    hasMore: true,
+    hasMore: false,
 };
 
 export const ARTICLES_PAGE_UID: Record<keyof ArticlesAdvancedSearch, keyof ArticlesAdvancedSearch> = {
