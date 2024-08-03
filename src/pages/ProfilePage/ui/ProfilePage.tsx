@@ -1,12 +1,4 @@
-import {
-    ProfileCard,
-    ProfileInfoList,
-    fetchProfileData,
-    profileReducer,
-    selectProfileData,
-    selectProfileError,
-    selectProfileIsLoading,
-} from 'entities/Profile';
+import { ProfileCard, ProfileInfoList } from 'entities/Profile';
 import { selectUserAuthData } from 'entities/User';
 import { EditableProfileFormAsync } from 'features/EditableProfile';
 import { Suspense } from 'react';
@@ -24,6 +16,11 @@ import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
 import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
 import { useVisibility } from 'shared/utils/useVisibility';
+import { selectProfileData } from '../model/selectors/selectProfileData';
+import { selectProfileError } from '../model/selectors/selectProfileError';
+import { selectProfileIsLoading } from '../model/selectors/selectProfileIsLoading';
+import { fetchProfileData } from '../model/services/fecthProfileData';
+import { profileReducer } from '../model/slice/profileSlice';
 
 const reducers: ReducersList = {
     profile: profileReducer,
