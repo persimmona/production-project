@@ -1,12 +1,12 @@
-import { Suspense, useEffect } from 'react';
-import { AppRouter } from './providers/router';
-import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
-import { useTheme } from 'shared/contexts/theme';
 import { selectUserInited, userActions } from 'entities/User';
+import { Suspense, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useTheme } from 'shared/contexts/theme';
+import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { AppRouter } from './providers/router';
 import './styles/index.scss';
-import { useSelector } from 'react-redux';
 
 export const App = () => {
     const { theme } = useTheme();

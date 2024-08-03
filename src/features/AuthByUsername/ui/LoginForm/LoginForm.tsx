@@ -28,14 +28,14 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
     useReducersDynamicLoader(initialReducers);
 
     const handleUsername = useCallback(
-        (uid, value: string) => {
+        (uid: string, value: string) => {
             dispatch(loginFormActions.setUsername(value));
         },
         [dispatch],
     );
 
     const handlePassword = useCallback(
-        (uid, value: string) => {
+        (uid: string, value: string) => {
             dispatch(loginFormActions.setPassword(value));
         },
         [dispatch],

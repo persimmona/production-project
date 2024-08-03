@@ -1,13 +1,19 @@
-import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { App } from 'app/App';
-import { ThemeContextProvider } from 'shared/contexts/theme/ui/ThemeProvider';
-
-import 'shared/config/i18n/i18n';
 import { ErrorBoundry } from 'app/providers/error-boundry';
 import { StoreProvider } from 'app/providers/store';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import 'shared/config/i18n/i18n';
+import { ThemeContextProvider } from 'shared/contexts/theme/ui/ThemeProvider';
 
-render(
+const container = document.getElementById('root');
+
+if (!container) {
+    throw new Error('Not found container');
+}
+
+const root = createRoot(container);
+root.render(
     <StoreProvider>
         <BrowserRouter>
             <ErrorBoundry>
@@ -17,5 +23,4 @@ render(
             </ErrorBoundry>
         </BrowserRouter>
     </StoreProvider>,
-    document.getElementById('root'),
 );

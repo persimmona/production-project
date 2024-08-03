@@ -1,4 +1,5 @@
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
+import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'shared/contexts/theme';
 
@@ -25,4 +26,4 @@ export const parameters = {
     },
 };
 
-export const decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+export const decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), SuspenseDecorator];

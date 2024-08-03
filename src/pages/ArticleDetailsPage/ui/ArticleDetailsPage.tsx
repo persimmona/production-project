@@ -76,9 +76,7 @@ const ArticleDetailsPage = () => {
             <Header tag='h2'>{t('article:recommendations')}</Header>
             <ArticleRecommendations />
             <Header tag='h2'>{t('article:comments')}</Header>
-            <Suspense fallback={<Loader />}>
-                <AddCommentForm onCommentAdd={onCommentAdd} />
-            </Suspense>
+            <AddCommentForm onCommentAdd={onCommentAdd} />
             <ArticleCommentList articleId={id} />
         </Page>
     );
