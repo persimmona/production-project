@@ -2,12 +2,12 @@ import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } f
 import { AppDispatch } from 'app/providers/store/config/store';
 import { AxiosInstance } from 'axios';
 import { ArticleSchema } from 'entities/Article';
-import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommnetFormSchema } from 'features/AddCommentForm';
 import { LoginFormSchema } from 'features/AuthByUsername';
 import { ProfileFormSchema } from 'features/EditableProfile';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ProfileSchema } from 'pages/ProfilePage';
 import { rtkApi } from 'shared/api/rtkApi';
 import { ArticleCommentListSchema } from 'widgets/ArticleCommentList';
 

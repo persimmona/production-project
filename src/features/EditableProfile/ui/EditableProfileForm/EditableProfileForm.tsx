@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 import { P } from 'shared/ui/P';
 import { Select } from 'shared/ui/Select/Select';
 import { classNames } from 'shared/utils/classNames';
@@ -16,12 +17,11 @@ import { selectProfileFormErrors } from '../../model/selectors/selectProfileForm
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileFormActions, profileFormReducer } from '../../model/slice/profileFormSlice';
 import cls from './EditableProfileForm.module.scss';
-import { Listbox } from 'shared/ui/Listbox/Listbox';
 
 interface EditableProfileFormProps {
     initialData: Profile;
     onCancel?: () => void;
-    onSubmit?: () => void;
+    onSubmit?: (data: Profile) => void;
     className?: string;
 }
 
@@ -60,7 +60,7 @@ const EditableProfileForm = ({ initialData, onCancel, onSubmit, className }: Edi
         const response = await dispatch(updateProfileData(data));
 
         if (response.meta.requestStatus === 'fulfilled') {
-            onSubmit?.();
+            onSubmit?.(data);
         }
     };
     const onCancelButtonClick = () => {

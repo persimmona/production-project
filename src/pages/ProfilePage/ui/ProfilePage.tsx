@@ -1,7 +1,7 @@
-import { ProfileCard, ProfileInfoList } from 'entities/Profile';
+import { Profile, ProfileCard, ProfileInfoList } from 'entities/Profile';
 import { selectUserAuthData } from 'entities/User';
 import { EditableProfileFormAsync } from 'features/EditableProfile';
-import { Suspense } from 'react';
+import { Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -20,15 +20,18 @@ import { selectProfileData } from '../model/selectors/selectProfileData';
 import { selectProfileError } from '../model/selectors/selectProfileError';
 import { selectProfileIsLoading } from '../model/selectors/selectProfileIsLoading';
 import { fetchProfileData } from '../model/services/fecthProfileData';
-import { profileReducer } from '../model/slice/profileSlice';
+import { profileActions, profileReducer } from '../model/slice/profileSlice';
+import { updateProfileData } from 'features/EditableProfile/model/services/updateProfileData/updateProfileData';
 
 const reducers: ReducersList = {
     profile: profileReducer,
 };
 
 const ProfilePage = () => {
-    useReducersDynamicLoader(reducers);
+    const { id } = useParams<{ id: string }>();
     const { t } = useTranslation('profile');
+
+    useReducersDynamicLoader(reducers);
 
     const dispatch = useAppDispatch();
 
@@ -36,7 +39,6 @@ const ProfilePage = () => {
     const userData = useSelector(selectUserAuthData);
     const isProfileLoading = useSelector(selectProfileIsLoading);
     const profileFetchingError = useSelector(selectProfileError);
-    const { id } = useParams<{ id: string }>();
 
     useInitialEffect(() => {
         if (id) dispatch(fetchProfileData(id));
@@ -47,7 +49,15 @@ const ProfilePage = () => {
         isVisible: isEditProfileModalVisible,
         closeHandler: closeEditProfileModal,
         openHandler: openEditProfileModal,
-    } = useVisibility(false);
+    } = useVisibility();
+
+    const onEditProfileSubmit = useCallback(
+        async (data: Profile) => {
+            dispatch(profileActions.setProfileData(data));
+            closeEditProfileModal();
+        },
+        [closeEditProfileModal, dispatch],
+    );
 
     if (!profileData && isProfileLoading) {
         return <Loader />;
@@ -78,7 +88,7 @@ const ProfilePage = () => {
                         <EditableProfileFormAsync
                             initialData={profileData}
                             onCancel={closeEditProfileModal}
-                            onSubmit={closeEditProfileModal}
+                            onSubmit={onEditProfileSubmit}
                         />
                     </Suspense>
                 </Modal>

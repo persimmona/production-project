@@ -1,7 +1,6 @@
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { profileActions } from 'entities/Profile';
 import { updateProfileData } from './updateProfileData';
 import { ValidateProfileFormError } from '../../types/profileForm';
 
@@ -24,7 +23,6 @@ test('should successfully save profile data', async () => {
     const result = await thunk.callThunk(formData);
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
-    expect(thunk.dispatch).toHaveBeenCalledWith(profileActions.setProfileData(formData));
     expect(result.meta.requestStatus).toBe('fulfilled');
 });
 

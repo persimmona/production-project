@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 export const ANIMATION_DELAY = 250;
 
-export const useVisibility = (initialValue: boolean, timeout: number = ANIMATION_DELAY) => {
+export const useVisibility = (initialValue = false, timeout: number = ANIMATION_DELAY) => {
     const [isVisible, setIsVisible] = useState(initialValue);
     const [isMounted, setIsMounted] = useState(initialValue);
 
