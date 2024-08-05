@@ -4,7 +4,7 @@ import { buildScssLoader } from '../build/loaders/buildScssLoader';
 
 export default {
     stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
-    addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions'],
+    addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions', 'storybook-addon-mock'],
     framework: '@storybook/react',
     core: {
         builder: '@storybook/builder-webpack5',
@@ -32,7 +32,7 @@ export default {
         config!.plugins!.push(
             new DefinePlugin({
                 __IS_DEV__: JSON.stringify(true),
-                __API__: JSON.stringify(''),
+                __API__: JSON.stringify('https://testapi.com'),
                 __PROJECT__: JSON.stringify('storybook'),
             }),
         );
