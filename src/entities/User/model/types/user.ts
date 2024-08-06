@@ -1,8 +1,5 @@
-export const USER_ROLE = {
-    ADMIN: 'ADMIN',
-    MANAGER: 'MANAGER',
-    USER: 'USER',
-} as const;
+import { USER_ROLE } from '../consts/userConsts';
+
 export type UserRole = (typeof USER_ROLE)[keyof typeof USER_ROLE];
 
 export interface User {

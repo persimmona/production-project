@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { P } from 'shared/ui/P';
 import { classNames } from 'shared/utils/classNames';
-import { ARTICLE_LAYOUT, Article, ArticleLayout } from '../../model/types/article';
+import { Article, ArticleLayout } from '../../model/types/article';
+import { ARTICLE_LAYOUT } from 'entities/Article/model/consts/articleConsts';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListSkeleton } from './ArticleListSkeleton';
 import cls from './ArticleList.module.scss';
