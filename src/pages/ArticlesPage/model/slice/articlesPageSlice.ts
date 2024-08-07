@@ -1,10 +1,10 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { RootSchema } from 'app/providers/store';
-import { ARTICLE_LAYOUT, ARTICLE_SORT_FIELD, Article, ArticleLayout, ArticleSortField, ArticleType } from 'entities/Article';
-import { SORT_ORDER, SortOrder } from 'shared/const/common';
+import { ARTICLE_LAYOUT, Article, ArticleLayout, ArticleSortField, ArticleType } from 'entities/Article';
+import { SortOrder } from 'shared/const/common';
 import { ARTICLES_PAGE_LAYOUT } from 'shared/const/localstorage';
-import { ArticlesAdvancedSearch, ArticlesPageSchema } from '../../model/types/articlesPage';
-import { ARTICLES_PAGE_LIMIT, DEFAULT_PAGINATION } from '../const/defaults';
+import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
+import { ARTICLES_PAGE_LIMIT, DEFAULT_PAGINATION, initialState } from '../const/defaults';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
 const articlesPageAdapter = createEntityAdapter<Article>({ selectId: (article) => article.id });
@@ -13,19 +13,6 @@ export const articlesPageSelector = articlesPageAdapter.getSelectors<RootSchema>
     (state) => state.articlesPage || articlesPageAdapter.getInitialState(),
 );
 
-export const initialState: ArticlesPageSchema = {
-    error: undefined,
-    isLoading: false,
-    entities: {},
-    ids: [],
-    layout: ARTICLE_LAYOUT.GRID,
-    pagination: DEFAULT_PAGINATION,
-    search: '',
-    sortOrder: SORT_ORDER.ASC,
-    sortField: ARTICLE_SORT_FIELD.TITLE,
-    type: null,
-};
-
 type UpdateStateValuePayload<T extends keyof ArticlesAdvancedSearch> = {
     uid: T;
     value: ArticlesAdvancedSearch[T];
@@ -33,7 +20,7 @@ type UpdateStateValuePayload<T extends keyof ArticlesAdvancedSearch> = {
 
 const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
-    initialState,
+    initialState: initialState,
     reducers: {
         setLayout: (state, action: PayloadAction<ArticleLayout>) => {
             state.layout = action.payload;

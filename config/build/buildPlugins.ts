@@ -1,4 +1,5 @@
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 // eslint-disable-next-line import/default
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -24,6 +25,10 @@ export function buildPlugins({ apiUrl, isDev, paths, project }: BuildOptions): W
         }),
         new CopyPlugin({
             patterns: [{ from: paths?.locales, to: paths?.buildLocales }],
+        }),
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
         }),
     ];
 

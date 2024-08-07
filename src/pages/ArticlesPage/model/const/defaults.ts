@@ -1,5 +1,6 @@
-import { ARTICLE_LAYOUT, ArticleLayout } from 'entities/Article';
-import { ArticlesAdvancedSearch, Pagination } from '../types/articlesPage';
+import { ARTICLE_LAYOUT, ARTICLE_SORT_FIELD, ArticleLayout } from 'entities/Article';
+import { ArticlesAdvancedSearch, ArticlesPageSchema, Pagination } from '../types/articlesPage';
+import { SORT_ORDER } from 'shared/const/common';
 
 export const ARTICLES_PAGE_LIMIT: Record<ArticleLayout, number> = {
     [ARTICLE_LAYOUT.GRID]: 9,
@@ -18,3 +19,16 @@ export const ARTICLES_PAGE_UID: Record<keyof ArticlesAdvancedSearch, keyof Artic
     sortOrder: 'sortOrder',
     type: 'type',
 } as const;
+
+export const initialState: ArticlesPageSchema = {
+    error: undefined,
+    isLoading: false,
+    entities: {},
+    ids: [],
+    layout: ARTICLE_LAYOUT.GRID,
+    pagination: DEFAULT_PAGINATION,
+    search: '',
+    sortOrder: SORT_ORDER.ASC,
+    sortField: ARTICLE_SORT_FIELD.TITLE,
+    type: null,
+};

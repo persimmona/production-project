@@ -1,5 +1,5 @@
 import { RootSchema } from 'app/providers/store';
-import { initialState } from '../slice/articlesPageSlice';
+import { initialState } from '../const/defaults';
 
 export const selectArticlesPageLoading = (state: RootSchema) => state.articlesPage?.isLoading;
 export const selectArticlesPageError = (state: RootSchema) => state.articlesPage?.error;
