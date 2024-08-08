@@ -9,8 +9,8 @@ import { Icon } from 'shared/ui/Icon';
 import { P } from 'shared/ui/P';
 import { TextBlock } from 'shared/ui/TextBlock';
 import { classNames } from 'shared/utils/classNames';
+import { ARTICLE_LAYOUT, ArticleBlockType } from '../../model/consts/articleConsts';
 import { Article, ArticleLayout, ArticleTextBlock } from '../../model/types/article';
-import { ArticleBlockType, ARTICLE_LAYOUT } from 'entities/Article/model/consts/articleConsts';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {

@@ -1,4 +1,5 @@
-import { classNames } from 'shared/utils/classNames';
+import CalendarIcon from 'shared/assets/icons/calendar.svg';
+import EyeIcon from 'shared/assets/icons/eye.svg';
 import { Avatar } from 'shared/ui/Avatar';
 import { CodeBlock } from 'shared/ui/CodeBlock';
 import { Header } from 'shared/ui/Header';
@@ -6,10 +7,9 @@ import { Icon } from 'shared/ui/Icon';
 import { ImageBlock } from 'shared/ui/ImageBlock';
 import { P } from 'shared/ui/P';
 import { TextBlock } from 'shared/ui/TextBlock';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
+import { classNames } from 'shared/utils/classNames';
+import { ArticleBlockType } from '../../model/consts/articleConsts';
 import { Article, ArticleBlock } from '../../model/types/article';
-import { ArticleBlockType } from 'entities/Article/model/consts/articleConsts';
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

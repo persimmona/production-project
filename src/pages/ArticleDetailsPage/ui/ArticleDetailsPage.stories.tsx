@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleBlockType, ArticleType } from 'entities/Article';
-import { articles } from 'entities/Article/model/mock/articles';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';

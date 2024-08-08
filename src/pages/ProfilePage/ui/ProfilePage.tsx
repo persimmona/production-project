@@ -21,7 +21,6 @@ import { selectProfileError } from '../model/selectors/selectProfileError';
 import { selectProfileIsLoading } from '../model/selectors/selectProfileIsLoading';
 import { fetchProfileData } from '../model/services/fecthProfileData';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
-import { updateProfileData } from 'features/EditableProfile/model/services/updateProfileData/updateProfileData';
 
 const reducers: ReducersList = {
     profile: profileReducer,

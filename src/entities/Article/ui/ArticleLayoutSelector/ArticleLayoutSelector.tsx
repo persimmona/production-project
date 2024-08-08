@@ -3,8 +3,8 @@ import LayoutListIcon from 'shared/assets/icons/layoutList.svg';
 import { Button } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon';
 import { classNames } from 'shared/utils/classNames';
+import { ARTICLE_LAYOUT } from '../../model/consts/articleConsts';
 import { ArticleLayout } from '../../model/types/article';
-import { ARTICLE_LAYOUT } from 'entities/Article/model/consts/articleConsts';
 import cls from './ArticleLayoutSelector.module.scss';
 
 interface ArticleLayoutSelectorProps {
