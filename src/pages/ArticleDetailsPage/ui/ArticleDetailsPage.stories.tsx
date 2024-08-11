@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleBlockType, ArticleType } from 'entities/Article';
+import { ArticleBlockType, articles, ArticleType } from 'entities/Article';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -13,6 +13,16 @@ export default {
     title: 'pages/ArticleDetailsPage',
     component: ArticleDetailsPage,
     argTypes: {},
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/articles?_limit=4&_expand=user`,
+                method: 'GET',
+                status: 200,
+                response: articles,
+            },
+        ],
+    },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = () => <ArticleDetailsPage />;

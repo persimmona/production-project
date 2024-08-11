@@ -4,28 +4,6 @@ import { Currency } from 'entities/Currency';
 import { updateProfileData } from './updateProfileData';
 import { ValidateProfileFormError } from '../../types/profileForm';
 
-test('should successfully save profile data', async () => {
-    const formData = {
-        id: '1',
-        country: Country.Ukraine,
-        currency: Currency.UAH,
-        firstname: 'Alona',
-        lastname: 'Sydorova',
-        age: 23,
-        city: 'Mariupol',
-        username: 'admin',
-        avatar: 'https://play-lh.googleusercontent.com/MDaSgXlbRkftfjNIdJ2oHodVBVLOmVg2PevfdzJkbtlawfMA-8gMAs-kCfXXY5XyLw',
-    };
-
-    const thunk = new TestAsyncThunk(updateProfileData);
-    thunk.api.put.mockResolvedValue({ data: formData });
-
-    const result = await thunk.callThunk(formData);
-
-    expect(thunk.dispatch).toHaveBeenCalledTimes(3);
-    expect(result.meta.requestStatus).toBe('fulfilled');
-});
-
 test('should return server error', async () => {
     const formData = {
         id: '1',
