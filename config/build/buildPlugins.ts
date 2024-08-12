@@ -2,6 +2,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 // eslint-disable-next-line import/default
 import CopyPlugin from 'copy-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { DefinePlugin, HotModuleReplacementPlugin, ProgressPlugin, WebpackPluginInstance } from 'webpack';
@@ -37,6 +38,10 @@ export function buildPlugins({ apiUrl, isDev, paths, project }: BuildOptions): W
             new ReactRefreshWebpackPlugin(),
             new HotModuleReplacementPlugin(), // to update automaticly changes,
             new BundleAnalyzerPlugin({ openAnalyzer: false }),
+            new ForkTsCheckerWebpackPlugin({
+                // Add TypeScript type-checking
+                async: false, // Blocks the build if there are type errors
+            }),
         );
     }
 

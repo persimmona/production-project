@@ -36,14 +36,12 @@ export const ArticleDetails = ({ article, className }: ArticleDetailsProps) => {
     return (
         <section className={classNames(cls.articleDetails, {}, [className])}>
             <Avatar size='extra-large' src={img} variant='rounded' className={cls.articleImage} />
-
             <Header tag='h1' className={cls.articleTitle}>
                 {title}
             </Header>
             <P size='large' className={cls.articleSubtitle}>
                 {subtitle}
             </P>
-
             <div className={cls.articleInfo}>
                 <Icon Svg={EyeIcon} />
                 <P>{views}</P>
@@ -52,7 +50,6 @@ export const ArticleDetails = ({ article, className }: ArticleDetailsProps) => {
                 <Icon Svg={CalendarIcon} />
                 <P>{createdAt}</P>
             </div>
-
             {blocks.map(renderArticleBlock)}
         </section>
     );

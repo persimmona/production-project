@@ -17,7 +17,7 @@ export function buildLoaders(isDev: BuildOptions['isDev']): RuleSetRule[] {
     const scssLoader = buildScssLoader(isDev);
 
     const babelLoader = {
-        test: /\.(js|jsx|tsx)$/,
+        test: /\.(js|jsx|tsx|ts)$/,
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
@@ -28,11 +28,5 @@ export function buildLoaders(isDev: BuildOptions['isDev']): RuleSetRule[] {
         },
     };
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
-
-    return [assetsLoader, svgLoader, babelLoader, typescriptLoader, scssLoader];
+    return [assetsLoader, svgLoader, babelLoader, scssLoader];
 }
