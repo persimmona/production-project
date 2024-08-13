@@ -1,4 +1,5 @@
 import { RuleSetRule } from 'webpack';
+import babelRemoveAttributePlugin from '../babel/babelRemoveAttributePlugin';
 import { buildScssLoader } from './loaders/buildScssLoader';
 import { BuildOptions } from './types/config';
 
@@ -23,7 +24,10 @@ export function buildLoaders(isDev: BuildOptions['isDev']): RuleSetRule[] {
             loader: 'babel-loader',
             options: {
                 presets: [['@babel/preset-env']],
-                plugins: [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+                plugins: [
+                    isDev && require.resolve('react-refresh/babel'),
+                    [babelRemoveAttributePlugin, { attributes: ['data-testid'] }],
+                ].filter(Boolean),
             },
         },
     };
