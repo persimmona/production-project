@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { mockNotifications } from 'entities/Notification';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { getDarkThemeBackground } from 'shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from 'shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
@@ -8,7 +9,16 @@ import { OpenNotifications } from './OpenNotifications';
 export default {
     title: 'features/OpenNotifications',
     component: OpenNotifications,
-    argTypes: {},
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/notifications`,
+                method: 'GET',
+                status: 200,
+                response: mockNotifications,
+            },
+        ],
+    },
 } as ComponentMeta<typeof OpenNotifications>;
 
 const Template: ComponentStory<typeof OpenNotifications> = (args) => <OpenNotifications {...args} />;

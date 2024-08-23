@@ -12,14 +12,14 @@ interface NotificationListProps {
 }
 
 export function NotificationList(props: NotificationListProps) {
-    const { notifications, loading = false, className } = props;
+    const { notifications = [], loading = false, className } = props;
 
     if (loading) {
         return (
             <div className={classNames(cls.notificationList, {}, [className])}>
-                <Skeleton height='20px' width='100%' />
-                <Skeleton height='20px' width='100%' />
-                <Skeleton height='20px' width='100%' />
+                <Skeleton height='40px' width='100%' />
+                <Skeleton height='40px' width='100%' />
+                <Skeleton height='40px' width='100%' />
             </div>
         );
     }

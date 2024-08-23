@@ -29,7 +29,7 @@ Dark.parameters = {
 };
 
 export const Loading = Template.bind({});
-Loading.args = { loading: true, notifications: undefined };
+Loading.args = { loading: true, notifications: [] };
 Loading.decorators = [];
 Loading.parameters = {
     backgrounds: getLightThemeBackground(),
