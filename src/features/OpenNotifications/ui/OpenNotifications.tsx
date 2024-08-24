@@ -1,5 +1,7 @@
 import { NotificationList, notificationApi } from 'entities/Notification';
-import { classNames } from 'shared/utils/classNames';
+import { Icon } from 'shared/ui/Icon';
+import { Popover } from 'shared/ui/Popover/Popover';
+import NotificationIcon from '../../shared/assets/icons/notification.svg';
 import cls from './OpenNotifications.module.scss';
 
 export const { useGetNotificationsQuery } = notificationApi;
@@ -12,9 +14,11 @@ export function OpenNotifications(props: OpenNotificationsProps) {
     const { className } = props;
     const { isLoading, data } = useGetNotificationsQuery(undefined, { pollingInterval: 5000 });
 
+    const renderTrigger = () => <Icon Svg={NotificationIcon} className={cls.icon} />;
+
     return (
-        <div className={classNames(cls.openNotifications, {}, [className])}>
-            <NotificationList notifications={data ?? []} loading={isLoading} />
-        </div>
+        <Popover trigger={renderTrigger()} className={className}>
+            <NotificationList notifications={data ?? []} loading={isLoading} className={cls.notifications} />
+        </Popover>
     );
 }

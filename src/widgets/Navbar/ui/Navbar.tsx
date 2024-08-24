@@ -11,6 +11,7 @@ import { classNames } from 'shared/utils/classNames/classNames';
 import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { useVisibility } from 'shared/utils/useVisibility';
 import cls from './Navbar.module.scss';
+import { OpenNotifications } from 'features/OpenNotifications';
 
 interface NavbarProps {
     className?: string;
@@ -43,6 +44,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         <header className={classNames(cls.navbar, {}, [className])}>
             <PageContainer className={cls.inner}>
                 <div className={cls.links}></div>
+                <OpenNotifications />
                 <Button onClick={openLoginModal}>{t('navbar.sign_in')}</Button>
 
                 {isLoginModalMounted && (

@@ -88,7 +88,8 @@
     },
     {
       "files": [
-        "**/src/**/*.test.{ts,tsx}"
+        "**/src/**/*.test.{ts,tsx}",
+        "**/src/**/*.stories.{ts,tsx}"
       ],
       "rules": {
         "i18next/no-literal-string": "off" // remove for specific files
