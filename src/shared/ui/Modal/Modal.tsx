@@ -11,11 +11,14 @@ export interface ModalProps {
     isVisible: boolean;
     onClose: () => void;
     children: ReactNode;
+    showCloseButton?: boolean;
     className?: string;
     container?: HTMLElement;
 }
 
-export const Modal = ({ isVisible, onClose, children, container, className }: ModalProps) => {
+export const Modal = (props: ModalProps) => {
+    const { isVisible, onClose, children, container, className, showCloseButton = true } = props;
+
     const onKeyDown = useCallback(
         (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
@@ -35,9 +38,11 @@ export const Modal = ({ isVisible, onClose, children, container, className }: Mo
         <Portal container={container}>
             <div className={classNames(cls.modal, { [cls.opened]: isVisible }, [className])} onClick={onClose} role='button' tabIndex={0}>
                 <div className={cls.content} onClick={(e: MouseEvent) => e.stopPropagation()}>
-                    <Button className={cls.buttonClose} onClick={onClose}>
-                        <IconClose />
-                    </Button>
+                    {showCloseButton && (
+                        <Button className={cls.buttonClose} onClick={onClose}>
+                            <IconClose />
+                        </Button>
+                    )}
                     <div className={cls.contentInfo}>{children}</div>
                 </div>
             </div>

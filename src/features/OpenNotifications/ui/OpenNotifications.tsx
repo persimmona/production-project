@@ -1,7 +1,7 @@
 import { NotificationList, notificationApi } from 'entities/Notification';
+import NotificationIcon from 'shared/assets/icons/notification.svg';
 import { Icon } from 'shared/ui/Icon';
 import { Popover } from 'shared/ui/Popover/Popover';
-import NotificationIcon from '../../shared/assets/icons/notification.svg';
 import cls from './OpenNotifications.module.scss';
 
 export const { useGetNotificationsQuery } = notificationApi;

@@ -32,7 +32,7 @@ export default {
         config!.plugins!.push(
             new DefinePlugin({
                 __IS_DEV__: JSON.stringify(true),
-                __API__: JSON.stringify('https://testapi.com'),
+                __API__: JSON.stringify('http://localhost:6006'),
                 __PROJECT__: JSON.stringify('storybook'),
             }),
         );
