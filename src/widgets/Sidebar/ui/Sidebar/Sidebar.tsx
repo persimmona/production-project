@@ -14,8 +14,6 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-    const { theme } = useTheme();
-
     const sidebarItems = useSelector(selectSidebarItems);
 
     const [collapsed, setCollapsed] = useState(true);
@@ -23,7 +21,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         setCollapsed((prev) => !prev);
     };
 
-    const mainNavigation = sidebarItems.map((item) => <SidebarItem collapsed={collapsed} item={item} theme={theme} key={item.path} />);
+    const mainNavigation = sidebarItems.map((item) => <SidebarItem collapsed={collapsed} item={item} key={item.path} />);
 
     return (
         <nav aria-label='Side menu' className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])} data-testid='sidebar'>

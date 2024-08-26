@@ -34,6 +34,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
                 <PageContainer className={cls.inner}>
+                    <OpenNotifications />
                     <Button onClick={() => dispatch(userActions.logout())}>{t('navbar.sign_out')}</Button>
                 </PageContainer>
             </header>
@@ -44,7 +45,6 @@ export const Navbar = ({ className }: NavbarProps) => {
         <header className={classNames(cls.navbar, {}, [className])}>
             <PageContainer className={cls.inner}>
                 <div className={cls.links}></div>
-                <OpenNotifications />
                 <Button onClick={openLoginModal}>{t('navbar.sign_in')}</Button>
 
                 {isLoginModalMounted && (

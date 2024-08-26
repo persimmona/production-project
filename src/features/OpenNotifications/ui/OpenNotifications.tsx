@@ -3,6 +3,10 @@ import NotificationIcon from 'shared/assets/icons/notification.svg';
 import { Icon } from 'shared/ui/Icon';
 import { Popover } from 'shared/ui/Popover/Popover';
 import cls from './OpenNotifications.module.scss';
+import { BrowserView, MobileView } from 'react-device-detect';
+import { Modal } from 'shared/ui/Modal';
+import { useVisibility } from 'shared/utils/useVisibility';
+import { Button } from 'shared/ui/Button';
 
 export const { useGetNotificationsQuery } = notificationApi;
 
@@ -14,11 +18,23 @@ export function OpenNotifications(props: OpenNotificationsProps) {
     const { className } = props;
     const { isLoading, data } = useGetNotificationsQuery(undefined, { pollingInterval: 5000 });
 
-    const renderTrigger = () => <Icon Svg={NotificationIcon} className={cls.icon} />;
+    const { closeHandler, isVisible, openHandler } = useVisibility();
 
+    const renderTrigger = () => <Icon Svg={NotificationIcon} className={cls.icon} />;
+    const renderNotifications = () => <NotificationList notifications={data ?? []} loading={isLoading} className={cls.notifications} />;
     return (
-        <Popover trigger={renderTrigger()} className={className}>
-            <NotificationList notifications={data ?? []} loading={isLoading} className={cls.notifications} />
-        </Popover>
+        <>
+            <BrowserView>
+                <Popover trigger={renderTrigger()} className={className}>
+                    {renderNotifications()}
+                </Popover>
+            </BrowserView>
+            <MobileView>
+                <Button onClick={openHandler}>{renderTrigger()}</Button>
+                <Modal isVisible={isVisible} onClose={closeHandler}>
+                    {renderNotifications()}
+                </Modal>
+            </MobileView>
+        </>
     );
 }
