@@ -1,12 +1,13 @@
 import { NotificationList, notificationApi } from 'entities/Notification';
-import NotificationIcon from 'shared/assets/icons/notification.svg';
-import { Icon } from 'shared/ui/Icon';
-import { Popover } from 'shared/ui/Popover/Popover';
-import cls from './OpenNotifications.module.scss';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Modal } from 'shared/ui/Modal';
-import { useVisibility } from 'shared/utils/useVisibility';
+import NotificationIcon from 'shared/assets/icons/notification.svg';
 import { Button } from 'shared/ui/Button';
+import { Icon } from 'shared/ui/Icon';
+import { Modal } from 'shared/ui/Modal';
+import { Popover } from 'shared/ui/Popover/Popover';
+import { classNames } from 'shared/utils/classNames';
+import { useVisibility } from 'shared/utils/useVisibility';
+import cls from './OpenNotifications.module.scss';
 
 export const { useGetNotificationsQuery } = notificationApi;
 
@@ -21,20 +22,20 @@ export function OpenNotifications(props: OpenNotificationsProps) {
     const { closeHandler, isVisible, openHandler } = useVisibility();
 
     const renderTrigger = () => <Icon Svg={NotificationIcon} className={cls.icon} />;
-    const renderNotifications = () => <NotificationList notifications={data ?? []} loading={isLoading} className={cls.notifications} />;
+    const renderNotifications = () => <NotificationList notifications={data ?? []} loading={isLoading} />;
     return (
-        <>
+        <div>
             <BrowserView>
-                <Popover trigger={renderTrigger()} className={className}>
+                <Popover trigger={renderTrigger()} className={classNames(cls.popover, {}, [className])}>
                     {renderNotifications()}
                 </Popover>
             </BrowserView>
             <MobileView>
                 <Button onClick={openHandler}>{renderTrigger()}</Button>
-                <Modal isVisible={isVisible} onClose={closeHandler}>
+                <Modal isVisible={isVisible} onClose={closeHandler} className={classNames(cls.modal, {}, [className])}>
                     {renderNotifications()}
                 </Modal>
             </MobileView>
-        </>
+        </div>
     );
 }

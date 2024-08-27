@@ -5,7 +5,8 @@
 }
 
 .trigger {
-    width: 100%;
+    display: flex;
+
     margin: 0;
     padding: 0;
 
@@ -25,5 +26,5 @@
 
     border-radius: var(--border-radius-default);
 
-    background-color: var(--color-dropdown);
+    background-color: var(--color-modal);
 }

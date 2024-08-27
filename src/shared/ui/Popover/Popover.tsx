@@ -13,10 +13,10 @@ export function Popover(props: PopoverProps) {
     const { className, trigger, children } = props;
 
     return (
-        <HPopover className={classNames(cls.popover, {}, [className])}>
+        <HPopover className={cls.popover}>
             <HPopover.Button className={cls.trigger}>{trigger}</HPopover.Button>
 
-            <HPopover.Panel className={cls.panel}>{children}</HPopover.Panel>
+            <HPopover.Panel className={classNames(cls.panel, {}, [className])}>{children}</HPopover.Panel>
         </HPopover>
     );
 }
