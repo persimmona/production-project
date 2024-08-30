@@ -10,8 +10,8 @@ import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
 import { classNames } from 'shared/utils/classNames/classNames';
 import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
 import { useVisibility } from 'shared/utils/useVisibility';
-import cls from './Navbar.module.scss';
 import { OpenNotifications } from 'features/OpenNotifications';
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;

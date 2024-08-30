@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { MouseEvent, ReactNode, useCallback, useEffect } from 'react';
+import { CSSProperties, MouseEvent, ReactNode, useCallback, useEffect } from 'react';
 import IconClose from 'shared/assets/icons/close.svg';
 import { Button } from 'shared/ui/Button';
 import { Portal } from 'shared/ui/Portal';
@@ -13,6 +13,7 @@ export interface ModalProps {
     children: ReactNode;
     showCloseButton?: boolean;
     className?: string;
+    styles?: CSSProperties;
     container?: HTMLElement;
 }
 
