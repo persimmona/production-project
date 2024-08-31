@@ -35,7 +35,7 @@
 
     min-width: 100%;
 
-    background-color: var(--color-dropdown);
+    background-color: var(--color-modal);
 }
 
 .option {
@@ -55,13 +55,13 @@
 }
 
 .active {
-    color: var(--color-secondary-inverted);
+    color: var(--color-modal);
 
     background: var(--color-secondary-hover);
 }
 
 .selected {
-    color: var(--color-secondary-inverted);
+    color: var(--color-modal);
 
     background: var(--color-secondary);
 }

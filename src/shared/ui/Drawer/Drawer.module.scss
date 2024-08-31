@@ -1,0 +1,49 @@
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background: var(--color-overlay);
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
+
+    &.opened {
+        z-index: var(--z-index-modal);
+
+        visibility: visible;
+        cursor: pointer;
+
+        opacity: 1;
+    }
+}
+
+.content {
+    position: relative;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    height: calc(100% + 100px);
+    margin: 0 16px;
+    padding: 16px;
+
+    color: var(--color-base-text);
+
+    border-radius: var(--border-radius-default);
+
+    background-color: var(--color-modal);
+
+    cursor: default;
+
+    overflow: auto;
+
+    touch-action: none;
+
+    transition: transform var(--duration-short) ease;
+}
