@@ -1,8 +1,8 @@
-import { classNames } from 'shared/utils/classNames';
-import CopyIcon from 'shared/assets/icons/copy.svg';
-import { Button } from 'shared/ui/Button';
+import { classNames } from '@/shared/utils/classNames';
+import CopyIcon from '@/shared/assets/icons/copy.svg';
+import { Button } from '@/shared/ui/Button';
 import cls from './CodeBlock.module.scss';
-import { Icon } from 'shared/ui/Icon';
+import { Icon } from '@/shared/ui/Icon';
 
 interface CodeBlockProps {
     text: string;

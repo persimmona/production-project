@@ -1,4 +1,4 @@
-import { classNames } from 'shared/utils/classNames';
+import { classNames } from '@/shared/utils/classNames';
 import { CommentCard } from '../../ui/CommentCard/CommentCard';
 import { CommentCardSkeleton } from '../../ui/CommentCard/CommentCardSkeleton';
 import { Comment } from '../../model/types/comment';

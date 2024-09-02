@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import { Theme, ThemeContext } from 'shared/contexts/theme';
+import { Theme, ThemeContext } from '@/shared/contexts/theme';
 
 export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => {
     document.body.classList.remove(...Object.values(Theme));

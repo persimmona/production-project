@@ -1,7 +1,7 @@
 import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
-import { $api } from 'shared/api/api';
-import { rtkApi } from 'shared/api/rtkApi';
+import { userReducer } from '@/entities/User';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { AsyncSchema, RootSchema, ThunkExtraArg } from './RootSchema';
 import { createReducerManager } from './createReducerManager';
 

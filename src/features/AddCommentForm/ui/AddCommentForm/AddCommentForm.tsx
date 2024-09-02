@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Button } from 'shared/ui/Button';
-import { Input } from 'shared/ui/Input';
-import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
-import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
+import { Button } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
+import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
+import { ReducersList, useReducersDynamicLoader } from '@/shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';

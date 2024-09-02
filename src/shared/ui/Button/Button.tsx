@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactNode } from 'react';
-import { Theme, useTheme } from 'shared/contexts/theme';
-import { classNames } from 'shared/utils/classNames';
+import { Theme, useTheme } from '@/shared/contexts/theme';
+import { classNames } from '@/shared/utils/classNames';
 import cls from './Button.module.scss';
 
 export type ButtonVariant = 'flat' | 'outline';

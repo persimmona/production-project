@@ -1,12 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleBlockType, articles, ArticleType } from 'entities/Article';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { getDarkThemeBackground } from 'shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
-import { getLightThemeBackground } from 'shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
-import { AppRoutes, AppRoutesPath } from 'shared/const/routes';
-import { Theme } from 'shared/contexts/theme';
+import { ArticleBlockType, articles, ArticleType } from '@/entities/Article';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
+import { getLightThemeBackground } from '@/shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
+import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
+import { Theme } from '@/shared/contexts/theme';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {

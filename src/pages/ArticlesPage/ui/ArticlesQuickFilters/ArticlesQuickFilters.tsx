@@ -1,8 +1,8 @@
-import { ArticleType } from 'entities/Article';
+import { ArticleType } from '@/entities/Article';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { QuickFilter, QuickFilters } from 'shared/ui/QuickFilters';
+import { QuickFilter, QuickFilters } from '@/shared/ui/QuickFilters';
 import { ARTICLES_PAGE_UID } from '../../model/const/defaults';
 import { selectArticlesPageType } from '../../model/selectors/articlesPageSelectors';
 import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';

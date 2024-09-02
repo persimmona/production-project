@@ -1,7 +1,7 @@
 import React from 'react';
-import { classNames } from 'shared/utils/classNames';
+import { classNames } from '@/shared/utils/classNames';
 import cls from './QuickFilter.module.scss';
-import { HTMLElementValue } from 'shared/types/utils';
+import { HTMLElementValue } from '@/shared/types/utils';
 
 export interface QuickFilterProps<T> {
     value: T;

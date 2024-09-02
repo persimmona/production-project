@@ -1,7 +1,7 @@
-import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'shared/contexts/theme';
+import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/contexts/theme';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },

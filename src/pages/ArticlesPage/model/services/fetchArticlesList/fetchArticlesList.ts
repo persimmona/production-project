@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { RootSchema, ThunkConfig } from 'app/providers/store/config/RootSchema';
-import { Article } from 'entities/Article';
+import { RootSchema, ThunkConfig } from '@/app/providers/store/config/RootSchema';
+import { Article } from '@/entities/Article';
 import { DEFAULT_PAGINATION } from '../../const/defaults';
 import {
     selectArticlesPagePagination,

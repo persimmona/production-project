@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
-import { HTMLElementValue } from 'shared/types/utils';
-import { classNames } from 'shared/utils/classNames';
+import { HTMLElementValue } from '@/shared/types/utils';
+import { classNames } from '@/shared/utils/classNames';
 import cls from './Select.module.scss';
 
 export interface SelectOption<T extends HTMLElementValue> {

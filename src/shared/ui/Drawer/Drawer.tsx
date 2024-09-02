@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { CSSProperties, ReactNode, useCallback, useEffect } from 'react';
-import { useAnimationLibraries } from 'shared/contexts/animation';
-import { Portal } from 'shared/ui/Portal';
-import { classNames } from 'shared/utils/classNames';
+import { useAnimationLibraries } from '@/shared/contexts/animation';
+import { Portal } from '@/shared/ui/Portal';
+import { classNames } from '@/shared/utils/classNames';
 import cls from './Drawer.module.scss';
 
 export interface DrawerProps {

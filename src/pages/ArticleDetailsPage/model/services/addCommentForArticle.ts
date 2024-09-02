@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { RootSchema, ThunkConfig } from 'app/providers/store/config/RootSchema';
-import { Comment } from 'entities/Comment';
-import { selectUserAuthData } from 'entities/User';
-import { fetchCommentsByArticleId } from 'widgets/ArticleCommentList';
+import { RootSchema, ThunkConfig } from '@/app/providers/store/config/RootSchema';
+import { Comment } from '@/entities/Comment';
+import { selectUserAuthData } from '@/entities/User';
+import { fetchCommentsByArticleId } from '@/widgets/ArticleCommentList';
 
 type Args = {
     text: string;

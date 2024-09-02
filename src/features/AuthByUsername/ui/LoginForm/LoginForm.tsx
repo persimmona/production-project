@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
-import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
-import { Button } from 'shared/ui/Button';
-import { Header } from 'shared/ui/Header';
-import { Input } from 'shared/ui/Input';
-import { P } from 'shared/ui/P';
+import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
+import { ReducersList, useReducersDynamicLoader } from '@/shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
+import { Button } from '@/shared/ui/Button';
+import { Header } from '@/shared/ui/Header';
+import { Input } from '@/shared/ui/Input';
+import { P } from '@/shared/ui/P';
 import { loginByUsername } from '../../model/services/loginByUsername';
 import { selectLoginFormState } from '../../model/selectors/selectLoginFormState';
 import { loginFormActions, loginFormReducer } from '../../model/slice/loginFormSlice';

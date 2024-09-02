@@ -1,4 +1,4 @@
-import { SelectOption } from 'shared/ui/Select/Select';
+import { SelectOption } from '@/shared/ui/Select/Select';
 
 export enum Country {
     Ukraine = 'Ukraine',

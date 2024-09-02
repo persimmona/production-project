@@ -1,4 +1,4 @@
-import { classNames } from 'shared/utils/classNames';
+import { classNames } from '@/shared/utils/classNames';
 import { ProfileInfoItem } from '../../ui/ProfileInfoItem/ProfileInfoItem';
 import cls from './ProfileInfoList.module.scss';
 

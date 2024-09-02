@@ -6,22 +6,22 @@ import {
     selectArticleData,
     selectArticleError,
     selectArticleIsLoading,
-} from 'entities/Article';
-import { AddCommentForm } from 'features/AddCommentForm';
+} from '@/entities/Article';
+import { AddCommentForm } from '@/features/AddCommentForm';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { AppRoutes, AppRoutesPath } from 'shared/const/routes';
-import { AppLink, AppLinkColor } from 'shared/ui/AppLink';
-import { Header } from 'shared/ui/Header';
-import { P } from 'shared/ui/P';
-import { Page } from 'shared/ui/Page/Page';
-import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
-import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
-import { ArticleCommentList } from 'widgets/ArticleCommentList';
-import { ArticleRecommendations } from 'widgets/ArticleRecommendations';
+import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
+import { AppLink, AppLinkColor } from '@/shared/ui/AppLink';
+import { Header } from '@/shared/ui/Header';
+import { P } from '@/shared/ui/P';
+import { Page } from '@/shared/ui/Page/Page';
+import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/utils/useInitialEffect/useInitialEffect';
+import { ReducersList, useReducersDynamicLoader } from '@/shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
+import { ArticleCommentList } from '@/widgets/ArticleCommentList';
+import { ArticleRecommendations } from '@/widgets/ArticleRecommendations';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 
 const reducers: ReducersList = {

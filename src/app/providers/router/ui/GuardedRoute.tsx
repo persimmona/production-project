@@ -1,8 +1,8 @@
-import { selectUserAuthData, UserRole } from 'entities/User';
+import { selectUserAuthData, UserRole } from '@/entities/User';
 import { ReactElement, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AppRoutes, AppRoutesPath } from 'shared/const/routes';
+import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
 
 interface GuardedRouteProps {
     children: ReactElement;

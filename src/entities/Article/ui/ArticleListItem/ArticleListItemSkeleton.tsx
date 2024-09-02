@@ -1,8 +1,8 @@
-import { Avatar } from 'shared/ui/Avatar';
-import { Card } from 'shared/ui/Card/Card';
-import { P } from 'shared/ui/P';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { classNames } from 'shared/utils/classNames';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Card } from '@/shared/ui/Card/Card';
+import { P } from '@/shared/ui/P';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { classNames } from '@/shared/utils/classNames';
 import { ARTICLE_LAYOUT } from '../../model/consts/articleConsts';
 import { ArticleLayout } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';

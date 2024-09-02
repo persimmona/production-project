@@ -1,4 +1,4 @@
-import { classNames } from 'shared/utils/classNames';
+import { classNames } from '@/shared/utils/classNames';
 import cls from './Skeleton.module.scss';
 import { CSSProperties, ReactNode, useCallback, useMemo, useState } from 'react';
 

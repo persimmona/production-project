@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Profile } from 'entities/Profile';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { Profile } from '@/entities/Profile';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 import { ProfileFormSchema, ValidateProfileFormError } from '../types/profileForm';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 

@@ -1,7 +1,7 @@
 import { Listbox as HListbox } from '@headlessui/react';
 import { Fragment, ReactNode, useMemo } from 'react';
-import { HTMLElementValue } from 'shared/types/utils';
-import { classNames } from 'shared/utils/classNames';
+import { HTMLElementValue } from '@/shared/types/utils';
+import { classNames } from '@/shared/utils/classNames';
 import cls from './Listbox.module.scss';
 
 const EMPTY_VALUE = '-';

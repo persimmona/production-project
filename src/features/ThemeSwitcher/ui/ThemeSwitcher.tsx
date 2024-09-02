@@ -1,8 +1,8 @@
-import DarkIcon from 'shared/assets/icons/theme-dark.svg';
-import LightIcon from 'shared/assets/icons/theme-light.svg';
-import { Theme, useTheme } from 'shared/contexts/theme';
-import { Button } from 'shared/ui/Button';
-import { classNames } from 'shared/utils/classNames';
+import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
+import LightIcon from '@/shared/assets/icons/theme-light.svg';
+import { Theme, useTheme } from '@/shared/contexts/theme';
+import { Button } from '@/shared/ui/Button';
+import { classNames } from '@/shared/utils/classNames';
 
 interface ThemeSwitcherProps {
     className?: string;

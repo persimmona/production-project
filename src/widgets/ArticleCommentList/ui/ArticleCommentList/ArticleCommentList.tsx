@@ -1,9 +1,9 @@
-import { CommentList } from 'entities/Comment';
+import { CommentList } from '@/entities/Comment';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/utils/classNames';
-import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/utils/useInitialEffect/useInitialEffect';
-import { ReducersList, useReducersDynamicLoader } from 'shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
+import { classNames } from '@/shared/utils/classNames';
+import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/utils/useInitialEffect/useInitialEffect';
+import { ReducersList, useReducersDynamicLoader } from '@/shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
 import { selectArticleCommentListIsLoading } from '../../model/selectors/commentListSelectors';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleCommentListReducer, selectArticleCommentList } from '../../model/slice/articleCommentListSlice';

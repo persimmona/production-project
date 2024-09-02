@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { Page } from 'shared/ui/Page/Page';
-import { classNames } from 'shared/utils/classNames';
+import { Page } from '@/shared/ui/Page/Page';
+import { classNames } from '@/shared/utils/classNames';
 import cls from './AdminPanelPage.module.scss';
 
 interface AdminPanelPageProps {

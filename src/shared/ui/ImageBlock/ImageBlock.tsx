@@ -1,6 +1,6 @@
-import { classNames } from 'shared/utils/classNames';
-import { P } from 'shared/ui/P';
-import { Image } from 'shared/ui/Image';
+import { classNames } from '@/shared/utils/classNames';
+import { P } from '@/shared/ui/P';
+import { Image } from '@/shared/ui/Image';
 import cls from './ImageBlock.module.scss';
 
 interface ImageBlockProps {

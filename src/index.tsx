@@ -1,10 +1,10 @@
-import { App } from 'app/App';
-import { ErrorBoundry } from 'app/providers/error-boundry';
-import { StoreProvider } from 'app/providers/store';
+import { App } from '@/app/App';
+import { ErrorBoundry } from '@/app/providers/error-boundry';
+import { StoreProvider } from '@/app/providers/store';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import 'shared/config/i18n/i18n';
-import { ThemeContextProvider } from 'shared/contexts/theme/ui/ThemeProvider';
+import '@/shared/config/i18n/i18n';
+import { ThemeContextProvider } from '@/shared/contexts/theme/ui/ThemeProvider';
 
 const container = document.getElementById('root');
 

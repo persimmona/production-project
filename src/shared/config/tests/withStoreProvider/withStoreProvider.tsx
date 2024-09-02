@@ -1,5 +1,5 @@
 import { ComponentType, FC } from 'react';
-import { RootSchema, StoreProvider } from 'app/providers/store';
+import { RootSchema, StoreProvider } from '@/app/providers/store';
 
 interface WithRouterProps {
     initialState?: DeepPartial<RootSchema>;

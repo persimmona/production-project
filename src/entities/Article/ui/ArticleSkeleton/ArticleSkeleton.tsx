@@ -1,5 +1,5 @@
-import { classNames } from 'shared/utils/classNames';
-import { Skeleton } from 'shared/ui/Skeleton';
+import { classNames } from '@/shared/utils/classNames';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import cls from './ArticleSkeleton.module.scss';
 
 interface ArticleSkeletonProps {

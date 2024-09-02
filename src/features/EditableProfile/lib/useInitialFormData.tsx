@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
-import { Profile } from 'entities/Profile';
+import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
+import { Profile } from '@/entities/Profile';
 import { profileFormActions } from '../model/slice/profileFormSlice';
 
 export const useIntitalFormData = (initialData: Profile) => {

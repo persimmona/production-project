@@ -1,7 +1,7 @@
-import { classNames } from 'shared/utils/classNames';
-import { Avatar } from 'shared/ui/Avatar';
-import { P } from 'shared/ui/P';
-import { Skeleton } from 'shared/ui/Skeleton';
+import { classNames } from '@/shared/utils/classNames';
+import { Avatar } from '@/shared/ui/Avatar';
+import { P } from '@/shared/ui/P';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import cls from './CommentCard.module.scss';
 
 interface CommentCardSkeletonProps {

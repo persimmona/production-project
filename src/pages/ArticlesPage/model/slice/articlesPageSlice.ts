@@ -1,8 +1,8 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { RootSchema } from 'app/providers/store';
-import { ARTICLE_LAYOUT, Article, ArticleLayout, ArticleSortField, ArticleType } from 'entities/Article';
-import { SortOrder } from 'shared/const/common';
-import { ARTICLES_PAGE_LAYOUT } from 'shared/const/localstorage';
+import { RootSchema } from '@/app/providers/store';
+import { ARTICLE_LAYOUT, Article, ArticleLayout, ArticleSortField, ArticleType } from '@/entities/Article';
+import { SortOrder } from '@/shared/const/common';
+import { ARTICLES_PAGE_LAYOUT } from '@/shared/const/localstorage';
 import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
 import { ARTICLES_PAGE_LIMIT, DEFAULT_PAGINATION, initialState } from '../const/defaults';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';

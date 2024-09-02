@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { classNames } from 'shared/utils/classNames';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { classNames } from '@/shared/utils/classNames';
 import { Notification } from '../../model/types/notification';
 import { NotificationListItem } from '../NotificationListItem/NotificationListItem';
 import cls from './NotificationList.module.scss';

@@ -1,8 +1,8 @@
 import { Reducer } from '@reduxjs/toolkit';
-import { AsyncSchemaKey, RootSchema, StoreWithReducerManager } from 'app/providers/store';
+import { AsyncSchemaKey, RootSchema, StoreWithReducerManager } from '@/app/providers/store';
 import { useEffect } from 'react';
 import { useStore } from 'react-redux';
-import { useAppDispatch } from 'shared/utils/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
 
 export type ReducersList = {
     [key in AsyncSchemaKey]?: Reducer<NonNullable<RootSchema[key]>>;

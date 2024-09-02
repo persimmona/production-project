@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Profile } from 'entities/Profile';
+import { Profile } from '@/entities/Profile';
 import { fetchProfileData } from '../services/fecthProfileData';
 import { ProfileSchema } from '../types/profile';
 

@@ -1,6 +1,6 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { Article, ArticleLayout, ArticleSortField, ArticleType } from 'entities/Article';
-import { SortOrder } from 'shared/const/common';
+import { Article, ArticleLayout, ArticleSortField, ArticleType } from '@/entities/Article';
+import { SortOrder } from '@/shared/const/common';
 
 export interface Pagination {
     limit: number;

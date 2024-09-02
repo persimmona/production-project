@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import { HTMLElementValue } from 'shared/types/utils';
-import { classNames } from 'shared/utils/classNames';
+import { HTMLElementValue } from '@/shared/types/utils';
+import { classNames } from '@/shared/utils/classNames';
 import { QuickFilterProps } from '../QuickFilter/QuickFilter';
 import cls from './QuickFilters.module.scss';
 

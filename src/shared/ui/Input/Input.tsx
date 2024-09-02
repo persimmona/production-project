@@ -1,6 +1,6 @@
 import { ChangeEvent, InputHTMLAttributes, useCallback } from 'react';
-import { HTMLElementValue } from 'shared/types/utils';
-import { classNames } from 'shared/utils/classNames';
+import { HTMLElementValue } from '@/shared/types/utils';
+import { classNames } from '@/shared/utils/classNames';
 import cls from './Input.module.scss';
 
 type HTMLInputElementProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
