@@ -1,0 +1,5 @@
+# Browsers that we support
+
+defaults 
+not dead # no browsers without security updates
+not IE 11 
