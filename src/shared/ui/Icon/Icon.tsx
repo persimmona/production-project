@@ -1,9 +1,9 @@
 import { classNames } from '@/shared/utils/classNames';
 import cls from './Icon.module.scss';
 
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
     className?: string;
-    Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
+    Svg: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 export const Icon = ({ className, Svg }: IconProps) => {
