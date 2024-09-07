@@ -1,3 +1,7 @@
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import {
     ArticleDetails,
     ArticleSkeleton,
@@ -8,10 +12,7 @@ import {
     selectArticleIsLoading,
 } from '@/entities/Article';
 import { AddCommentForm } from '@/features/AddCommentForm';
-import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { ArticleRating } from '@/features/ArticleRating';
 import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
 import { AppLink, AppLinkColor } from '@/shared/ui/AppLink';
 import { Header } from '@/shared/ui/Header';
@@ -72,6 +73,7 @@ const ArticleDetailsPage = () => {
                 {t('article:back_to_articles')}
             </AppLink>
             <ArticleDetails article={article} />
+            <ArticleRating articleId={article.id} />
             <Header tag='h2'>{t('article:recommendations')}</Header>
             <ArticleRecommendations />
             <Header tag='h2'>{t('article:comments')}</Header>

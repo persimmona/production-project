@@ -28,7 +28,7 @@ export function RatingCard(props: RatingCardProps) {
 
     return (
         <div className={classNames(cls.ratingCard, {}, [className])}>
-            <P>{rating ? t('main:thanks_for_opinion') : title}</P>
+            <P>{rating ? t('thanks_for_opinion') : title}</P>
             <StarRating onSelect={onRatingSelect} selectedStarsCount={rating ?? 0} />
         </div>
     );
