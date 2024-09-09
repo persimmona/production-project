@@ -1,4 +1,3 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleBlockType, articles, ArticleType } from '@/entities/Article';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -7,12 +6,15 @@ import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBa
 import { getLightThemeBackground } from '@/shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
 import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
 import { Theme } from '@/shared/contexts/theme';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import withMock from 'storybook-addon-mock';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
     title: 'pages/ArticleDetailsPage',
     component: ArticleDetailsPage,
     argTypes: {},
+    decorators: [withMock],
     parameters: {
         mockData: [
             {
@@ -20,6 +22,12 @@ export default {
                 method: 'GET',
                 status: 200,
                 response: articles,
+            },
+            {
+                url: `${__API__}/article-ratings?articleId=1&userId=1`,
+                method: 'GET',
+                status: 200,
+                response: [{ rating: 3 }],
             },
         ],
     },
@@ -63,7 +71,7 @@ const article = {
 export const Light = Template.bind({});
 Light.decorators = [
     RouterDecorator(AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + article.id, AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + ':id'),
-    StoreDecorator({ article: { data: article } }),
+    StoreDecorator({ article: { data: article }, user: { authData: { id: '1' } } }),
 ];
 Light.parameters = {
     backgrounds: getLightThemeBackground(),
@@ -72,7 +80,7 @@ Light.parameters = {
 export const Dark = Template.bind({});
 Dark.decorators = [
     RouterDecorator(AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + article.id, AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + ':id'),
-    StoreDecorator({ article: { data: article } }),
+    StoreDecorator({ article: { data: article }, user: { authData: { id: '1' } } }),
     ThemeDecorator(Theme.DARK),
 ];
 Dark.parameters = {

@@ -5,8 +5,8 @@ import { classNames } from '@/shared/utils/classNames';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import cls from './ArticleRating.module.scss';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import cls from './ArticleRating.module.scss';
 
 interface ArticleRatingProps {
     articleId: string;
