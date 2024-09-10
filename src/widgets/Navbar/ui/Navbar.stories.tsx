@@ -1,16 +1,27 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
+import { mockNotifications } from '@/entities/Notification';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from '@/shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
 import { Theme } from '@/shared/contexts/theme';
+import withMock from 'storybook-addon-mock';
 import { Navbar } from './Navbar';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
     title: 'widgets/Navbar',
     component: Navbar,
-    argTypes: {},
+    decorators: [withMock],
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/notifications`,
+                method: 'GET',
+                status: 200,
+                response: mockNotifications,
+            },
+        ],
+    },
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
