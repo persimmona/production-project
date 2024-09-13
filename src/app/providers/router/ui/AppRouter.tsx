@@ -7,7 +7,8 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AppRoutes, AppRoutesPath, AppRoutesProps } from '@/shared/const/routes';
+import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
+import { AppRoutesProps } from '@/shared/types/routes';
 import { PageLoader } from '@/widgets/PageLoader';
 import { GuardedRoute } from './GuardedRoute';
 
