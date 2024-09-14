@@ -2,7 +2,6 @@ import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useTheme } from '@/shared/contexts/theme';
 import { Button } from '@/shared/ui/Button';
 import { classNames } from '@/shared/utils/classNames';
 import { selectSidebarItems } from '../../model/selectors/sidebarSelectors';

@@ -29,7 +29,8 @@
   "plugins": [
     "react",
     "prettier",
-    "persimmona-fsd"
+    "persimmona-fsd",
+    "unused-imports"
   ],
   "settings": {
     "react": {
@@ -62,6 +63,7 @@
       "rules": {
         "prettier/prettier": "warn",
         "react/display-name": "off",
+        "unused-imports/no-unused-imports": "error",
         "@typescript-eslint/no-empty-interface": [
           "error",
           {
