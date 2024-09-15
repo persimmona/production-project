@@ -1,5 +1,6 @@
-import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { User, userActions, USER_ROLE } from '@/entities/User';
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
+
 import { loginByUsername } from './loginByUsername';
 
 describe('loginByUsername', () => {

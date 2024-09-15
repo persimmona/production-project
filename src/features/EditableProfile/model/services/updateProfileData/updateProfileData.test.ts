@@ -1,6 +1,7 @@
-import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
+
 import { updateProfileData } from './updateProfileData';
 import { ValidateProfileFormError } from '../../types/profileForm';
 

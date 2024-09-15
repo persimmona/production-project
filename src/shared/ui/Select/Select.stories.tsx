@@ -1,8 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from '@/shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/contexts/theme';
+
 import { Select } from './Select';
 
 export default {

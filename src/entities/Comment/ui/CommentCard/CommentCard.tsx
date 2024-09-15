@@ -3,7 +3,9 @@ import { AppLink, AppLinkColor } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { P } from '@/shared/ui/P';
 import { classNames } from '@/shared/utils/classNames';
+
 import { Comment } from '../../model/types/comment';
+
 import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {

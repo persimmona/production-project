@@ -1,4 +1,5 @@
 import { RootSchema } from '@/app/providers/store';
+
 import { initialState } from '../const/defaults';
 
 export const selectArticlesPageLoading = (state: RootSchema) => state.articlesPage?.isLoading;

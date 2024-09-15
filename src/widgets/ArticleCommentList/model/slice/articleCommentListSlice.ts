@@ -1,8 +1,10 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { ArticleCommentListSchema } from '../types/articleCommentListSchema';
-import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { Comment } from '@/entities/Comment';
+
 import { RootSchema } from '@/app/providers/store';
+import { Comment } from '@/entities/Comment';
+
+import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { ArticleCommentListSchema } from '../types/articleCommentListSchema';
 
 // helps works with aeeay of data
 const articleCommentListAdapter = createEntityAdapter<Comment>({ selectId: (comment) => comment.id });

@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/store/config/RootSchema';
 import { Profile } from '@/entities/Profile';
 

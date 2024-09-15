@@ -1,10 +1,11 @@
-import { Profile, ProfileCard, ProfileInfoList } from '@/entities/Profile';
-import { selectUserAuthData } from '@/entities/User';
-import { EditableProfileFormAsync } from '@/features/EditableProfile';
 import { Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
+import { Profile, ProfileCard, ProfileInfoList } from '@/entities/Profile';
+import { selectUserAuthData } from '@/entities/User';
+import { EditableProfileFormAsync } from '@/features/EditableProfile';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Header } from '@/shared/ui/Header';
@@ -16,6 +17,7 @@ import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/utils/useInitialEffect/useInitialEffect';
 import { ReducersList, useReducersDynamicLoader } from '@/shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
 import { useVisibility } from '@/shared/utils/useVisibility';
+
 import { selectProfileData } from '../model/selectors/selectProfileData';
 import { selectProfileError } from '../model/selectors/selectProfileError';
 import { selectProfileIsLoading } from '../model/selectors/selectProfileIsLoading';

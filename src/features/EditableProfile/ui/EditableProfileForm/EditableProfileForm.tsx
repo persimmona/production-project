@@ -1,8 +1,9 @@
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
 import { countrySelectOptions } from '@/entities/Country';
 import { currencySelectOptions } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Listbox } from '@/shared/ui/Listbox/Listbox';
@@ -11,11 +12,13 @@ import { Select } from '@/shared/ui/Select/Select';
 import { classNames } from '@/shared/utils/classNames';
 import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
 import { ReducersList, useReducersDynamicLoader } from '@/shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
+
 import { useIntitalFormData } from '../../lib/useInitialFormData';
 import { selectProfileFormData } from '../../model/selectors/selectProfileFormData/selectProfileFormData';
 import { selectProfileFormErrors } from '../../model/selectors/selectProfileFormErrors';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileFormActions, profileFormReducer } from '../../model/slice/profileFormSlice';
+
 import cls from './EditableProfileForm.module.scss';
 
 interface EditableProfileFormProps {

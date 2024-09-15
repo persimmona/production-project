@@ -1,11 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from '@/shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/contexts/theme';
-import { articles } from '../../model/mock/articles';
+
 import { ArticleList } from './ArticleList';
+import { articles } from '../../model/mock/articles';
 
 export default {
     title: 'entities/Article/ArticleList',

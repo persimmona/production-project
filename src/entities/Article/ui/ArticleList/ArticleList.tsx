@@ -1,11 +1,14 @@
 import { useTranslation } from 'react-i18next';
+
 import { P } from '@/shared/ui/P';
 import { classNames } from '@/shared/utils/classNames';
+
+import { ArticleListSkeleton } from './ArticleListSkeleton';
 import { ARTICLE_LAYOUT } from '../../model/consts/articleConsts';
 import { Article, ArticleLayout } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+
 import cls from './ArticleList.module.scss';
-import { ArticleListSkeleton } from './ArticleListSkeleton';
 
 interface ArticleListProps {
     articles: Article[];

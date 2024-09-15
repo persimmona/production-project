@@ -1,8 +1,9 @@
-import { ArticleLayout, ArticleLayoutSelector, ArticleList } from '@/entities/Article';
 import { useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+
+import { ArticleLayout, ArticleLayoutSelector, ArticleList } from '@/entities/Article';
 import { Input } from '@/shared/ui/Input';
 import { Page } from '@/shared/ui/Page/Page';
 import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
@@ -10,6 +11,7 @@ import { useDebounce } from '@/shared/utils/useDebounce/useDebounce';
 import { useInitialEffect } from '@/shared/utils/useInitialEffect/useInitialEffect';
 import { useIntersectionObserver } from '@/shared/utils/useIntersectionObserver/useIntersectionObserver';
 import { ReducersList, useReducersDynamicLoader } from '@/shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
+
 import { ARTICLES_PAGE_UID } from '../../model/const/defaults';
 import { selectArticlesPageLayout, selectArticlesPageLoading, selectArticlesPageSearch } from '../../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
@@ -18,6 +20,7 @@ import { articlesPageActions, articlesPageReducer, articlesPageSelector } from '
 import { ArticlesAdvancedSearch } from '../../model/types/articlesPage';
 import { ArticlesQuickFilters } from '../ArticlesQuickFilters/ArticlesQuickFilters';
 import { ArticlesSort } from '../ArticlesSort/ArticlesSort';
+
 import cls from './ArticlesPage.module.scss';
 
 const reducers: ReducersList = {

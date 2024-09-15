@@ -1,10 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { TextBlock } from './TextBlock';
+import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
+import { getLightThemeBackground } from '@/shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/contexts/theme';
-import { getLightThemeBackground } from '@/shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
-import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
+
+import { TextBlock } from './TextBlock';
 
 export default {
     title: 'shared/TextBlock',

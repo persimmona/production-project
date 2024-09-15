@@ -1,8 +1,10 @@
+import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { P } from '@/shared/ui/P';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
 import { classNames } from '@/shared/utils/classNames';
-import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
 import cls from './RatingCard.module.scss';
 
 interface RatingCardProps {

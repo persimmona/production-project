@@ -1,8 +1,10 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+
 import { withRouter } from '@/shared/config/tests/withRouter/withRouter';
 import { withStoreProvider } from '@/shared/config/tests/withStoreProvider/withStoreProvider';
 import { withThemeProvider } from '@/shared/config/tests/withThemeProvider/withThemeProvider';
 import { withTranslation } from '@/shared/config/tests/withTranslation/withTranslation';
+
 import { Sidebar } from './Sidebar';
 
 const SidebarWithWrappers = withStoreProvider(withRouter(withThemeProvider(withTranslation(Sidebar))));

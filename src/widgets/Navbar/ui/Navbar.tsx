@@ -1,8 +1,10 @@
-import { selectUserAuthData, userActions } from '@/entities/User';
-import { LoginFormAsync } from '@/features/AuthByUsername';
 import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import { selectUserAuthData, userActions } from '@/entities/User';
+import { LoginFormAsync } from '@/features/AuthByUsername';
+import { OpenNotifications } from '@/features/OpenNotifications';
 import { Button } from '@/shared/ui/Button';
 import { Loader } from '@/shared/ui/Loader';
 import { Modal } from '@/shared/ui/Modal';
@@ -10,7 +12,7 @@ import { PageContainer } from '@/shared/ui/PageContainer/PageContainer';
 import { classNames } from '@/shared/utils/classNames/classNames';
 import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
 import { useVisibility } from '@/shared/utils/useVisibility';
-import { OpenNotifications } from '@/features/OpenNotifications';
+
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

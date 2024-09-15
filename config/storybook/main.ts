@@ -1,5 +1,6 @@
 import path from 'path';
 import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
+
 import { buildScssLoader } from '../build/loaders/buildScssLoader';
 
 export default {

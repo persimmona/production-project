@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
 import { AppLink, AppLinkColor } from '@/shared/ui/AppLink';
@@ -9,8 +10,10 @@ import { Icon } from '@/shared/ui/Icon';
 import { P } from '@/shared/ui/P';
 import { TextBlock } from '@/shared/ui/TextBlock';
 import { classNames } from '@/shared/utils/classNames';
+
 import { ARTICLE_LAYOUT, ArticleBlockType } from '../../model/consts/articleConsts';
 import { Article, ArticleLayout, ArticleTextBlock } from '../../model/types/article';
+
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {

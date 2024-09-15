@@ -1,6 +1,7 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { AppDispatch } from '@/app/providers/store/config/store';
 import { AxiosInstance } from 'axios';
+
+import { AppDispatch } from '@/app/providers/store/config/store';
 import { ArticleSchema } from '@/entities/Article';
 import { UserSchema } from '@/entities/User';
 import { AddCommnetFormSchema } from '@/features/AddCommentForm';

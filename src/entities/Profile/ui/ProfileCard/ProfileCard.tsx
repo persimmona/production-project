@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
+
 import { Header } from '@/shared/ui/Header';
 import { Loader } from '@/shared/ui/Loader';
+
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

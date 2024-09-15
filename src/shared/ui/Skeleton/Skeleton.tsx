@@ -1,6 +1,8 @@
-import { classNames } from '@/shared/utils/classNames';
-import cls from './Skeleton.module.scss';
 import { CSSProperties, ReactNode, useCallback, useMemo, useState } from 'react';
+
+import { classNames } from '@/shared/utils/classNames';
+
+import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
     variant?: 'rounded' | 'circular' | 'rectangular' | 'text';

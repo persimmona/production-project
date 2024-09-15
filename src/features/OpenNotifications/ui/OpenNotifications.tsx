@@ -1,13 +1,15 @@
-import { NotificationList, notificationApi } from '@/entities/Notification';
 import { BrowserView, MobileView } from 'react-device-detect';
+
+import { NotificationList, notificationApi } from '@/entities/Notification';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
+import { AnimationProvider } from '@/shared/contexts/animation';
 import { Button } from '@/shared/ui/Button';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popover/Popover';
 import { classNames } from '@/shared/utils/classNames';
 import { useVisibility } from '@/shared/utils/useVisibility';
-import { AnimationProvider } from '@/shared/contexts/animation';
+
 import cls from './OpenNotifications.module.scss';
 
 export const { useGetNotificationsQuery } = notificationApi;

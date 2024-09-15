@@ -1,7 +1,9 @@
 import { classNames } from '@/shared/utils/classNames';
+
+import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../../ui/CommentCard/CommentCard';
 import { CommentCardSkeleton } from '../../ui/CommentCard/CommentCardSkeleton';
-import { Comment } from '../../model/types/comment';
+
 import cls from './CommentList.module.scss';
 
 interface CommentListProps {

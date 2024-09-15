@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
+
 import { classNames } from '@/shared/utils/classNames';
+
 import cls from './PageContainer.module.scss';
 
 interface PageContainerProps {

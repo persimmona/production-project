@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
 import {
     ArticleDetails,
     ArticleSkeleton,
@@ -23,6 +24,7 @@ import { useInitialEffect } from '@/shared/utils/useInitialEffect/useInitialEffe
 import { ReducersList, useReducersDynamicLoader } from '@/shared/utils/useReducersDynamicLoader/useReducersDynamicLoader';
 import { ArticleCommentList } from '@/widgets/ArticleCommentList';
 import { ArticleRecommendations } from '@/widgets/ArticleRecommendations';
+
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 
 const reducers: ReducersList = {

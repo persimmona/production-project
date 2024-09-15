@@ -1,10 +1,12 @@
-import { selectUserInited, userActions } from '@/entities/User';
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
+import { selectUserInited, userActions } from '@/entities/User';
 import { useTheme } from '@/shared/contexts/theme';
 import { useAppDispatch } from '@/shared/utils/useAppDispatch/useAppDispatch';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
+
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
 

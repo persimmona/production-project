@@ -1,6 +1,7 @@
 import { RootSchema } from '@/app/providers/store';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+
 import { selectProfileFormData } from './selectProfileFormData';
 
 test('should return profile form data', () => {

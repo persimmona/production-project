@@ -1,9 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Profile } from '@/entities/Profile';
-import { Currency } from '@/entities/Currency';
+
 import { Country } from '@/entities/Country';
-import { ProfileFormSchema, ValidateProfileFormError } from '../types/profileForm';
+import { Currency } from '@/entities/Currency';
+import { Profile } from '@/entities/Profile';
+
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { ProfileFormSchema, ValidateProfileFormError } from '../types/profileForm';
 
 export const initialState: ProfileFormSchema = {
     data: {

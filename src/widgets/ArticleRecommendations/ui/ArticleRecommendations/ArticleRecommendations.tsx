@@ -1,6 +1,8 @@
 import { ARTICLE_LAYOUT, ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/utils/classNames';
+
 import { useGetArticleRecommendationsQuery } from '../../model/api/articleRecommendationsApi';
+
 import cls from './ArticleRecommendations.module.scss';
 
 interface ArticleRecommendationsProps {

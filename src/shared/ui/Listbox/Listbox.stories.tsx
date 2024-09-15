@@ -1,9 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { Currency } from '@/entities/Currency';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
 import { getLightThemeBackground } from '@/shared/config/storybook/getLightThemeBackground/getLightThemeBackground';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/contexts/theme';
+
 import { Listbox } from './Listbox';
 
 export default {

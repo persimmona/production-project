@@ -1,6 +1,7 @@
 import { ARTICLE_LAYOUT, ARTICLE_SORT_FIELD, ArticleLayout } from '@/entities/Article';
-import { ArticlesAdvancedSearch, ArticlesPageSchema, Pagination } from '../types/articlesPage';
 import { SORT_ORDER } from '@/shared/const/common';
+
+import { ArticlesAdvancedSearch, ArticlesPageSchema, Pagination } from '../types/articlesPage';
 
 export const ARTICLES_PAGE_LIMIT: Record<ArticleLayout, number> = {
     [ARTICLE_LAYOUT.GRID]: 9,

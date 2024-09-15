@@ -1,11 +1,13 @@
-import { RatingCard } from '@/entities/Rating';
-import { selectUserAuthData } from '@/entities/User';
-import { useGetArticleRatingByUser, useRateArticle } from '@/features/ArticleRating/api/articleRatingApi';
-import { classNames } from '@/shared/utils/classNames';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import { RatingCard } from '@/entities/Rating';
+import { selectUserAuthData } from '@/entities/User';
+import { useGetArticleRatingByUser, useRateArticle } from '@/features/ArticleRating/api/articleRatingApi';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import { classNames } from '@/shared/utils/classNames';
+
 import cls from './ArticleRating.module.scss';
 
 interface ArticleRatingProps {

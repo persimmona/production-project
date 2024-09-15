@@ -8,8 +8,10 @@ import { ImageBlock } from '@/shared/ui/ImageBlock';
 import { P } from '@/shared/ui/P';
 import { TextBlock } from '@/shared/ui/TextBlock';
 import { classNames } from '@/shared/utils/classNames';
+
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import { Article, ArticleBlock } from '../../model/types/article';
+
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

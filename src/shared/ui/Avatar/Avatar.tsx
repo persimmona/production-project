@@ -1,5 +1,6 @@
-import { classNames } from '@/shared/utils/classNames';
 import { Image } from '@/shared/ui/Image';
+import { classNames } from '@/shared/utils/classNames';
+
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {

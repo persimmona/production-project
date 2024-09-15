@@ -1,5 +1,6 @@
-import { AnimationProvider } from '@/shared/contexts/animation/AnimationProvider';
 import { ComponentType } from 'react';
+
+import { AnimationProvider } from '@/shared/contexts/animation/AnimationProvider';
 
 export const withAnimationProvider =
     <P extends object>(Component: ComponentType<P>) =>

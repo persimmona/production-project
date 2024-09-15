@@ -1,4 +1,5 @@
 import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+
 import { AnimationContext, GestureType, SpringType } from './AnimationContext';
 
 interface AnimationProviderProps {

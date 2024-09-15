@@ -1,5 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+
 import { classNames } from '@/shared/utils/classNames';
+
 import cls from './P.module.scss';
 
 export interface PProps extends DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> {

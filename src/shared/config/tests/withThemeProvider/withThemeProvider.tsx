@@ -1,4 +1,5 @@
 import { ComponentType } from 'react';
+
 import { ThemeContextProvider } from '@/shared/contexts/theme';
 
 export const withThemeProvider =

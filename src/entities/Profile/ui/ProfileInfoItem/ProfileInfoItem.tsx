@@ -1,4 +1,5 @@
 import { P } from '@/shared/ui/P';
+
 import cls from './ProfileInfoItem.module.scss';
 
 export interface ProfileInfoItemProps {

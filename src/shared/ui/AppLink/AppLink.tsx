@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
+
 import { classNames } from '@/shared/utils/classNames';
+
 import cls from './AppLink.module.scss';
 
 export enum AppLinkColor {
