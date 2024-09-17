@@ -1,6 +1,5 @@
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/contexts/theme';
 
 export const parameters = {
@@ -11,19 +10,16 @@ export const parameters = {
             date: /Date$/,
         },
     },
-    backgrounds: {
+    layout: 'fullscreen',
+    backgrounds: { disable: true },
+    themes: {
         default: 'light',
-        values: [
-            {
-                name: 'light',
-                value: '#f1eaea',
-            },
-            {
-                name: 'dark',
-                value: '#11113c',
-            },
+        list: [
+            { name: 'light', class: ['app', Theme.LIGHT], color: '#f1eaea' },
+            { name: 'dark', class: ['app', Theme.DARK], color: '#11113c' },
         ],
+        clearable: false,
     },
 };
 
-export const decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), SuspenseDecorator];
+export const decorators = [StyleDecorator, SuspenseDecorator];

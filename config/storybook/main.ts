@@ -5,7 +5,13 @@ import { buildScssLoader } from '../build/loaders/buildScssLoader';
 
 export default {
     stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
-    addons: ['storybook-addon-mock', '@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions'],
+    addons: [
+        'storybook-addon-mock',
+        '@storybook/addon-links',
+        '@storybook/addon-essentials',
+        '@storybook/addon-interactions',
+        'storybook-addon-themes',
+    ],
     framework: '@storybook/react',
     core: {
         builder: '@storybook/builder-webpack5',
