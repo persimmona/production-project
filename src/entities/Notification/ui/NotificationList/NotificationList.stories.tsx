@@ -20,19 +20,19 @@ export const Light = Template.bind({});
 Light.args = { notifications: mockNotifications };
 Light.decorators = [];
 Light.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
 Dark.args = { notifications: mockNotifications };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 Dark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };
 
 export const Loading = Template.bind({});
 Loading.args = { loading: true, notifications: [] };
 Loading.decorators = [];
 Loading.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };

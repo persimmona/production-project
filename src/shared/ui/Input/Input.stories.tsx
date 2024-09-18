@@ -16,7 +16,7 @@ export default {
         placeholder: 'Label',
     },
     parameters: {
-        backgrounds: { disable: true },
+        themes: { disable: true },
     },
 } as ComponentMeta<typeof Input>;
 

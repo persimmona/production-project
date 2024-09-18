@@ -30,11 +30,11 @@ const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...
 export const Light = Template.bind({});
 Light.decorators = [RouterDecorator()];
 Light.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
 Dark.decorators = [RouterDecorator(), ThemeDecorator(Theme.DARK)];
 Dark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

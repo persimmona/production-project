@@ -20,17 +20,17 @@ const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />
 export const Light = Template.bind({});
 Light.decorators = [StoreDecorator({}), RouterDecorator()];
 Light.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
 Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK), RouterDecorator()];
 Dark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };
 
 export const Auth = Template.bind({});
 Auth.decorators = [StoreDecorator({ user: { authData: {} } }), RouterDecorator()];
 Auth.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };

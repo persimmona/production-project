@@ -11,7 +11,7 @@ export default {
     component: AddCommentForm,
     argTypes: {},
     parameters: {
-        backgrounds: { disable: true },
+        themes: { disable: true },
     },
 } as ComponentMeta<typeof AddCommentForm>;
 

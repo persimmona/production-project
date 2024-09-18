@@ -20,11 +20,11 @@ const Template: ComponentStory<typeof CodeBlock> = (args) => <CodeBlock {...args
 
 export const DefaultLight = Template.bind({});
 DefaultLight.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const DefaultDark = Template.bind({});
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
 DefaultDark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

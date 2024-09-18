@@ -18,12 +18,12 @@ const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
 export const Light = Template.bind({});
 Light.args = {};
 Light.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 Dark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

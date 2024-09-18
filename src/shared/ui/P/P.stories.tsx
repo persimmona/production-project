@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof P> = (args) => <P {...args} />;
 
 export const DefaultLight = Template.bind({});
 DefaultLight.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const Error = Template.bind({});
@@ -26,11 +26,11 @@ Error.args = {
     color: 'error',
 };
 Error.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const DefaultDark = Template.bind({});
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
 DefaultDark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

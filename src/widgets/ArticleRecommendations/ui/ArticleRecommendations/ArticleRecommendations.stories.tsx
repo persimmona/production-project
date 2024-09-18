@@ -34,12 +34,12 @@ export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [RouterDecorator(), StoreDecorator({})];
 Light.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [RouterDecorator(), StoreDecorator({}), ThemeDecorator(Theme.DARK)];
 Dark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

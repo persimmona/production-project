@@ -30,7 +30,7 @@ LightGrid.args = {
 };
 LightGrid.decorators = [RouterDecorator()];
 LightGrid.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const DarkGrid = Template.bind({});
@@ -39,7 +39,7 @@ DarkGrid.args = {
 };
 DarkGrid.decorators = [RouterDecorator(), ThemeDecorator(Theme.DARK)];
 DarkGrid.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };
 
 export const LightList = Template.bind({});
@@ -48,12 +48,12 @@ LightList.args = {
 };
 LightList.decorators = [RouterDecorator()];
 LightList.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const DarkList = Template.bind({});
 DarkList.args = { variant: 'list' };
 DarkList.decorators = [RouterDecorator(), ThemeDecorator(Theme.DARK)];
 DarkList.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

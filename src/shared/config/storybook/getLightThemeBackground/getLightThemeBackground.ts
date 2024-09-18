@@ -1,9 +1,6 @@
+import { Theme } from '@/shared/contexts/theme';
+
 export const getLightThemeBackground = () => ({
     default: 'light',
-    values: [
-        {
-            name: 'light',
-            value: '#f1eaea',
-        },
-    ],
+    list: [{ name: 'light', class: ['app', Theme.LIGHT], color: '#f1eaea' }],
 });

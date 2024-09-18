@@ -76,7 +76,7 @@ Light.decorators = [
     StoreDecorator({ article: { data: article }, user: { authData: { id: '1' } } }),
 ];
 Light.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
@@ -86,7 +86,7 @@ Dark.decorators = [
     ThemeDecorator(Theme.DARK),
 ];
 Dark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };
 
 export const Loading = Template.bind({});
@@ -95,8 +95,4 @@ Loading.decorators = [
     StoreDecorator({
         article: { isLoading: true },
     }),
-    ThemeDecorator(Theme.DARK),
 ];
-Loading.parameters = {
-    backgrounds: getDarkThemeBackground(),
-};

@@ -1,9 +1,6 @@
+import { Theme } from '@/shared/contexts/theme';
+
 export const getDarkThemeBackground = () => ({
     default: 'dark',
-    values: [
-        {
-            name: 'dark',
-            value: '#11113c',
-        },
-    ],
+    list: [{ name: 'dark', class: ['app', Theme.DARK], color: '#11113c' }],
 });

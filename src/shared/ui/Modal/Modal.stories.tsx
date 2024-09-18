@@ -15,7 +15,7 @@ export default {
         isVisible: true,
     },
     parameters: {
-        backgrounds: { disable: true },
+        themes: { disable: true },
     },
 } as ComponentMeta<typeof Modal>;
 

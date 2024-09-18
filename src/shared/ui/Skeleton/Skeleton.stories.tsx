@@ -18,13 +18,13 @@ const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} 
 
 export const DefaultLight = Template.bind({});
 DefaultLight.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const DefaultDark = Template.bind({});
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
 DefaultDark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };
 
 export const Rounded = Template.bind({});
@@ -35,5 +35,5 @@ Rounded.args = {
 };
 Rounded.decorators = [ThemeDecorator(Theme.DARK)];
 Rounded.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

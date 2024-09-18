@@ -25,11 +25,11 @@ const Template: ComponentStory<typeof TextBlock> = (args) => <TextBlock {...args
 
 export const DefaultLight = Template.bind({});
 DefaultLight.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const DefaultDark = Template.bind({});
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
 DefaultDark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

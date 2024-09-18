@@ -24,7 +24,7 @@ export default {
         },
     },
     parameters: {
-        backgrounds: { disable: true },
+        themes: { disable: true },
     },
 } as ComponentMeta<typeof EditableProfileForm>;
 

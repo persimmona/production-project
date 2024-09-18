@@ -37,7 +37,7 @@ Light.decorators = [
     }),
 ];
 Light.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const Dark = Template.bind({});
@@ -60,5 +60,5 @@ Dark.decorators = [
     ThemeDecorator(Theme.DARK),
 ];
 Dark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

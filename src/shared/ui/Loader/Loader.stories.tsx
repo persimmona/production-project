@@ -18,12 +18,12 @@ const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
 export const DefaultLight = Template.bind({});
 DefaultLight.args = {};
 DefaultLight.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const DefaultDark = Template.bind({});
 DefaultDark.args = {};
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
 DefaultDark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };

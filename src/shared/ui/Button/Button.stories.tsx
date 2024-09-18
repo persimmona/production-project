@@ -26,8 +26,9 @@ OutlineLight.args = {
     children: 'Text',
     variant: 'outline',
 };
+OutlineLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 OutlineLight.parameters = {
-    backgrounds: getLightThemeBackground(),
+    themes: getLightThemeBackground(),
 };
 
 export const OutlineDark = Template.bind({});
@@ -37,5 +38,5 @@ OutlineDark.args = {
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 OutlineDark.parameters = {
-    backgrounds: getDarkThemeBackground(),
+    themes: getDarkThemeBackground(),
 };
