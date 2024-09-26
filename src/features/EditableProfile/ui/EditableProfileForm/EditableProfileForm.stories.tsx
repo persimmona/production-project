@@ -24,17 +24,18 @@ export default {
         },
     },
     parameters: {
-        themes: { disable: true },
+        themes: { list: [] },
     },
 } as ComponentMeta<typeof EditableProfileForm>;
 
 const Template: ComponentStory<typeof EditableProfileForm> = (args) => <EditableProfileForm {...args} />;
 
 export const DefaultLight = Template.bind({});
-DefaultLight.decorators = [StoreDecorator({})];
+DefaultLight.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({})];
 
 export const WithErrors = Template.bind({});
 WithErrors.decorators = [
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
         profileForm: {
             validateErrors: [ValidateProfileFormError.INCORRECT_USER_DATA, ValidateProfileFormError.INCORRECT_AGE],

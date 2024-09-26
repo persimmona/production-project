@@ -1,8 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/contexts/theme';
-
 import { Drawer } from './Drawer';
 
 export default {
@@ -14,14 +11,8 @@ export default {
         container: document.getElementById('root'),
         isVisible: true,
     },
-    parameters: {
-        themes: { disable: true },
-    },
 } as ComponentMeta<typeof Drawer>;
 
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />;
 
-export const DefaultLight = Template.bind({});
-
-export const DefaultDark = Template.bind({});
-DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Default = Template.bind({});

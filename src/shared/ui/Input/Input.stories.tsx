@@ -16,13 +16,14 @@ export default {
         placeholder: 'Label',
     },
     parameters: {
-        themes: { disable: true },
+        themes: { list: [] },
     },
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const DefaultLight = Template.bind({});
+DefaultLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const DefaultDark = Template.bind({});
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];

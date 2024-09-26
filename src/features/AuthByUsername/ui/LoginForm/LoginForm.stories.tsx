@@ -11,7 +11,7 @@ export default {
     component: LoginForm,
     argTypes: {},
     parameters: {
-        themes: { disable: true },
+        themes: { list: [] },
     },
 } as ComponentMeta<typeof LoginForm>;
 
@@ -19,6 +19,7 @@ const Template: ComponentStory<typeof LoginForm> = () => <LoginForm />;
 
 export const DefaultLight = Template.bind({});
 DefaultLight.decorators = [
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
         loginForm: { username: '123', password: 'asd' },
     }),

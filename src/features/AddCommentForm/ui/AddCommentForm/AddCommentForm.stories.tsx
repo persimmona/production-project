@@ -11,7 +11,7 @@ export default {
     component: AddCommentForm,
     argTypes: {},
     parameters: {
-        themes: { disable: true },
+        themes: { list: [] },
     },
 } as ComponentMeta<typeof AddCommentForm>;
 
@@ -19,6 +19,7 @@ const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentFor
 
 export const DefaultLight = Template.bind({});
 DefaultLight.decorators = [
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
         addCommentForm: { text: 'Hey, there is a new comment' },
     }),
