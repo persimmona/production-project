@@ -5,7 +5,7 @@ import AboutIcon from '@/shared/assets/icons/about.svg';
 import ArticlesIcon from '@/shared/assets/icons/articles.svg';
 import HomeIcon from '@/shared/assets/icons/home.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
-import { AppRoutesPath } from '@/shared/const/routes';
+import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
 
 import { SidebarItemType } from '../types/sidebar';
 
@@ -14,12 +14,12 @@ export const selectSidebarItems = createSelector(selectUserAuthData, (userData) 
         {
             text: 'navigation.main',
             Icon: HomeIcon,
-            path: AppRoutesPath.main,
+            path: AppRoutesPath[AppRoutes.MAIN](),
         },
         {
             text: 'navigation.about_us',
             Icon: AboutIcon,
-            path: AppRoutesPath.about,
+            path: AppRoutesPath[AppRoutes.ABOUT](),
         },
     ];
     if (userData) {
@@ -27,12 +27,12 @@ export const selectSidebarItems = createSelector(selectUserAuthData, (userData) 
             {
                 text: 'navigation.profile',
                 Icon: ProfileIcon,
-                path: AppRoutesPath.profile + userData.id,
+                path: AppRoutesPath[AppRoutes.PROFILE](userData.id),
             },
             {
                 text: 'navigation.articles',
                 Icon: ArticlesIcon,
-                path: AppRoutesPath.articles,
+                path: AppRoutesPath[AppRoutes.ARTICLES](),
             },
         );
     }
@@ -40,7 +40,7 @@ export const selectSidebarItems = createSelector(selectUserAuthData, (userData) 
         sidebarItemList.push({
             text: 'navigation.admin_panel',
             Icon: ProfileIcon,
-            path: AppRoutesPath.admin_panel,
+            path: AppRoutesPath[AppRoutes.ADMIN_PANEL](),
         });
     }
 

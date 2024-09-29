@@ -16,40 +16,40 @@ import { GuardedRoute } from './GuardedRoute';
 
 const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
-        path: AppRoutesPath[AppRoutes.MAIN],
+        path: AppRoutesPath[AppRoutes.MAIN](),
         element: <MainPage />,
     },
     [AppRoutes.ABOUT]: {
-        path: AppRoutesPath[AppRoutes.ABOUT],
+        path: AppRoutesPath[AppRoutes.ABOUT](),
         element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
-        path: AppRoutesPath[AppRoutes.PROFILE] + ':id',
+        path: AppRoutesPath[AppRoutes.PROFILE](':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
-        path: AppRoutesPath[AppRoutes.ARTICLES],
+        path: AppRoutesPath[AppRoutes.ARTICLES](),
         element: <ArticlesPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_DETAILS]: {
-        path: AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + ':id',
+        path: AppRoutesPath[AppRoutes.ARTICLE_DETAILS](':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     [AppRoutes.ADMIN_PANEL]: {
-        path: AppRoutesPath[AppRoutes.ADMIN_PANEL],
+        path: AppRoutesPath[AppRoutes.ADMIN_PANEL](),
         element: <div></div>,
         authOnly: true,
         roles: [USER_ROLE.ADMIN],
     },
     [AppRoutes.NOT_FOUND]: {
-        path: AppRoutesPath[AppRoutes.NOT_FOUND],
+        path: AppRoutesPath[AppRoutes.NOT_FOUND](),
         element: <NotFoundPage />,
     },
     [AppRoutes.FORBIDDEN]: {
-        path: AppRoutesPath[AppRoutes.FORBIDDEN],
+        path: AppRoutesPath[AppRoutes.FORBIDDEN](),
         element: <div></div>,
     },
 };

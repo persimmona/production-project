@@ -72,7 +72,7 @@ const article = {
 
 export const Light = Template.bind({});
 Light.decorators = [
-    RouterDecorator(AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + article.id, AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + ':id'),
+    RouterDecorator(AppRoutesPath[AppRoutes.ARTICLE_DETAILS](article.id), AppRoutesPath[AppRoutes.ARTICLE_DETAILS](':id')),
     StoreDecorator({ article: { data: article }, user: { authData: { id: '1' } } }),
 ];
 Light.parameters = {
@@ -81,7 +81,7 @@ Light.parameters = {
 
 export const Dark = Template.bind({});
 Dark.decorators = [
-    RouterDecorator(AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + article.id, AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + ':id'),
+    RouterDecorator(AppRoutesPath[AppRoutes.ARTICLE_DETAILS](article.id), AppRoutesPath[AppRoutes.ARTICLE_DETAILS](':id')),
     StoreDecorator({ article: { data: article }, user: { authData: { id: '1' } } }),
     ThemeDecorator(Theme.DARK),
 ];
@@ -91,7 +91,7 @@ Dark.parameters = {
 
 export const Loading = Template.bind({});
 Loading.decorators = [
-    RouterDecorator(AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + article.id, AppRoutesPath[AppRoutes.ARTICLE_DETAILS] + ':id'),
+    RouterDecorator(AppRoutesPath[AppRoutes.ARTICLE_DETAILS](article.id), AppRoutesPath[AppRoutes.ARTICLE_DETAILS](':id')),
     StoreDecorator({
         article: { isLoading: true },
     }),

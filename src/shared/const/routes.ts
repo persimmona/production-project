@@ -10,14 +10,18 @@ export enum AppRoutes {
     FORBIDDEN = 'forbidden',
 }
 
-export const AppRoutesPath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.PROFILE]: '/profile/',
-    [AppRoutes.ARTICLES]: '/articles',
-    [AppRoutes.ARTICLE_DETAILS]: '/articles/',
-    [AppRoutes.ADMIN_PANEL]: '/admin',
+function createStrictObject<T extends Record<AppRoutes, unknown>>(obj: T): T {
+    return obj;
+}
 
-    [AppRoutes.NOT_FOUND]: '*',
-    [AppRoutes.FORBIDDEN]: '/forbidden',
-};
+export const AppRoutesPath = createStrictObject({
+    [AppRoutes.MAIN]: () => '/',
+    [AppRoutes.ABOUT]: () => '/about',
+    [AppRoutes.PROFILE]: (id: string) => '/profile/' + id,
+    [AppRoutes.ARTICLES]: () => '/articles',
+    [AppRoutes.ARTICLE_DETAILS]: (id: string) => '/articles/' + id,
+    [AppRoutes.ADMIN_PANEL]: () => '/admin',
+
+    [AppRoutes.NOT_FOUND]: () => '*',
+    [AppRoutes.FORBIDDEN]: () => '/forbidden',
+});

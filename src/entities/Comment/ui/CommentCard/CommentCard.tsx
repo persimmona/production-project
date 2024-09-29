@@ -1,4 +1,4 @@
-import { AppRoutesPath } from '@/shared/const/routes';
+import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
 import { AppLink, AppLinkColor } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { P } from '@/shared/ui/P';
@@ -16,7 +16,7 @@ interface CommentCardProps {
 export const CommentCard = ({ comment, className }: CommentCardProps) => {
     return (
         <article className={classNames(cls.commentCard, {}, [className])}>
-            <AppLink to={`${AppRoutesPath.profile}${comment.user.id}`} className={cls.header} color={AppLinkColor.PRIMARY}>
+            <AppLink to={AppRoutesPath[AppRoutes.PROFILE](comment.user.id)} className={cls.header} color={AppLinkColor.PRIMARY}>
                 {comment.user.avatar && <Avatar src={comment.user.avatar} size='small' variant='rounded' />}
                 <P size='large' className={cls.username}>
                     {comment.user.username}

@@ -24,11 +24,11 @@ export const GuardedRoute = ({ children, routeRoles }: GuardedRouteProps) => {
     }, [auth?.roles, routeRoles]);
 
     if (!auth) {
-        return <Navigate to={AppRoutesPath[AppRoutes.MAIN]} state={{ from: location }} replace />;
+        return <Navigate to={AppRoutesPath[AppRoutes.MAIN]()} state={{ from: location }} replace />;
     }
 
     if (!hasRequiredRoles) {
-        return <Navigate to={AppRoutesPath[AppRoutes.FORBIDDEN]} state={{ from: location }} replace />;
+        return <Navigate to={AppRoutesPath[AppRoutes.FORBIDDEN]()} state={{ from: location }} replace />;
     }
 
     return children;

@@ -71,7 +71,7 @@ const ArticleDetailsPage = () => {
 
     return (
         <Page>
-            <AppLink to={AppRoutesPath[AppRoutes.ARTICLES]} color={AppLinkColor.TEXT}>
+            <AppLink to={AppRoutesPath[AppRoutes.ARTICLES]()} color={AppLinkColor.TEXT}>
                 {t('article:back_to_articles')}
             </AppLink>
             <ArticleDetails article={article} />
