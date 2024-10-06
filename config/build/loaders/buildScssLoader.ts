@@ -2,6 +2,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export const buildScssLoader = (isDev: boolean) => ({
     test: /\.(sc|sa|c)ss$/i,
+    exclude: /node_modules/,
     use: [
         // Creates `style` nodes from JS strings
         isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

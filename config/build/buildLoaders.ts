@@ -24,10 +24,11 @@ export function buildLoaders(isDev: BuildOptions['isDev']): RuleSetRule[] {
         use: {
             loader: 'babel-loader',
             options: {
+                cacheDirectory: true,
                 presets: [['@babel/preset-env']],
                 plugins: [
                     isDev && require.resolve('react-refresh/babel'),
-                    [babelRemoveAttributePlugin, { attributes: ['data-testid'] }],
+                    !isDev && [babelRemoveAttributePlugin, { attributes: ['data-testid'] }],
                 ].filter(Boolean),
             },
         },
