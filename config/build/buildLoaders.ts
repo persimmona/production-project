@@ -27,6 +27,7 @@ export function buildLoaders(isDev: BuildOptions['isDev']): RuleSetRule[] {
                 cacheDirectory: true,
                 presets: [['@babel/preset-env']],
                 plugins: [
+                    '@babel/plugin-transform-runtime',
                     isDev && require.resolve('react-refresh/babel'),
                     !isDev && [babelRemoveAttributePlugin, { attributes: ['data-testid'] }],
                 ].filter(Boolean),
