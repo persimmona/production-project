@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { AppRoutes, AppRoutesPath } from '@/shared/const/routes';
+import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink, AppLinkColor } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
@@ -44,7 +45,7 @@ export function ArticleListItem(props: ArticleListItemProps) {
             <Card className={classNames(cls.grid, {}, [cls.articleListItem, className])}>
                 <AppLink to={AppRoutesPath[AppRoutes.ARTICLE_DETAILS](article.id)} color={AppLinkColor.TEXT}>
                     <div className={cls.imageWrapper}>
-                        <img className={cls.img} src={article.img} alt={article.title} />
+                        <AppImage className={cls.img} src={article.img} alt={article.title} />
                         <P className={cls.createdAt}>{article.createdAt}</P>
                     </div>
                     <div className={cls.contentWrapper}>
@@ -75,7 +76,7 @@ export function ArticleListItem(props: ArticleListItemProps) {
             </P>
             <P size='large'>{article.title}</P>
             {renderArticleTypes()}
-            <img src={article.img} alt={article.title} className={cls.img} />
+            <AppImage src={article.img} alt={article.title} className={cls.img} />
             {renderTextBlock()}
             <div className={cls.footer}>
                 <AppLink to={AppRoutesPath[AppRoutes.ARTICLE_DETAILS](article.id)} color={AppLinkColor.TEXT}>

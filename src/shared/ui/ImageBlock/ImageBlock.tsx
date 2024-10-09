@@ -1,4 +1,4 @@
-import { Image } from '@/shared/ui/Image';
+import { AppImage } from '@/shared/ui/AppImage';
 import { P } from '@/shared/ui/P';
 import { classNames } from '@/shared/utils/classNames';
 
@@ -13,7 +13,7 @@ interface ImageBlockProps {
 export const ImageBlock = ({ src, title, className }: ImageBlockProps) => {
     return (
         <div className={classNames(cls.imageBlock, {}, [className])}>
-            <Image src={src} alt={title} className={cls.image} />
+            <AppImage src={src} alt={title} className={cls.image} />
             {title && <P size='small'>{title}</P>}
         </div>
     );

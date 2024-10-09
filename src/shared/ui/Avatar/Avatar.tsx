@@ -1,4 +1,4 @@
-import { Image } from '@/shared/ui/Image';
+import { AppImage } from '@/shared/ui/AppImage';
 import { classNames } from '@/shared/utils/classNames';
 
 import cls from './Avatar.module.scss';
@@ -14,7 +14,7 @@ interface AvatarProps {
 export const Avatar = ({ src, variant, size, alt, className }: AvatarProps) => {
     return (
         <span className={classNames(cls.avatarWrapper, {}, [className, cls[variant], cls[size]])}>
-            <Image alt={alt} src={src} />
+            <AppImage alt={alt} src={src} />
         </span>
     );
 };
