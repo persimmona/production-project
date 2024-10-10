@@ -5,7 +5,7 @@ import { Page } from '@/shared/ui/Page/Page';
 const AboutPage = () => {
     const { t } = useTranslation('about');
 
-    return <Page>{t('about')}</Page>;
+    return <Page testId='AboutPage'>{t('about')}</Page>;
 };
 
 export default AboutPage;

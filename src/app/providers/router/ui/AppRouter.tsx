@@ -3,8 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 
 import { USER_ROLE } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage/AdminPanelPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage/ForbiddenPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
@@ -40,7 +42,7 @@ const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     },
     [AppRoutes.ADMIN_PANEL]: {
         path: AppRoutesPath[AppRoutes.ADMIN_PANEL](),
-        element: <div></div>,
+        element: <AdminPanelPage />,
         authOnly: true,
         roles: [USER_ROLE.ADMIN],
     },
@@ -50,7 +52,7 @@ const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     },
     [AppRoutes.FORBIDDEN]: {
         path: AppRoutesPath[AppRoutes.FORBIDDEN](),
-        element: <div></div>,
+        element: <ForbiddenPage />,
     },
 };
 

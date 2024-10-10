@@ -13,5 +13,9 @@ export function ForbiddenPage(props: ForbiddenPageProps) {
     const { className } = props;
     const { t } = useTranslation();
 
-    return <Page className={classNames(cls.forbiddenPage, {}, [className])}>{t('forbidden')}</Page>;
+    return (
+        <Page className={classNames(cls.forbiddenPage, {}, [className])} testId='ForbiddenPage'>
+            {t('forbidden')}
+        </Page>
+    );
 }

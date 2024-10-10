@@ -13,5 +13,9 @@ export function AdminPanelPage(props: AdminPanelPageProps) {
     const { className } = props;
     const { t } = useTranslation();
 
-    return <Page className={classNames(cls.adminPanelPage, {}, [className])}>{t('admin_panel')}</Page>;
+    return (
+        <Page className={classNames(cls.adminPanelPage, {}, [className])} testId='AdminPanelPage'>
+            {t('admin_panel')}
+        </Page>
+    );
 }
