@@ -4,6 +4,13 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -49,30 +56,13 @@ jobs:
         run: npm ci
       - name: Run unit tests
         run: npm run test:unit
-      - name: Build storybook
-        run: npm run storybook:build
-      - name: Run screenshot tests
-        id: screenshots
-        run: npm run test:ui:ci
-      - name: Upload fail screenshots
-        if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
-        uses: actions/upload-artifact@v3
-        with:
-          path: '.loki/difference'
-          name: loki-fail-difference
-      - name: Run report
-        if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
-        run: npm run test:ui:report
-      - name: Upload report
-        if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
-        uses: actions/upload-artifact@v3
-        with:
-          path: '.loki'
-          name: report
   build:
     needs: [lint, test]
     runs-on: ubuntu-latest
     continue-on-error: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
         node-version: [17.x]
@@ -97,3 +87,24 @@ jobs:
         with:
           path: dist
           name: build-files
+      - name: Build storybook
+        run: npm run storybook:build
+      - name: Run screenshot tests
+        id: screenshots
+        run: npm run test:ui:ci
+      - name: Run report
+        if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
+        run: npm run test:ui:report
+      - name: Setup Pages
+        if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
+        uses: actions/configure-pages@v2
+      - name: Upload report
+        if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '.loki'
+          name: report
+      - name: Deploy to GitHub Pages
+        if: ${{ failure() && steps.screenshots.conclusion == 'failure'}}  
+        id: deployment
+        uses: actions/deploy-pages@v1
