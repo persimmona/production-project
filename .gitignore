@@ -7,4 +7,4 @@ dist
 .fttemplates
 .vscode
 package-lock.json
-/report
+/reports/unit
