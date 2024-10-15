@@ -2,11 +2,8 @@ import { ReactElement } from 'react';
 
 import { Card } from '@/shared/ui/Card/Card';
 import { P } from '@/shared/ui/P';
-import { classNames } from '@/shared/utils/classNames';
 
 import { Notification } from '../../model/types/notification';
-
-import cls from './NotificationListItem.module.scss';
 
 interface NotificationListItemProps {
     notification: Notification;
@@ -18,7 +15,7 @@ export function NotificationListItem(props: NotificationListItemProps) {
 
     const renderContent = (): ReactElement => {
         const content = (
-            <Card className={classNames(cls.notificationListItem, {}, [className])}>
+            <Card className={className}>
                 <P>{notification.description}</P>
             </Card>
         );

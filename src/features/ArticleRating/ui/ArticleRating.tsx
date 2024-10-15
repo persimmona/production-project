@@ -6,9 +6,6 @@ import { RatingCard } from '@/entities/Rating';
 import { selectUserAuthData } from '@/entities/User';
 import { useGetArticleRatingByUser, useRateArticle } from '@/features/ArticleRating/api/articleRatingApi';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { classNames } from '@/shared/utils/classNames';
-
-import cls from './ArticleRating.module.scss';
 
 interface ArticleRatingProps {
     articleId: string;
@@ -44,11 +41,6 @@ export function ArticleRating(props: ArticleRatingProps) {
     }
 
     return (
-        <RatingCard
-            onSubmit={onRatingSubmit}
-            selectedRating={data?.[0]?.rating}
-            title={t('article:rate_article')}
-            className={classNames(cls.articleRating, {}, [className])}
-        />
+        <RatingCard onSubmit={onRatingSubmit} selectedRating={data?.[0]?.rating} title={t('article:rate_article')} className={className} />
     );
 }
