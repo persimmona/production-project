@@ -71,6 +71,7 @@
       ],
       "rules": {
         "prettier/prettier": "warn",
+        "@typescript-eslint/no-namespace": "off",
         "react/display-name": "off",
         "unused-imports/no-unused-imports": "error",
         "@typescript-eslint/no-empty-interface": [
