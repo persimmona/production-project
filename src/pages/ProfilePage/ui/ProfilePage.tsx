@@ -75,7 +75,7 @@ const ProfilePage = () => {
     const profileCardActions = userData?.id == id && <Button onClick={openEditProfileModal}>{t('edit')}</Button>;
 
     return (
-        <Page>
+        <Page testId='ProfilePage'>
             <ProfileCard loading={isProfileLoading} title={t('page_title')} actions={profileCardActions}>
                 <Avatar src={profileData.avatar} size={'medium'} variant={'rounded'} />
                 <ProfileInfoList items={profileInfoItems} />
