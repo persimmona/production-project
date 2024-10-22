@@ -17,10 +17,11 @@ export interface ModalProps {
     className?: string;
     styles?: CSSProperties;
     container?: HTMLElement;
+    testId?: string;
 }
 
 export const Modal = (props: ModalProps) => {
-    const { isVisible, onClose, children, container, className, showCloseButton = true } = props;
+    const { isVisible, onClose, children, container, className, showCloseButton = true, testId = 'Modal' } = props;
 
     const onKeyDown = useCallback(
         (e: KeyboardEvent) => {
@@ -39,7 +40,13 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal container={container}>
-            <div className={classNames(cls.modal, { [cls.opened]: isVisible }, [className])} onClick={onClose} role='button' tabIndex={0}>
+            <div
+                className={classNames(cls.modal, { [cls.opened]: isVisible }, [className])}
+                onClick={onClose}
+                role='button'
+                tabIndex={0}
+                data-testid={testId}
+            >
                 <div className={cls.content} onClick={(e: MouseEvent) => e.stopPropagation()}>
                     {showCloseButton && (
                         <Button className={cls.buttonClose} onClick={onClose}>

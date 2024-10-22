@@ -23,9 +23,10 @@ import cls from './EditableProfileForm.module.scss';
 
 interface EditableProfileFormProps {
     initialData: Profile;
-    onCancel?: () => void;
-    onSubmit?: (data: Profile) => void;
+    onCancel: () => void;
+    onSubmit: (data: Profile) => void;
     className?: string;
+    testId?: string;
 }
 
 const FormElementsId: Record<keyof Profile, keyof Profile> = {
@@ -42,7 +43,7 @@ const FormElementsId: Record<keyof Profile, keyof Profile> = {
 
 const reducerList: ReducersList = { profileForm: profileFormReducer };
 
-const EditableProfileForm = ({ initialData, onCancel, onSubmit, className }: EditableProfileFormProps) => {
+const EditableProfileForm = ({ initialData, onCancel, onSubmit, className, testId }: EditableProfileFormProps) => {
     const data = useSelector(selectProfileFormData);
     const validateErrors = useSelector(selectProfileFormErrors);
 
@@ -72,7 +73,7 @@ const EditableProfileForm = ({ initialData, onCancel, onSubmit, className }: Edi
     };
 
     return (
-        <form className={classNames(cls.editableProfileForm, {}, [className])}>
+        <form className={classNames(cls.editableProfileForm, {}, [className])} data-testid={testId}>
             <Input
                 uid={FormElementsId.username}
                 value={username}

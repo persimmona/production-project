@@ -5,7 +5,7 @@ describe('Routing', () => {
             cy.get('[data-testid=MainPage]').should('exist');
         });
         it('should redirect to main page, when does not have access', () => {
-            cy.visit('/profile/1');
+            cy.visit('/profile/3');
             cy.get('[data-testid=MainPage]').should('exist');
         });
         it('should redirect to forbidden, when no routes exist', () => {
@@ -18,7 +18,7 @@ describe('Routing', () => {
             cy.login();
         });
         it('should access profile page', () => {
-            cy.visit('/profile/1');
+            cy.visit('/profile/3');
             cy.get('[data-testid=ProfilePage]').should('exist');
         });
     });

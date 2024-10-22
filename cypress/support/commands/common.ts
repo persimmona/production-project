@@ -12,7 +12,13 @@ export const login = (username = 'testuser', password = 'testuser') => {
         },
     }).then(({ body }) => {
         window.localStorage.setItem(AUTH_USER_LOCALSTORAGE_KEY, JSON.stringify(body));
-
-        cy.visit('/');
     });
 };
+
+declare global {
+    namespace Cypress {
+        interface Chainable {
+            login(username?: string, password?: string): Chainable<void>;
+        }
+    }
+}

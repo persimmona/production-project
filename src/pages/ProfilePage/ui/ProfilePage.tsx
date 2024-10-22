@@ -72,7 +72,11 @@ const ProfilePage = () => {
         .filter(([key]) => key !== 'avatar')
         .map(([key, value]) => ({ label: t(`fields.${key}`), value }));
 
-    const profileCardActions = userData?.id == id && <Button onClick={openEditProfileModal}>{t('edit')}</Button>;
+    const profileCardActions = userData?.id == id && (
+        <Button onClick={openEditProfileModal} data-testid='EditProfileButton'>
+            {t('edit')}
+        </Button>
+    );
 
     return (
         <Page testId='ProfilePage'>
