@@ -33,7 +33,7 @@ export const Input = <T extends HTMLElementValue>({
 
     return (
         <label className={classNames(cls.wrapper, {}, [className])}>
-            <input type={type} value={value} onChange={handleChange} className={cls.input} placeholder=' ' {...props} />
+            <input type={type} value={value} onChange={handleChange} className={cls.input} data-testid={'Input.' + uid} {...props} />
 
             {placeholder && <span className={cls.placeholder}>{placeholder}</span>}
         </label>

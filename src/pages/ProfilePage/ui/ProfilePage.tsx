@@ -70,7 +70,7 @@ const ProfilePage = () => {
 
     const profileInfoItems = Object.entries(profileData)
         .filter(([key]) => key !== 'avatar')
-        .map(([key, value]) => ({ label: t(`fields.${key}`), value }));
+        .map(([key, value]) => ({ label: t(`fields.${key}`), value, testId: 'ProfileInfoItem.' + key }));
 
     const profileCardActions = userData?.id == id && (
         <Button onClick={openEditProfileModal} data-testid='EditProfileButton'>

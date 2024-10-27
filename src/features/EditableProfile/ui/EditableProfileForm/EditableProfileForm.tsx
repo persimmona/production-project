@@ -144,7 +144,7 @@ const EditableProfileForm = ({ initialData, onCancel, onSubmit, className, testI
                 <Button type='button' variant='outline' onClick={onCancelButtonClick}>
                     {t('buttons.cancel', { ns: 'translation' })}
                 </Button>
-                <Button type='button' variant='outline' onClick={onFormSubmitButtonClick}>
+                <Button type='button' variant='outline' onClick={onFormSubmitButtonClick} data-testid='EditableProfileForm.SaveButton'>
                     {t('buttons.save', { ns: 'translation' })}
                 </Button>
             </div>
