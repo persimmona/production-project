@@ -83,7 +83,7 @@ const ArticlesPage = () => {
     );
 
     return (
-        <Page ref={wrapperRef} className={cls.articlesPage}>
+        <Page ref={wrapperRef} className={cls.articlesPage} testId='ArticlesPage'>
             <div className={cls.articleAdvancedSearch}>
                 <div className={cls.sortWrapper}>
                     <ArticlesSort onChange={handleFilterChange} />

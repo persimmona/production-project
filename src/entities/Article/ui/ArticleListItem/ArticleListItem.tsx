@@ -42,7 +42,7 @@ export function ArticleListItem(props: ArticleListItemProps) {
 
     if (variant === ARTICLE_LAYOUT.GRID) {
         return (
-            <Card className={classNames(cls.grid, {}, [cls.articleListItem, className])}>
+            <Card className={classNames(cls.grid, {}, [cls.articleListItem, className])} testId='ArticleListItem'>
                 <AppLink to={AppRoutesPath[AppRoutes.ARTICLE_DETAILS](article.id)} color={AppLinkColor.TEXT}>
                     <div className={cls.imageWrapper}>
                         <AppImage className={cls.img} src={article.img} alt={article.title} />
@@ -68,7 +68,7 @@ export function ArticleListItem(props: ArticleListItemProps) {
     };
 
     return (
-        <Card className={classNames(cls.list, {}, [cls.articleListItem, className])}>
+        <Card className={classNames(cls.list, {}, [cls.articleListItem, className])} testId='ArticleListItem'>
             <P className={cls.header}>
                 <Avatar size='small' src={article.user.avatar ?? ''} variant='rounded' alt={article.user.username} />
                 <span>{article.user.username}</span>

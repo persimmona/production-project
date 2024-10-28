@@ -29,7 +29,7 @@ export function ArticleList(props: ArticleListProps) {
     };
 
     return (
-        <section className={classNames(cls.articleList, {}, [cls[layout], className])}>
+        <section className={classNames(cls.articleList, {}, [cls[layout], className])} data-testid='ArticleList'>
             {renderArticleList()}
             {isLoading && <ArticleListSkeleton layout={layout} />}
         </section>
