@@ -36,9 +36,9 @@ export const ArticleDetails = ({ article, className }: ArticleDetailsProps) => {
     };
 
     return (
-        <section className={classNames(cls.articleDetails, {}, [className])}>
+        <section className={classNames(cls.articleDetails, {}, [className])} data-testid='ArticleDetails'>
             <Avatar size='extra-large' src={img} variant='rounded' className={cls.articleImage} />
-            <Header tag='h1' className={cls.articleTitle}>
+            <Header tag='h1' className={cls.articleTitle} testId='ArticleDetails.Header'>
                 {title}
             </Header>
             <P size='large' className={cls.articleSubtitle}>

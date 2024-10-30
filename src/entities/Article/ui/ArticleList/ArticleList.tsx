@@ -15,10 +15,11 @@ interface ArticleListProps {
     layout?: ArticleLayout;
     isLoading?: boolean;
     className?: string;
+    testId?: string;
 }
 
 export function ArticleList(props: ArticleListProps) {
-    const { articles, isLoading = false, layout = ARTICLE_LAYOUT.GRID, className } = props;
+    const { articles, isLoading = false, layout = ARTICLE_LAYOUT.GRID, className, testId = 'ArticleList' } = props;
     const { t } = useTranslation();
 
     const renderArticleList = () => {
@@ -29,7 +30,7 @@ export function ArticleList(props: ArticleListProps) {
     };
 
     return (
-        <section className={classNames(cls.articleList, {}, [cls[layout], className])} data-testid='ArticleList'>
+        <section className={classNames(cls.articleList, {}, [cls[layout], className])} data-testid={testId}>
             {renderArticleList()}
             {isLoading && <ArticleListSkeleton layout={layout} />}
         </section>

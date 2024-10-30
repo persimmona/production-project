@@ -15,7 +15,7 @@ interface CommentListProps {
 export const CommentList = ({ comments, isLoading, className }: CommentListProps) => {
     if (isLoading) {
         return (
-            <article className={classNames(cls.commentList, {}, [className])}>
+            <article className={classNames(cls.commentList, {}, [className])} data-testid='CommentList'>
                 <CommentCardSkeleton />
                 <CommentCardSkeleton />
             </article>
@@ -23,7 +23,7 @@ export const CommentList = ({ comments, isLoading, className }: CommentListProps
     }
 
     return (
-        <article className={classNames(cls.commentList, {}, [className])}>
+        <article className={classNames(cls.commentList, {}, [className])} data-testid='CommentList'>
             {comments.map((comment) => (
                 <CommentCard key={comment.id} comment={comment} />
             ))}

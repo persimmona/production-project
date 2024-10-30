@@ -18,6 +18,7 @@ export const ArticleRecommendations = ({ className }: ArticleRecommendationsProp
             isLoading={isLoading}
             layout={ARTICLE_LAYOUT.GRID}
             className={classNames(cls.articleRecommendations, {}, [className])}
+            testId='ArticleRecommendations'
         />
     );
 };

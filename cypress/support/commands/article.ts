@@ -11,15 +11,17 @@ const defaultArticle = {
     blocks: [],
 };
 
-export const createArticle = (article: Article): void => {
-    cy.request({
-        method: 'POST',
-        url: `http://localhost:8000/articles`,
-        headers: {
-            Authorization: 'aaa',
-        },
-        body: article ?? defaultArticle,
-    });
+export const createArticle = (article: Article): Cypress.Chainable<Article> => {
+    return cy
+        .request({
+            method: 'POST',
+            url: `http://localhost:8000/articles`,
+            headers: {
+                Authorization: 'aaa',
+            },
+            body: article ?? defaultArticle,
+        })
+        .then(({ body }) => body);
 };
 
 export const removeArticle = (articleId: string): void => {
@@ -35,7 +37,7 @@ export const removeArticle = (articleId: string): void => {
 declare global {
     namespace Cypress {
         interface Chainable {
-            createArticle(article: Article): Chainable<void>;
+            createArticle(article?: Article): Chainable<Article>;
             removeArticle(articleId: string): Chainable<void>;
         }
     }

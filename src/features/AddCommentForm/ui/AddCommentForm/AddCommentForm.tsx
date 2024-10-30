@@ -43,7 +43,7 @@ export default function AddCommentForm(props: AddCommentFormProps) {
     }, [handleInputChange, onCommentAdd, text]);
 
     return (
-        <div className={cls.addCommentForm}>
+        <div className={cls.addCommentForm} data-testid='AddCommentForm'>
             <Input uid='text' value={text} onChange={handleInputChange} placeholder='Comment' />
             <Button onClick={handleCommentAdd} variant='outline'>
                 {t('buttons.add')}
