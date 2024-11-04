@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { mockNotifications } from '@/entities/Notification';
 import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
@@ -13,7 +12,6 @@ import { Navbar } from './Navbar';
 export default {
     title: 'widgets/Navbar',
     component: Navbar,
-    decorators: [withMock],
     parameters: {
         mockData: [
             {

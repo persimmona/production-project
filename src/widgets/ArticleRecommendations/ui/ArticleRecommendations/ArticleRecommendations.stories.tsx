@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { articles } from '@/entities/Article';
 import { getDarkThemeBackground } from '@/shared/config/storybook/getDarkThemeBackground/getDarkThemeBackground';
@@ -15,7 +14,6 @@ export default {
     title: 'widgets/ArticleRecommendations',
     component: ArticleRecommendations,
     argTypes: {},
-    decorators: [withMock],
     parameters: {
         mockData: [
             {
