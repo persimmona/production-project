@@ -29,7 +29,7 @@ export function RatingCard(props: RatingCardProps) {
     );
 
     return (
-        <div className={classNames(cls.ratingCard, {}, [className])}>
+        <div className={classNames(cls.ratingCard, {}, [className])} data-testid='RatingCard'>
             <P>{rating ? t('thanks_for_opinion') : title}</P>
             <StarRating onSelect={onRatingSelect} selectedStarsCount={rating ?? 0} />
         </div>

@@ -64,7 +64,7 @@
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.3",
-    "eslint-plugin-i18next": "^5.1.2",
+    "eslint-plugin-i18next": "^6.0.0-2",
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-persimmona-fsd": "^0.0.3",

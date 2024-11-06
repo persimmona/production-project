@@ -20,6 +20,8 @@ const reducerList: ReducersList = {
     addCommentForm: addCommentFormReducer,
 };
 
+const ADD_COMMENT_INPUT_UID = 'addCommentInput';
+
 export default function AddCommentForm(props: AddCommentFormProps) {
     const { onCommentAdd } = props;
 
@@ -31,7 +33,7 @@ export default function AddCommentForm(props: AddCommentFormProps) {
     useReducersDynamicLoader(reducerList);
 
     const handleInputChange = useCallback(
-        (value: string) => {
+        (_: string, value: string) => {
             dispatch(addCommentFormActions.setText(value));
         },
         [dispatch],
@@ -39,13 +41,19 @@ export default function AddCommentForm(props: AddCommentFormProps) {
 
     const handleCommentAdd = useCallback(() => {
         onCommentAdd(text);
-        handleInputChange('');
+        handleInputChange(ADD_COMMENT_INPUT_UID, '');
     }, [handleInputChange, onCommentAdd, text]);
 
     return (
         <div className={cls.addCommentForm} data-testid='AddCommentForm'>
-            <Input uid='text' value={text} onChange={handleInputChange} placeholder='Comment' />
-            <Button onClick={handleCommentAdd} variant='outline'>
+            <Input
+                uid={ADD_COMMENT_INPUT_UID}
+                value={text}
+                onChange={handleInputChange}
+                placeholder='Comment'
+                data-testid='AddCommentForm.Content'
+            />
+            <Button onClick={handleCommentAdd} variant='outline' data-testid='AddCommentForm.Submit'>
                 {t('buttons.add')}
             </Button>
         </div>

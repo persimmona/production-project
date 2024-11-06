@@ -40,19 +40,21 @@ export function StarRating(props: StarRatingProps) {
 
     const renderStars = (): ReactElement[] => {
         return stars.map((_, index): ReactElement => {
-            const starsCount = index + 1;
+            const starNumber = index + 1;
 
             return (
                 <Icon
                     key={index}
                     className={classNames(cls.starIcon, {
-                        [cls.hovered]: starsCount <= hoveredStarsCount,
+                        [cls.hovered]: starNumber <= hoveredStarsCount,
                         [cls.selected]: !!selectedStarsCount,
                     })}
                     Svg={StarIcon}
-                    onMouseEnter={onMouseEnter(starsCount)}
+                    onMouseEnter={onMouseEnter(starNumber)}
                     onMouseLeave={onMouseLeave}
-                    onClick={onClick(starsCount)}
+                    onClick={onClick(starNumber)}
+                    data-testid={'StarRating.' + starNumber}
+                    data-selected={starNumber <= hoveredStarsCount}
                 />
             );
         });
