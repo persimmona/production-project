@@ -24,12 +24,10 @@
     "plugin:jsx-a11y/recommended",
     "plugin:import/recommended",
     "plugin:i18next/recommended",
-    "plugin:storybook/recommended",
-    "prettier"
+    "plugin:storybook/recommended"
   ],
   "plugins": [
     "react",
-    "prettier",
     "persimmona-fsd",
     "unused-imports"
   ],
@@ -70,7 +68,6 @@
         "*.jsx"
       ],
       "rules": {
-        "prettier/prettier": "warn",
         "@typescript-eslint/no-namespace": "off",
         "react/display-name": "off",
         "unused-imports/no-unused-imports": "error",
